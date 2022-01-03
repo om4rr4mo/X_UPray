@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:prayers/pages/home_page.dart';
 
+extension StringCasingExtension on String {
+  String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized()).join(' ');
+}
+
 Route createRoute(BuildContext context) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => HomePage(),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/providers/prayer_provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,12 +15,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late Timer timer;
   late String timeRemain = "";
+  late String nextPrayer = "";
   late PrayerTimes prayerTimes;
   late final params;
   late final myCoordinates;
 
   String timeBetween(DateTime from, DateTime to) {
-    from = DateTime(from.year, from.month, from.day, from.hour, from.minute, from.second);
+    from = DateTime(
+        from.year, from.month, from.day, from.hour, from.minute, from.second);
     to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
     return to.difference(from).inHours.toString().padLeft(2, '0') +
         ":" +
@@ -44,10 +47,14 @@ class _HomePageState extends State<HomePage> {
 
     timer = Timer.periodic(Duration(seconds: 1), (_) {
       setState(() {
+        Prayer xx = Prayer.values.toList().firstWhere((element) =>
+            element.index == prayerTimes.nextPrayer().index);
+        if (xx != null) {
+          nextPrayer = xx.toString().split('.')[1];
+        }
         timeRemain = fetchPatientCount();
       });
     });
-
   }
 
   @override
@@ -64,6 +71,14 @@ class _HomePageState extends State<HomePage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              nextPrayer.toCapitalized(),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              timeRemain,
+              textAlign: TextAlign.center,
+            ),
             PrayerProvider(
               prayerName: "Fajr",
               prayerTime: prayerTimes.fajr.hour.toString() +
@@ -102,9 +117,6 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(
               height: 50,
-            ),
-            Text(
-              "Tempo rimanente\n" + timeRemain,
             ),
           ],
         )),

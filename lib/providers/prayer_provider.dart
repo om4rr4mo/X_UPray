@@ -10,11 +10,17 @@ class PrayerProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(prayerTime),
-        Text(prayerName),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          Text(prayerTime, style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30
+          ),),
+          Text(prayerName),
+        ],
+      ),
     );
   }
 }

@@ -27,28 +27,28 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
           /// Home
           SalomonBottomBarItem(
             icon: Icon(Icons.home),
-            title: Text("Home"),
+            title: Text("Menu1"),
             selectedColor: Colors.teal,
           ),
 
           /// Likes
           SalomonBottomBarItem(
             icon: Icon(Icons.favorite_border),
-            title: Text("Menu1"),
+            title: Text("Menu2"),
             selectedColor: Colors.teal,
           ),
 
           /// Search
           SalomonBottomBarItem(
             icon: Icon(Icons.search),
-            title: Text("Menu2"),
+            title: Text("Menu3"),
             selectedColor: Colors.teal,
           ),
 
           /// Profile
           SalomonBottomBarItem(
             icon: Icon(Icons.person),
-            title: Text("Menu3"),
+            title: Text("Menu4"),
             selectedColor: Colors.teal,
           ),
         ],

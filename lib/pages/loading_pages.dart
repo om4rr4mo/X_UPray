@@ -41,7 +41,7 @@ class _LoadingPageState extends State<LoadingPage>
 
     controller.forward();
 
-    Future.delayed(Duration(milliseconds: 6000), () {
+    Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.of(context).pushReplacement(createRoute(context));
     });
   }
@@ -67,7 +67,9 @@ class _LoadingPageState extends State<LoadingPage>
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 350,
+              alignment: Alignment.center,
+              height: 400,
+              width: MediaQuery.of(context).size.width * 0.80,
               child: Lottie.asset(
                 'assets/lotties/progress_bar.json',
                 width: double.infinity,
@@ -80,7 +82,7 @@ class _LoadingPageState extends State<LoadingPage>
             child: Container(
               alignment: Alignment.center,
               height: 400,
-              child: Text("Caricamento in corso..."),
+              child: Text(""),
             ),
           ),
         ],

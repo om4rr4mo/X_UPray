@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:prayers/Utility/TGBL.dart';
-import 'package:prayers/pages/home_page.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({
@@ -29,7 +28,7 @@ class _LoadingPageState extends State<LoadingPage>
     super.initState();
 
     controller = AnimationController(
-      duration: Duration(
+      duration: const Duration(
         milliseconds: 1000,
       ),
       vsync: this,
@@ -41,7 +40,7 @@ class _LoadingPageState extends State<LoadingPage>
 
     controller.forward();
 
-    Future.delayed(Duration(milliseconds: 3000), () {
+    Future.delayed(const Duration(milliseconds: 3200), () {
       Navigator.of(context).pushReplacement(createRoute(context));
     });
   }
@@ -82,7 +81,7 @@ class _LoadingPageState extends State<LoadingPage>
             child: Container(
               alignment: Alignment.center,
               height: 400,
-              child: Text(""),
+              child: const Text(""),
             ),
           ),
         ],

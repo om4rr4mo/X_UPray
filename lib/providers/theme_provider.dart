@@ -15,18 +15,18 @@ class ThemeProvider extends ChangeNotifier {
 
 class MyTheme {
   static final darkTheme = ThemeData(
-    pageTransitionsTheme: PageTransitionsTheme(builders: {
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
-    scaffoldBackgroundColor: Color(0xFF005005),
+    scaffoldBackgroundColor: const Color(0xFF005005),
     primaryColor: Colors.lightGreen,
-    colorScheme: ColorScheme.dark(),
+    colorScheme: const ColorScheme.dark(),
     fontFamily: 'Montserrat',
     iconTheme: IconThemeData(
       color: Colors.green[50],
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline1: TextStyle(color: Colors.white),
       bodyText1: TextStyle(color: Colors.white),
       subtitle1: TextStyle(color: Colors.white),
@@ -35,18 +35,18 @@ class MyTheme {
   );
 
   static final lightTheme = ThemeData(
-    pageTransitionsTheme: PageTransitionsTheme(builders: {
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: Color(0xFFB2DFDB),
-    colorScheme: ColorScheme.light(),
+    primaryColor: const Color(0xFFB2DFDB),
+    colorScheme: const ColorScheme.light(),
     fontFamily: 'Montserrat',
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Color(0xFF82ADA9),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline1: TextStyle(color: Colors.black),
       bodyText1: TextStyle(color: Colors.black),
       subtitle1: TextStyle(color: Colors.black),

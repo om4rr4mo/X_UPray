@@ -11,47 +11,48 @@ class HomeNavigationBar extends StatefulWidget {
 class _HomeNavigationBarState extends State<HomeNavigationBar> {
   int _currentIndex = 0;
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SalomonBottomBar(
-        currentIndex: _currentIndex,
-        onTap: (i) => {
-          setState(() {
-            if(_currentIndex == 3) _currentIndex = 0;
-            else _currentIndex++;
-          })
-        },
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Menu1"),
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
             selectedColor: Colors.teal,
           ),
 
-          /// Likes
+          /// Favourites
           SalomonBottomBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text("Menu2"),
+            icon: const Icon(Icons.favorite_border),
+            title: const Text("Favourites"),
             selectedColor: Colors.teal,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.search),
-            title: Text("Menu3"),
+            icon: const Icon(Icons.search),
+            title: const Text("Search"),
             selectedColor: Colors.teal,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Menu4"),
+            icon: const Icon(Icons.person),
+            title: const Text("Profile"),
             selectedColor: Colors.teal,
           ),
         ],
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,
       ),
     );
   }

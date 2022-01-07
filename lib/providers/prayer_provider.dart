@@ -14,7 +14,7 @@ class PrayerProvider extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Text(prayerTime, style: TextStyle(
+          Text(prayerTime, style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30
           ),),

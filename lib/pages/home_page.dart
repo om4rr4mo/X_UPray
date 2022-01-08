@@ -4,8 +4,9 @@ import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/providers/prayer_provider.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import 'package:prayers/components/navigation_bar.dart';
+import '../components/navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   late PrayerTimes prayerTimes;
   late final params;
   late final myCoordinates;
+  var _currentIndex = 0;
 
   String timeBetween(DateTime from, DateTime to) {
     from = DateTime(from.year, from.month, from.day, from.hour, from.minute, from.second);
@@ -30,13 +32,14 @@ class _HomePageState extends State<HomePage> {
 
   String fetchPatientCount() {
     Prayer p = prayerTimes.nextPrayer();
-    DateTime d = DateTime.now().add(const Duration(days: 1));
-    d = DateTime(d.year, d.month, d.day, 0, 0, 0);
+    DateTime d = DateTime.now().add(new Duration(days: 1));
+    d = new DateTime(d.year, d.month, d.day, 0, 0, 0);
+    String s = "";
 
-    if (p == Prayer.none) {
+    if (p != Prayer.none) {
       p = prayerTimes.nextPrayerByDateTime(d);
+      s = timeBetween(DateTime.now(), prayerTimes.timeForPrayer(prayerTimes.nextPrayerByDateTime(DateTime.now())));
     }
-    String s = timeBetween(DateTime.now(), prayerTimes.timeForPrayer(prayerTimes.nextPrayerByDateTime(DateTime.now())));
     return s;
   }
 
@@ -44,14 +47,17 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     myCoordinates = Coordinates(45.497386, 10.223677);
-    params = CalculationMethod.muslim_world_league.getParameters();
+    params = CalculationMethod.karachi.getParameters();
     params.madhab = Madhab.hanafi;
     prayerTimes = PrayerTimes.today(myCoordinates, params);
 
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(Duration(seconds: 1), (_) {
       setState(() {
         Prayer xx = Prayer.values.toList().firstWhere((element) => element.index == prayerTimes.nextPrayer().index);
-        nextPrayer = xx.toString().split('.')[1];
+
+        if (xx != null) {
+          nextPrayer = xx.toString().split('.')[1];
+        }
         timeRemain = fetchPatientCount();
       });
     });
@@ -67,46 +73,51 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal[50],
-      bottomNavigationBar: const HomeNavigationBar(),
+      bottomNavigationBar: HomeNavigationBar(),
       body: SafeArea(
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              nextPrayer.toCapitalized(),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              timeRemain,
-              textAlign: TextAlign.center,
-            ),
-            PrayerProvider(
-              prayerName: "Fajr",
-              prayerTime: prayerTimes.fajr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.fajr.minute.toString().padLeft(2, '0'),
-            ),
-            PrayerProvider(
-              prayerName: "Sunrise",
-              prayerTime: prayerTimes.sunrise.hour.toString().padLeft(2, '0') + ":" + prayerTimes.sunrise.minute.toString().padLeft(2, '0'),
-            ),
-            PrayerProvider(
-              prayerName: "Dhuhr",
-              prayerTime: prayerTimes.dhuhr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.dhuhr.minute.toString().padLeft(2, '0'),
-            ),
-            PrayerProvider(
-              prayerName: "Asr",
-              prayerTime: prayerTimes.asr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.asr.minute.toString().padLeft(2, '0'),
-            ),
-            PrayerProvider(
-              prayerName: "Maghrib",
-              prayerTime: prayerTimes.maghrib.hour.toString() + ":" + prayerTimes.maghrib.minute.toString().padLeft(2, '0'),
-            ),
-            PrayerProvider(
-              prayerName: "Isha'",
-              prayerTime: prayerTimes.isha.hour.toString().padLeft(2, '0') + ":" + prayerTimes.isha.minute.toString().padLeft(2, '0'),
-            ),
-          ],
-        )),
+        child: Container(
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                nextPrayer.toCapitalized(),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                timeRemain,
+                textAlign: TextAlign.center,
+              ),
+              PrayerProvider(
+                prayerName: "Fajr",
+                prayerTime: prayerTimes.fajr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.fajr.minute.toString().padLeft(2, '0'),
+              ),
+              PrayerProvider(
+                prayerName: "Sunrise",
+                prayerTime: prayerTimes.sunrise.hour.toString().padLeft(2, '0') + ":" + prayerTimes.sunrise.minute.toString().padLeft(2, '0'),
+              ),
+              PrayerProvider(
+                prayerName: "Dhuhr",
+                prayerTime: prayerTimes.dhuhr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.dhuhr.minute.toString().padLeft(2, '0'),
+              ),
+              PrayerProvider(
+                prayerName: "Asr",
+                prayerTime: prayerTimes.asr.hour.toString().padLeft(2, '0') + ":" + prayerTimes.asr.minute.toString().padLeft(2, '0'),
+              ),
+              PrayerProvider(
+                prayerName: "Maghreb",
+                prayerTime: prayerTimes.maghrib.hour.toString() + ":" + prayerTimes.maghrib.minute.toString().padLeft(2, '0'),
+              ),
+              PrayerProvider(
+                prayerName: "Ishaa",
+                prayerTime: prayerTimes.isha.hour.toString().padLeft(2, '0') + ":" + prayerTimes.isha.minute.toString().padLeft(2, '0'),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+            ],
+          )),
+        ),
       ),
     );
   }

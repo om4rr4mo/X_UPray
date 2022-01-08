@@ -23,47 +23,39 @@ class _LoadingPageState extends State<LoadingPage>
 
   @override
   void dispose() {
-  super.dispose();
-
-  controller.dispose();
+    //dispose del controller va messo sempre prima della dispose della superclasse
+    //https://stackoverflow.com/questions/58802223/flutter-ticker-must-be-disposed-before-calling-super-dispose
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   void initState() {
-  super.initState();
+    super.initState();
 
-  controller = AnimationController(
-    duration: const Duration(
-      milliseconds: 1000,
-    ),
-    vsync: this,
-  );
-  animation = CurvedAnimation(
-    parent: controller,
-    curve: Curves.easeIn,
-  );
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..addListener(() {
+      setState(() {});
+    });
 
-  controller.forward();
+    animation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.easeIn,
+    );
 
-  Future.delayed(const Duration(milliseconds: 4750), () {
-  Navigator.of(context).pushReplacement(createRoute(context));
-  });
+    controller.forward();
+
+    Future.delayed(const Duration(milliseconds: 3500), () {
+      Navigator.of(context).pushReplacement(createRoute(context));
+    });
   }
 
-/*  final double _initial = 0.0;
 
-  void update() {
-    Timer.periodic(const Duration(milliseconds: 100), (timer) {
-      setState(() {
-        _initial = _initial + 0.1;
-      });
-    }
-    );
-  } */
 
   @override
   Widget build(BuildContext context) {
-  //  update(); //
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -86,16 +78,16 @@ class _LoadingPageState extends State<LoadingPage>
               alignment: Alignment.center,
               height: 400,
               width: MediaQuery.of(context).size.width * 0.80,
-            /*  child: ClipRRect(
+              child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: LinearProgressIndicator(
                   valueColor: const AlwaysStoppedAnimation<Color> (Colors.teal),
-                  backgroundColor: Colors.grey,
+                  backgroundColor: Colors.white,
                   minHeight: 8,
-                  value: _initial,
+                  value: controller.value,
                   semanticsLabel: 'Linear progress indicator',
                 ),
-              ), */
+              ),
             ),
           ),
         ],

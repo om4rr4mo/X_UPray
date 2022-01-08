@@ -1,5 +1,9 @@
+import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:prayers/pages/home_page.dart';
+
+Madhab madhab = Madhab.shafi;
+Coordinates coordinates = Coordinates(45.497386, 10.223677);
 
 extension StringCasingExtension on String {
   String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+
 import 'package:prayers/Utility/TGBL.dart';
 
 class LoadingPage extends StatefulWidget {
@@ -8,7 +11,9 @@ class LoadingPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<LoadingPage> createState() => _LoadingPageState();
+  State<LoadingPage> createState() {
+    return _LoadingPageState();
+  }
 }
 
 class _LoadingPageState extends State<LoadingPage>
@@ -18,35 +23,47 @@ class _LoadingPageState extends State<LoadingPage>
 
   @override
   void dispose() {
-    super.dispose();
+  super.dispose();
 
-    controller.dispose();
+  controller.dispose();
   }
 
   @override
   void initState() {
-    super.initState();
+  super.initState();
 
-    controller = AnimationController(
-      duration: const Duration(
-        milliseconds: 1000,
-      ),
-      vsync: this,
-    );
-    animation = CurvedAnimation(
-      parent: controller,
-      curve: Curves.easeIn,
-    );
+  controller = AnimationController(
+    duration: const Duration(
+      milliseconds: 1000,
+    ),
+    vsync: this,
+  );
+  animation = CurvedAnimation(
+    parent: controller,
+    curve: Curves.easeIn,
+  );
 
-    controller.forward();
+  controller.forward();
 
-    Future.delayed(const Duration(milliseconds: 3200), () {
-      Navigator.of(context).pushReplacement(createRoute(context));
-    });
+  Future.delayed(const Duration(milliseconds: 4750), () {
+  Navigator.of(context).pushReplacement(createRoute(context));
+  });
   }
+
+/*  final double _initial = 0.0;
+
+  void update() {
+    Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      setState(() {
+        _initial = _initial + 0.1;
+      });
+    }
+    );
+  } */
 
   @override
   Widget build(BuildContext context) {
+  //  update(); //
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -69,19 +86,16 @@ class _LoadingPageState extends State<LoadingPage>
               alignment: Alignment.center,
               height: 400,
               width: MediaQuery.of(context).size.width * 0.80,
-              child: Lottie.asset(
-                'assets/lotties/progress_bar.json',
-                width: double.infinity,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              alignment: Alignment.center,
-              height: 400,
-              child: const Text(""),
+            /*  child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                child: LinearProgressIndicator(
+                  valueColor: const AlwaysStoppedAnimation<Color> (Colors.teal),
+                  backgroundColor: Colors.grey,
+                  minHeight: 8,
+                  value: _initial,
+                  semanticsLabel: 'Linear progress indicator',
+                ),
+              ), */
             ),
           ),
         ],

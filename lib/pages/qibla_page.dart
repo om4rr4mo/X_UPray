@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prayers/components/compass.dart';
 
 class QiblaPage extends StatelessWidget {
   const QiblaPage({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class QiblaPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text("QIBLA"),
+          child: Compass(),
         ),
       ),
     );

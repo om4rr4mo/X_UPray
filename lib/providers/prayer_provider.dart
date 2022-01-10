@@ -21,7 +21,7 @@ class PrayerProvider {
     final hasPermission = await handlePermission();
 
     if (!hasPermission) {
-      return;
+      geolocatorPlatform.requestPermission();
     }
 
     final position = await geolocatorPlatform.getCurrentPosition();

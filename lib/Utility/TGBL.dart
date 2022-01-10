@@ -1,13 +1,18 @@
-import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
 
-Madhab madhab = Madhab.shafi;
-Coordinates coordinates = Coordinates(45.497386, 10.223677);
+final GeolocatorPlatform geolocatorPlatform = GeolocatorPlatform.instance;
+final currentDate = DateTime.now();
 
 extension StringCasingExtension on String {
-  String toCapitalized() => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
-  String toTitleCase() => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized()).join(' ');
+  String toCapitalized() =>
+      length > 0 ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+
+  String toTitleCase() => replaceAll(RegExp(' +'), ' ')
+      .split(' ')
+      .map((str) => str.toCapitalized())
+      .join(' ');
 }
 
 Route createRoute(BuildContext context) {
@@ -26,4 +31,30 @@ Route createRoute(BuildContext context) {
       );
     },
   );
+}
+
+Future<bool> handlePermission() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  // Test if location services are enabled.
+  serviceEnabled = await geolocatorPlatform.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    return false;
+  }
+
+  permission = await geolocatorPlatform.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await geolocatorPlatform.requestPermission();
+    if (permission == LocationPermission.denied) {
+
+      return false;
+    }
+  }
+
+  if (permission == LocationPermission.deniedForever) {
+    return false;
+  }
+
+  return true;
 }

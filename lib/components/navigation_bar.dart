@@ -46,7 +46,7 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
 
           /// Profile
           SalomonBottomBarItem(
-            icon: const Icon(Icons.person),
+            icon: const Icon(Icons.settings),
             title: const Text("Profile"),
             selectedColor: Colors.teal,
           ),

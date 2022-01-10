@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:prayers/Utility/TGBL.dart';
+import 'package:prayers/components/loading_bar.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({
@@ -46,10 +47,6 @@ class _LoadingPageState extends State<LoadingPage>
     );
 
     controller.forward();
-
-    Future.delayed(const Duration(milliseconds: 3500), () {
-      Navigator.of(context).pushReplacement(createRoute(context));
-    });
   }
 
 
@@ -58,39 +55,12 @@ class _LoadingPageState extends State<LoadingPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              alignment: Alignment.topCenter,
-              height: MediaQuery.of(context).size.height * 0.65,
-              child: Lottie.asset(
-                'assets/lotties/muslim_home.json',
-                width: double.infinity,
-                fit: BoxFit.contain,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              alignment: Alignment.center,
-              height: 400,
-              width: MediaQuery.of(context).size.width * 0.80,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                child: LinearProgressIndicator(
-                  valueColor: const AlwaysStoppedAnimation<Color> (Colors.teal),
-                  backgroundColor: Colors.white,
-                  minHeight: 8,
-                  value: controller.value,
-                  semanticsLabel: 'Linear progress indicator',
-                ),
-              ),
-            ),
-          ),
-        ],
+      body: Center(
+        child: Lottie.asset(
+          'assets/lotties/muslim_home.json',
+          width: double.infinity,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }

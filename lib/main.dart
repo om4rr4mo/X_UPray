@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/pages/loading_pages.dart';
 import 'package:prayers/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'Utility/TGBL.dart';
+
 Future<void> main() async {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
         builder: (context, _) {
@@ -19,7 +23,7 @@ class MyApp extends StatelessWidget {
             title: 'UPray',
             theme: MyTheme.lightTheme,
             debugShowCheckedModeBanner: false,
-            home: const LoadingPage(),
+            home: const HomePage(),
           );
         }
     );

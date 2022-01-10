@@ -5,7 +5,9 @@ import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/loading_bar.dart';
 import 'package:prayers/components/prayer_item.dart';
 import 'package:prayers/pages/prayers_page.dart';
+import 'package:prayers/pages/qibla_page.dart';
 import 'package:prayers/pages/settings_page.dart';
+import 'package:prayers/pages/tracker_page.dart';
 import 'package:prayers/providers/prayer_provider.dart';
 
 import '../components/navigation_bar.dart';
@@ -89,12 +91,8 @@ class _HomePageState extends State<HomePage> {
                   controller: pageController,
                   children: [
                     PrayersPage(data),
-                    Container(
-                      child: Text("TRACKER"),
-                    ),
-                    Container(
-                      child: Text("QIBLA"),
-                    ),
+                    QiblaPage(),
+                    TrackerPage(),
                     SettingsPage()
                   ],
                 ),

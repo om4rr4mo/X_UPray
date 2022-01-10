@@ -48,21 +48,21 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
           /// Favourites
           SalomonBottomBarItem(
             icon: const Icon(Icons.favorite_border),
-            title: const Text("Favourites"),
+            title: const Text("Qibla"),
             selectedColor: Colors.teal,
           ),
 
           /// Search
           SalomonBottomBarItem(
             icon: const Icon(Icons.search),
-            title: const Text("Search"),
+            title: const Text("Tracker"),
             selectedColor: Colors.teal,
           ),
 
           /// Profile
           SalomonBottomBarItem(
             icon: const Icon(Icons.settings),
-            title: const Text("Profile"),
+            title: const Text("Impostazioni"),
             selectedColor: Colors.teal,
           ),
         ],

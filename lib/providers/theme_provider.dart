@@ -39,7 +39,7 @@ class MyTheme {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.teal[50],
     primaryColor: const Color(0xFFB2DFDB),
     colorScheme: const ColorScheme.light(),
     fontFamily: 'Montserrat',

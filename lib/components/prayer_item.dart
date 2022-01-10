@@ -15,7 +15,7 @@ class PrayerItem extends StatelessWidget {
     String formattedPrayerTime = DateFormat('kk:mm').format(parseDate);
     
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(13.0),
       child: Column(
         children: [
           Text(

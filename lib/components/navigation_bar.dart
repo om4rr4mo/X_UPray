@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:prayers/pages/home_page.dart';
+import 'package:prayers/pages/settings_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeNavigationBar extends StatefulWidget {
-  const HomeNavigationBar({Key? key}) : super(key: key);
+  final PageController pageController;
+
+  const HomeNavigationBar({Key? key, required this.pageController})
+      : super(key: key);
 
   @override
   State<HomeNavigationBar> createState() => _HomeNavigationBarState();
@@ -14,6 +20,11 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+
+      //widget.pageController.jumpToPage(index);
+      //widget.pageController.animateTo(2, duration: Duration(milliseconds: 500), curve: Curves.easeIn)
+      widget.pageController.animateToPage(index,
+          duration: Duration(milliseconds: 300), curve: Curves.linear);
     });
   }
 
@@ -22,6 +33,10 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SalomonBottomBar(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.linear,
+        selectedColorOpacity: 0.3,
+        selectedItemColor: Colors.white,
         items: [
           /// Home
           SalomonBottomBarItem(
@@ -53,6 +68,7 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
         ],
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
+
       ),
     );
   }

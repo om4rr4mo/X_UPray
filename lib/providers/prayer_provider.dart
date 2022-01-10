@@ -10,7 +10,7 @@ class PrayerProvider {
   late String country;
   late String address;
   late int method = 3;
-  late PrayerData list;
+  late PrayerData list = new PrayerData();
   late double pLat;
   late double pLong;
 

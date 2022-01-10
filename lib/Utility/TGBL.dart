@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
+import 'package:prayers/providers/prayer_provider.dart';
 
 final GeolocatorPlatform geolocatorPlatform = GeolocatorPlatform.instance;
 final currentDate = DateTime.now();

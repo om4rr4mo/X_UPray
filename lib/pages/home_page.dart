@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/loading_bar.dart';
 import 'package:prayers/components/prayer_item.dart';
+import 'package:prayers/pages/prayers_page.dart';
+import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/providers/prayer_provider.dart';
 
 import '../components/navigation_bar.dart';
@@ -20,9 +22,9 @@ class _HomePageState extends State<HomePage> {
   late Timer timer;
   late String timeRemain = "";
   late String nextPrayer = "";
-  late PrayerProvider prayerProvider = new PrayerProvider();
-
-  var _currentIndex = 0;
+  late PageController pageController = new PageController();
+  var currentIndex = 0;
+  final PrayerProvider prayerProvider = new PrayerProvider();
 
   String timeBetween(DateTime from, DateTime to) {
     from = DateTime(
@@ -51,6 +53,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
     // timer = Timer.periodic(Duration(seconds: 1), (_) {
     //   setState(() {
     //     Prayer xx = Prayer.values.toList().firstWhere((element) => element.index == prayerTimes.nextPrayer().index);
@@ -77,60 +80,23 @@ class _HomePageState extends State<HomePage> {
           if (snapshot.hasData) {
             var data = snapshot.data.data[currentDate.day - 1];
             return Scaffold(
-              backgroundColor: Colors.teal[50],
-              bottomNavigationBar: HomeNavigationBar(),
+              bottomNavigationBar: HomeNavigationBar(
+                pageController: pageController,
+              ),
               body: SafeArea(
-                child: Container(
-                  child: Center(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        nextPrayer.toCapitalized(),
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        data.date.hijri.date,
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        data.date.readable,
-                        textAlign: TextAlign.center,
-                      ),
-                      PrayerItem(
-                        prayerName: "Fajr",
-                        prayerTime: data.timings.fajr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Sunrise",
-                        prayerTime: data.timings.sunrise,
-                      ),
-                      PrayerItem(
-                        prayerName: "Dhuhr",
-                        prayerTime: data.timings.dhuhr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Asr",
-                        prayerTime: data.timings.asr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Sunset",
-                        prayerTime: data.timings.sunset,
-                      ),
-                      PrayerItem(
-                        prayerName: "Maghreb",
-                        prayerTime: data.timings.maghrib,
-                      ),
-                      PrayerItem(
-                        prayerName: "Ishaa",
-                        prayerTime: data.timings.isha,
-                      ),
-                      PrayerItem(
-                        prayerName: "Imsak",
-                        prayerTime: data.timings.imsak,
-                      ),
-                    ],
-                  )),
+                child: PageView(
+                  physics: NeverScrollableScrollPhysics(),
+                  controller: pageController,
+                  children: [
+                    PrayersPage(data),
+                    Container(
+                      child: Text("TRACKER"),
+                    ),
+                    Container(
+                      child: Text("QIBLA"),
+                    ),
+                    SettingsPage()
+                  ],
                 ),
               ),
             );

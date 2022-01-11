@@ -41,7 +41,7 @@ class Data {
 
   Data.fromJson(Map<String, dynamic> json) {
     timings =
-        json['timings'] != null ? new Timings.fromJson(json['timings']) : null;
+    json['timings'] != null ? new Timings.fromJson(json['timings']) : null;
     date = json['date'] != null ? new Date.fromJson(json['date']) : null;
     meta = json['meta'] != null ? new Meta.fromJson(json['meta']) : null;
   }
@@ -74,14 +74,14 @@ class Timings {
 
   Timings(
       {this.fajr,
-      this.sunrise,
-      this.dhuhr,
-      this.asr,
-      this.sunset,
-      this.maghrib,
-      this.isha,
-      this.imsak,
-      this.midnight});
+        this.sunrise,
+        this.dhuhr,
+        this.asr,
+        this.sunset,
+        this.maghrib,
+        this.isha,
+        this.imsak,
+        this.midnight});
 
   Timings.fromJson(Map<String, dynamic> json) {
     fajr = json['Fajr'];
@@ -153,20 +153,20 @@ class Hijri {
 
   Hijri(
       {this.date,
-      this.format,
-      this.day,
-      this.weekday,
-      this.month,
-      this.year,
-      this.designation,
-      this.holidays});
+        this.format,
+        this.day,
+        this.weekday,
+        this.month,
+        this.year,
+        this.designation,
+        this.holidays});
 
   Hijri.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     format = json['format'];
     day = json['day'];
     weekday =
-        json['weekday'] != null ? new Weekday.fromJson(json['weekday']) : null;
+    json['weekday'] != null ? new Weekday.fromJson(json['weekday']) : null;
     month = json['month'] != null ? new Month.fromJson(json['month']) : null;
     year = json['year'];
     designation = json['designation'] != null
@@ -270,19 +270,19 @@ class Gregorian {
 
   Gregorian(
       {this.date,
-      this.format,
-      this.day,
-      this.weekday,
-      this.month,
-      this.year,
-      this.designation});
+        this.format,
+        this.day,
+        this.weekday,
+        this.month,
+        this.year,
+        this.designation});
 
   Gregorian.fromJson(Map<String, dynamic> json) {
     date = json['date'];
     format = json['format'];
     day = json['day'];
     weekday =
-        json['weekday'] != null ? new Weekday.fromJson(json['weekday']) : null;
+    json['weekday'] != null ? new Weekday.fromJson(json['weekday']) : null;
     month = json['month'] != null ? new Month.fromJson(json['month']) : null;
     year = json['year'];
     designation = json['designation'] != null
@@ -321,25 +321,25 @@ class Meta {
 
   Meta(
       {this.latitude,
-      this.longitude,
-      this.timezone,
-      this.method,
-      this.latitudeAdjustmentMethod,
-      this.midnightMode,
-      this.school,
-      this.offset});
+        this.longitude,
+        this.timezone,
+        this.method,
+        this.latitudeAdjustmentMethod,
+        this.midnightMode,
+        this.school,
+        this.offset});
 
   Meta.fromJson(Map<String, dynamic> json) {
     latitude = json['latitude'];
     longitude = json['longitude'];
     timezone = json['timezone'];
     method =
-        json['method'] != null ? new Method.fromJson(json['method']) : null;
+    json['method'] != null ? new Method.fromJson(json['method']) : null;
     latitudeAdjustmentMethod = json['latitudeAdjustmentMethod'];
     midnightMode = json['midnightMode'];
     school = json['school'];
     offset =
-        json['offset'] != null ? new Offset.fromJson(json['offset']) : null;
+    json['offset'] != null ? new Offset.fromJson(json['offset']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -372,7 +372,7 @@ class Method {
     id = json['id'];
     name = json['name'];
     params =
-        json['params'] != null ? new Params.fromJson(json['params']) : null;
+    json['params'] != null ? new Params.fromJson(json['params']) : null;
     location = json['location'] != null
         ? new Location.fromJson(json['location'])
         : null;
@@ -443,14 +443,14 @@ class Offset {
 
   Offset(
       {this.imsak,
-      this.fajr,
-      this.sunrise,
-      this.dhuhr,
-      this.asr,
-      this.maghrib,
-      this.sunset,
-      this.isha,
-      this.midnight});
+        this.fajr,
+        this.sunrise,
+        this.dhuhr,
+        this.asr,
+        this.maghrib,
+        this.sunset,
+        this.isha,
+        this.midnight});
 
   Offset.fromJson(Map<String, dynamic> json) {
     imsak = json['Imsak'];

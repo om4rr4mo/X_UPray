@@ -45,6 +45,7 @@ dependencies:
   flutter_compass: ^0.3.2
   location: ^2.3.5
   after_layout: ^1.0.7+2
+  permission: ^0.1.7
   permission_handler: ^8.3.0
   android_intent: ^0.3.6+12
   flutter_login: ^3.1.0

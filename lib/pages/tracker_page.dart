@@ -53,69 +53,79 @@ class _TrackerPageState extends State<TrackerPage> {
           ),
         ),
       );
-    else
-      return FlutterLogin(
-        messages: LoginMessages(
-          forgotPasswordButton: "Password dimenticata?",
-          providersTitleFirst: "oppure accedi con",
+    else {
+      return Scaffold(
+        body: SafeArea(
+          child: FlutterLogin(
+
+            messages: LoginMessages(
+
+              forgotPasswordButton: "Password dimenticata?",
+              providersTitleFirst: "oppure accedi con",
+            ),
+            title: 'UPRAY',
+            logo: AssetImage('assets/images/mecca.png'),
+            onLogin: _authUser,
+            onSignup: _signupUser,
+
+            loginProviders: <LoginProvider>[
+              LoginProvider(
+
+                icon: FontAwesomeIcons.google,
+                label: '',
+                callback: () async {
+                  debugPrint('start google sign in');
+                  await Future.delayed(loginTime);
+                  debugPrint('stop google sign in');
+                  return null;
+                },
+              ),
+              LoginProvider(
+                icon: FontAwesomeIcons.facebookF,
+                label: '',
+                callback: () async {
+                  debugPrint('start facebook sign in');
+                  await Future.delayed(loginTime);
+                  debugPrint('stop facebook sign in');
+                  return null;
+                },
+              ),
+              //LoginProvider(
+              //  icon: FontAwesomeIcons.linkedinIn,
+              //  label: "LinkedIn",
+              //  callback: () async {
+              //    debugPrint('start linkdin sign in');
+              //    await Future.delayed(loginTime);
+              //    debugPrint('stop linkdin sign in');
+              //    return null;
+              //  },
+              //),
+              //LoginProvider(
+              //  icon: FontAwesomeIcons.githubAlt,
+              //  label: "GitHub",
+              //  callback: () async {
+              //    debugPrint('start github sign in');
+              //    await Future.delayed(loginTime);
+              //    debugPrint('stop github sign in');
+              //    return null;
+              //  },
+              //),
+            ],
+            onSubmitAnimationCompleted: () {
+              setState(() {
+                loggedIn = true;
+              });
+              // Navigator.of(context).pushReplacement(MaterialPageRoute(
+              //   builder: (context) => TrackerPage(),
+              // ));
+            },
+            onRecoverPassword: _recoverPassword,
+            footer: "CIAOOOO",
+            showDebugButtons: false,
+            hideProvidersTitle: true,
+          ),
         ),
-        userType: LoginUserType.phone,
-        disableCustomPageTransformer: true,
-        title: 'UPRAY',
-        logo: AssetImage('assets/images/mecca.png'),
-        onLogin: _authUser,
-        onSignup: _signupUser,
-        loginProviders: <LoginProvider>[
-          LoginProvider(
-            icon: FontAwesomeIcons.google,
-            label: 'Google',
-            callback: () async {
-              debugPrint('start google sign in');
-              await Future.delayed(loginTime);
-              debugPrint('stop google sign in');
-              return null;
-            },
-          ),
-          LoginProvider(
-            icon: FontAwesomeIcons.facebookF,
-            label: 'Facebook',
-            callback: () async {
-              debugPrint('start facebook sign in');
-              await Future.delayed(loginTime);
-              debugPrint('stop facebook sign in');
-              return null;
-            },
-          ),
-          LoginProvider(
-            icon: FontAwesomeIcons.linkedinIn,
-            label: "LinkedIn",
-            callback: () async {
-              debugPrint('start linkdin sign in');
-              await Future.delayed(loginTime);
-              debugPrint('stop linkdin sign in');
-              return null;
-            },
-          ),
-          LoginProvider(
-            icon: FontAwesomeIcons.githubAlt,
-            label: "GitHub",
-            callback: () async {
-              debugPrint('start github sign in');
-              await Future.delayed(loginTime);
-              debugPrint('stop github sign in');
-              return null;
-            },
-          ),
-        ],
-        onSubmitAnimationCompleted: () {
-          setState(() {
-            loggedIn = true;
-          });
-          // Navigator.of(context).pushReplacement(MaterialPageRoute(
-          //   builder: (context) => TrackerPage(),
-          // ));
-        },
-        onRecoverPassword: _recoverPassword,
       );
+    }
   }
 }

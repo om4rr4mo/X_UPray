@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:prayers/Utility/TGBL.dart';
-import 'package:prayers/components/loading_bar.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({
@@ -48,6 +47,8 @@ class _LoadingPageState extends State<LoadingPage>
 
     controller.forward();
   }
+
+
 
   @override
   Widget build(BuildContext context) {

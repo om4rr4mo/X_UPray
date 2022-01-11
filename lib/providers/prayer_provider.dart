@@ -43,7 +43,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     var address = addresses.first.addressLine;
 
@@ -65,7 +65,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     city = addresses.first.locality;
     country = addresses.first.countryName;
@@ -116,7 +116,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     var address = addresses.first.addressLine;
 
@@ -138,7 +138,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     city = addresses.first.locality;
     country = addresses.first.countryName;
@@ -184,7 +184,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     var address = addresses.first.addressLine;
 
@@ -210,7 +210,7 @@ class PrayerProvider {
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
-        await Geocoder.local.findAddressesFromCoordinates(coordinates);
+    await Geocoder.local.findAddressesFromCoordinates(coordinates);
 
     city = addresses.first.locality;
     country = addresses.first.countryName;

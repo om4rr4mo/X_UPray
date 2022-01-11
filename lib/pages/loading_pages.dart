@@ -49,17 +49,17 @@ class _LoadingPageState extends State<LoadingPage>
     controller.forward();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
-        child: Lottie.asset(
-          'assets/lotties/muslim_home.json',
-          width: double.infinity,
-          fit: BoxFit.contain,
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.60,
+          child: Lottie.asset(
+            'assets/lotties/muslim_home.json',
+            width: double.infinity,
+            fit: BoxFit.scaleDown,
+          ),
         ),
       ),
     );

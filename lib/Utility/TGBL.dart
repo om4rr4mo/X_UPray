@@ -3,7 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/providers/prayer_provider.dart';
 
-final GeolocatorPlatform geolocatorPlatform = GeolocatorPlatform.instance;
+final Geolocator geolocatorPlatform = Geolocator();
 final currentDate = DateTime.now();
 
 extension StringCasingExtension on String {
@@ -34,9 +34,8 @@ Route createRoute(BuildContext context) {
   );
 }
 
-Future<bool> handlePermission() async {
+Future<bool> locationEnabled() async {
   bool serviceEnabled;
-  LocationPermission permission;
 
   // Test if location services are enabled.
   serviceEnabled = await geolocatorPlatform.isLocationServiceEnabled();
@@ -44,18 +43,24 @@ Future<bool> handlePermission() async {
     return false;
   }
 
-  permission = await geolocatorPlatform.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await geolocatorPlatform.requestPermission();
-    if (permission == LocationPermission.denied) {
+  return true;
+}
 
-      return false;
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    return false;
-  }
+Future<bool> handlePermission() async {
+  // LocationPermission permission;
+  //
+  // permission = await geolocatorPlatform.checkPermission();
+  // if (permission == LocationPermission.denied) {
+  //   permission = await geolocatorPlatform.requestPermission();
+  //   if (permission == LocationPermission.denied) {
+  //
+  //     return false;
+  //   }
+  // }
+  //
+  // if (permission == LocationPermission.deniedForever) {
+  //   return false;
+  // }
 
   return true;
 }

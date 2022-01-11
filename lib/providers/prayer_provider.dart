@@ -18,12 +18,6 @@ class PrayerProvider {
     late double pLat;
     late double pLong;
 
-    final hasPermission = await handlePermission();
-
-    if (!hasPermission) {
-      geolocatorPlatform.requestPermission();
-    }
-
     final position = await geolocatorPlatform.getCurrentPosition();
 
     pLat = position.latitude;
@@ -160,20 +154,16 @@ class PrayerProvider {
     return list;
   }
 
-  Future getTimings() async {
-    final hasPermission = await handlePermission();
-
-    if (!hasPermission) {
-      return;
-    }
-
+  Future getTimings(String date) async {
     final position = await geolocatorPlatform.getCurrentPosition();
+
+    if (position == null) return;
 
     pLat = position.latitude;
     pLong = position.longitude;
 
     final url = Uri.parse(
-        'http://api.aladhan.com/v1/timings/1398332113?latitude=$pLat&longitude=$pLong&method=$method');
+        'http://api.aladhan.com/v1/timings/$date?latitude=$pLat&longitude=$pLong&method=$method');
 
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);

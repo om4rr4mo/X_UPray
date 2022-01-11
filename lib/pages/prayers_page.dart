@@ -108,20 +108,12 @@ class _PrayersPageState extends State<PrayersPage> {
                       prayerTime: data.timings.asr,
                     ),
                     PrayerItem(
-                      prayerName: "Sunset",
-                      prayerTime: data.timings.sunset,
-                    ),
-                    PrayerItem(
                       prayerName: "Maghreb",
                       prayerTime: data.timings.maghrib,
                     ),
                     PrayerItem(
                       prayerName: "Ishaa",
                       prayerTime: data.timings.isha,
-                    ),
-                    PrayerItem(
-                      prayerName: "Imsak",
-                      prayerTime: data.timings.imsak,
                     ),
                   ],
                 ),

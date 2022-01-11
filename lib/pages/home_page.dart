@@ -3,19 +3,12 @@ import 'dart:async';
 import 'package:android_intent/android_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:intl/intl.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:prayers/Utility/TGBL.dart';
-import 'package:prayers/components/loading_bar.dart';
-import 'package:prayers/components/prayer_item.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
 import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
-import 'package:prayers/providers/prayer_provider.dart';
 
 import '../components/navigation_bar.dart';
-import 'loading_pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

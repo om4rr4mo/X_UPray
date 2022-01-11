@@ -34,6 +34,7 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SalomonBottomBar(
+        unselectedItemColor: Colors.blueGrey,
         duration: Duration(milliseconds: 300),
         curve: Curves.linear,
         selectedColorOpacity: 0.3,
@@ -62,7 +63,7 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
 
           /// Profile
           SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.arrowLeft),
+            icon: const Icon(Icons.settings),
             title: const Text("Impostazioni"),
             selectedColor: Colors.teal,
           ),

@@ -64,3 +64,10 @@ Future<bool> handlePermission() async {
 
   return true;
 }
+
+bool loggedIn = false;
+
+var users = const {
+  'dribbble@gmail.com': '12345',
+  'hunter@gmail.com': 'hunter',
+};

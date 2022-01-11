@@ -9,6 +9,7 @@ MERGED from [:geolocator] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\
 MERGED from [:google_api_availability] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\google_api_availability\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_compass] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\flutter_compass\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:geocoder] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -50,6 +51,8 @@ INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\de
 		ADDED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml:1:11-69
 application
 ADDED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml:4:5-31:19
+MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\am-mo\.gradle\caches\transforms-2\files-2.1\340e51683cb09a8752b0a195f3a9dd7e\jetified-play-services-location-16.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\am-mo\.gradle\caches\transforms-2\files-2.1\340e51683cb09a8752b0a195f3a9dd7e\jetified-play-services-location-16.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\am-mo\.gradle\caches\transforms-2\files-2.1\b14783c54f0a0561f542100569b19f88\jetified-play-services-base-17.2.1\AndroidManifest.xml:22:5-27:19
@@ -132,6 +135,8 @@ MERGED from [:flutter_compass] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\b
 MERGED from [:flutter_compass] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\flutter_compass\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geocoder] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -188,6 +193,14 @@ uses-permission#android.permission.INTERNET
 ADDED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\debug\AndroidManifest.xml:6:5-66
 	android:name
 		ADDED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\debug\AndroidManifest.xml:6:22-64
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\am-mo\.gradle\caches\transforms-2\files-2.1\b14783c54f0a0561f542100569b19f88\jetified-play-services-base-17.2.1\AndroidManifest.xml:23:9-26:75
 	android:exported

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
@@ -53,7 +54,7 @@ class _PrayersPageState extends State<PrayersPage> {
                             });
                           },
                           child: Icon(
-                            Icons.arrow_back_ios,
+                            FontAwesomeIcons.arrowLeft,
                             size: 30,
                           ),
                         ),
@@ -79,7 +80,7 @@ class _PrayersPageState extends State<PrayersPage> {
                             });
                           },
                           child: Icon(
-                            Icons.arrow_forward_ios,
+                            FontAwesomeIcons.arrowRight,
                             size: 30,
                           ),
                         ),

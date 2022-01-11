@@ -30,8 +30,9 @@ class _HomePageState extends State<HomePage> {
   late String nextPrayer = "";
   late PageController pageController = new PageController();
   var currentIndex = 0;
-  final PermissionHandler permissionHandler = PermissionHandler();
-  late Map<PermissionGroup, PermissionStatus> permissions;
+
+  // final PermissionHandler permissionHandler = PermissionHandler();
+  // late Map<PermissionGroup, PermissionStatus> permissions;
 
   String timeBetween(DateTime from, DateTime to) {
     from = DateTime(
@@ -57,24 +58,24 @@ class _HomePageState extends State<HomePage> {
   //   return s;
   // }
 
-  Future<bool> _requestPermission(PermissionGroup permission) async {
-    final PermissionHandler _permissionHandler = PermissionHandler();
-    var result = await _permissionHandler.requestPermissions([permission]);
-    if (result[permission] == PermissionStatus.granted) {
-      return true;
-    }
-    return false;
-  }
-
-  /*Checking if your App has been Given Permission*/
-  Future<bool> requestLocationPermission({Function? onPermissionDenied}) async {
-    var granted = await _requestPermission(PermissionGroup.location);
-    if (granted != true) {
-      requestLocationPermission();
-    }
-    debugPrint('requestContactsPermission $granted');
-    return granted;
-  }
+  // Future<bool> _requestPermission(PermissionGroup permission) async {
+  //   final PermissionHandler _permissionHandler = PermissionHandler();
+  //   var result = await _permissionHandler.requestPermissions([permission]);
+  //   if (result[permission] == PermissionStatus.granted) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+  //
+  // /*Checking if your App has been Given Permission*/
+  // Future<bool> requestLocationPermission({Function? onPermissionDenied}) async {
+  //   var granted = await _requestPermission(PermissionGroup.location);
+  //   if (granted != true) {
+  //     requestLocationPermission();
+  //   }
+  //   debugPrint('requestContactsPermission $granted');
+  //   return granted;
+  // }
 
   /*Show dialog if GPS not enabled and open settings location*/
   Future _checkGps() async {
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    requestLocationPermission();
+    //requestLocationPermission();
     _gpsService();
     // timer = Timer.periodic(Duration(seconds: 1), (_) {
     //   setState(() {
@@ -148,7 +149,12 @@ class _HomePageState extends State<HomePage> {
         child: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: [PrayersPage(), QiblaPage(), TrackerPage(), SettingsPage()],
+          children: [
+            PrayersPage(),
+            QiblaPage(),
+            TrackerPage(),
+            SettingsPage(),
+          ],
         ),
       ),
     );

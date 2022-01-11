@@ -20,6 +20,11 @@
         <source
             path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_assets\debug\out" />
     </dataSet>
+    <dataSet config=":url_launcher_android"
+        ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source
+            path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_assets\debug\out" />
+    </dataSet>
     <dataSet config=":location_permissions"
         ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
         <source

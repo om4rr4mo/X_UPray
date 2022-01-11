@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/pages/settings_page.dart';
@@ -40,28 +41,28 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: const Icon(Icons.home),
+            icon: const Icon(FontAwesomeIcons.home),
             title: const Text("Home"),
             selectedColor: Colors.teal,
           ),
 
           /// Favourites
           SalomonBottomBarItem(
-            icon: const Icon(Icons.favorite_border),
+            icon: Icon(FontAwesomeIcons.compass),
             title: const Text("Qibla"),
             selectedColor: Colors.teal,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: const Icon(Icons.search),
+            icon: const Icon(FontAwesomeIcons.prayingHands),
             title: const Text("Tracker"),
             selectedColor: Colors.teal,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(FontAwesomeIcons.arrowLeft),
             title: const Text("Impostazioni"),
             selectedColor: Colors.teal,
           ),

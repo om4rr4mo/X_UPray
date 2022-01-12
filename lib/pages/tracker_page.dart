@@ -56,7 +56,8 @@ class _TrackerPageState extends State<TrackerPage> {
         theme: LoginTheme(
           primaryColor: Theme.of(context).scaffoldBackgroundColor,
           accentColor: Theme.of(context).textTheme.bodyText2!.color,
-          cardTheme: CardTheme(color: Theme.of(context).iconTheme.color),
+          cardTheme:
+              CardTheme(color: Theme.of(context).iconTheme.color, elevation: 0),
         ),
         disableCustomPageTransformer: true,
         messages: LoginMessages(

@@ -67,7 +67,7 @@ class _NotificationButtonState extends State<NotificationButton> {
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 10),
+                                      (states) => 00),
                                   backgroundColor:
                                       MaterialStateColor.resolveWith(
                                           (states) => Colors.blueGrey),
@@ -91,7 +91,7 @@ class _NotificationButtonState extends State<NotificationButton> {
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 10),
+                                      (states) => 0),
                                   backgroundColor:
                                       MaterialStateColor.resolveWith(
                                           (states) => Color(0xFF1BC0C5)),
@@ -137,7 +137,7 @@ class _NotificationButtonState extends State<NotificationButton> {
       height: 50,
       child: ElevatedButton(
         style: ButtonStyle(
-          elevation: MaterialStateProperty.resolveWith((states) => 10),
+          elevation: MaterialStateProperty.resolveWith((states) => 0),
           backgroundColor: isNotificationEnabled
               ? MaterialStateColor.resolveWith((states) => Colors.green)
               : MaterialStateColor.resolveWith((states) => Color(0xFF80CBC4)),

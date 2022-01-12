@@ -67,7 +67,7 @@ class _LocationButtonState extends State<LocationButton> {
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 10),
+                                      (states) => 0),
                                   backgroundColor:
                                       MaterialStateColor.resolveWith(
                                           (states) => Colors.blueGrey),
@@ -91,7 +91,7 @@ class _LocationButtonState extends State<LocationButton> {
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 10),
+                                      (states) => 0),
                                   backgroundColor:
                                       MaterialStateColor.resolveWith(
                                           (states) => Color(0xFF1BC0C5)),
@@ -137,7 +137,7 @@ class _LocationButtonState extends State<LocationButton> {
       height: 50,
       child: ElevatedButton(
         style: ButtonStyle(
-          elevation: MaterialStateProperty.resolveWith((states) => 10),
+          elevation: MaterialStateProperty.resolveWith((states) => 0),
           backgroundColor: isLocationEnabled
               ? MaterialStateColor.resolveWith((states) => Colors.green)
               : MaterialStateColor.resolveWith((states) => Color(0xFF80CBC4)),

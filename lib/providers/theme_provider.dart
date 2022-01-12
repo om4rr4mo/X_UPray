@@ -58,7 +58,7 @@ class MyTheme {
     colorScheme: const ColorScheme.light(),
     fontFamily: 'Montserrat',
     iconTheme: const IconThemeData(
-      color: Color(0xFF4474C4),
+      color: Colors.teal,
     ),
     textTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF455A64)),

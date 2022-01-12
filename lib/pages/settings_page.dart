@@ -7,15 +7,13 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: Center(
-        child: GestureDetector(
-          onTap: () => loggedIn = false,
-          child: Text(
-            "SETTINGS\nclicca qui per fare il logout (solo test)\nNella pagina tracker si dovrà rifare il login",
-            textAlign: TextAlign.center,
-          ),
+    return SafeArea(
+        child: Center(
+      child: GestureDetector(
+        onTap: () => loggedIn = false,
+        child: Text(
+          "SETTINGS\nclicca qui per fare il logout (solo test)\nNella pagina tracker si dovrà rifare il login",
+          textAlign: TextAlign.center,
         ),
       ),
     ));

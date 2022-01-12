@@ -5,7 +5,8 @@ class ThemeProvider extends ChangeNotifier {
 
   bool get isDarkMode => themeMode == ThemeMode.dark;
 
-  ThemeData get theme => themeMode == ThemeMode.dark ? MyTheme.darkTheme : MyTheme.lightTheme;
+  ThemeData get theme =>
+      themeMode == ThemeMode.dark ? MyTheme.darkTheme : MyTheme.lightTheme;
 
   void toggleTheme(bool isOn) {
     themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
@@ -19,17 +20,28 @@ class MyTheme {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
-    scaffoldBackgroundColor: const Color(0xFF005005),
-    primaryColor: Colors.lightGreen,
+    scaffoldBackgroundColor: const Color(0xFF041C38),
+    primaryColor: const Color(0xFF041C38),
+    unselectedWidgetColor: Color(0xFF726D78),
+    selectedRowColor: Color(0xFFF2F1EB),
     colorScheme: const ColorScheme.dark(),
     fontFamily: 'Montserrat',
     iconTheme: IconThemeData(
-      color: Colors.green[50],
+      color: Color(0xFF4474C4),
     ),
     textTheme: const TextTheme(
-      headline1: TextStyle(color: Colors.white),
-      bodyText1: TextStyle(color: Colors.white),
-      subtitle1: TextStyle(color: Colors.white),
+      headline1: TextStyle(color: Color(0xFFF6F4F3)),
+      bodyText1: TextStyle(color: Color(0xFFF6F4F3)),
+      subtitle1: TextStyle(color: Color(0xFFF6F4F3)),
+      bodyText2: TextStyle(color: Color(0xFFF6F4F3)),
+      caption: TextStyle(color: Color(0xFFF6F4F3)),
+      headline2: TextStyle(color: Color(0xFFF6F4F3)),
+      headline3: TextStyle(color: Color(0xFFF6F4F3)),
+      headline4: TextStyle(color: Color(0xFFF6F4F3)),
+      headline5: TextStyle(color: Color(0xFFF6F4F3)),
+      headline6: TextStyle(color: Color(0xFFF6F4F3)),
+      overline: TextStyle(color: Color(0xFFF6F4F3)),
+      subtitle2: TextStyle(color: Color(0xFFF6F4F3)),
       button: TextStyle(color: Colors.black),
     ),
   );
@@ -40,16 +52,27 @@ class MyTheme {
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
     scaffoldBackgroundColor: Colors.teal[50],
-    primaryColor: const Color(0xFFB2DFDB),
+    primaryColor: Colors.teal[50],
+    unselectedWidgetColor: Colors.blueGrey,
+    selectedRowColor: Colors.teal,
     colorScheme: const ColorScheme.light(),
     fontFamily: 'Montserrat',
     iconTheme: const IconThemeData(
-      color: Color(0xFF82ADA9),
+      color: Color(0xFF4474C4),
     ),
     textTheme: const TextTheme(
-      headline1: TextStyle(color: Colors.black),
-      bodyText1: TextStyle(color: Colors.black),
-      subtitle1: TextStyle(color: Colors.black),
+      headline1: TextStyle(color: Color(0xFF455A64)),
+      bodyText1: TextStyle(color: Color(0xFF455A64)),
+      subtitle1: TextStyle(color: Color(0xFF455A64)),
+      bodyText2: TextStyle(color: Color(0xFF455A64)),
+      caption: TextStyle(color: Color(0xFF455A64)),
+      headline2: TextStyle(color: Color(0xFF455A64)),
+      headline3: TextStyle(color: Color(0xFF455A64)),
+      headline4: TextStyle(color: Color(0xFF455A64)),
+      headline5: TextStyle(color: Color(0xFF455A64)),
+      headline6: TextStyle(color: Color(0xFF455A64)),
+      overline: TextStyle(color: Color(0xFF455A64)),
+      subtitle2: TextStyle(color: Color(0xFF455A64)),
       button: TextStyle(color: Colors.white),
     ),
   );

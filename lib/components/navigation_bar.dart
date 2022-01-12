@@ -31,47 +31,39 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: SalomonBottomBar(
-        unselectedItemColor: Colors.blueGrey,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.linear,
-        selectedColorOpacity: 0.3,
-        selectedItemColor: Colors.white,
-        items: [
-          /// Home
-          SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.home),
-            title: const Text("Home"),
-            selectedColor: Colors.teal,
-          ),
+    return SalomonBottomBar(
+      unselectedItemColor: Theme.of(context).unselectedWidgetColor,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.linear,
+      selectedColorOpacity: 0.3,
+      selectedItemColor: Theme.of(context).selectedRowColor,
+      items: [
+        /// Home
+        SalomonBottomBarItem(
+          icon: const Icon(FontAwesomeIcons.home),
+          title: const Text("Home"),
+        ),
 
-          /// Favourites
-          SalomonBottomBarItem(
-            icon: Icon(FontAwesomeIcons.compass),
-            title: const Text("Qibla"),
-            selectedColor: Colors.teal,
-          ),
+        /// Favourites
+        SalomonBottomBarItem(
+          icon: Icon(FontAwesomeIcons.compass),
+          title: const Text("Qibla"),
+        ),
 
-          /// Search
-          SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.prayingHands),
-            title: const Text("Tracker"),
-            selectedColor: Colors.teal,
-          ),
+        /// Search
+        SalomonBottomBarItem(
+          icon: const Icon(FontAwesomeIcons.prayingHands),
+          title: const Text("Tracker"),
+        ),
 
-          /// Profile
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.settings),
-            title: const Text("Impostazioni"),
-            selectedColor: Colors.teal,
-          ),
-        ],
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-
-      ),
+        /// Profile
+        SalomonBottomBarItem(
+          icon: const Icon(Icons.settings),
+          title: const Text("Impostazioni"),
+        ),
+      ],
+      currentIndex: _currentIndex,
+      onTap: _onItemTapped,
     );
   }
 }

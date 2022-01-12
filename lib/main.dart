@@ -44,7 +44,7 @@ class MainLaunch extends StatelessWidget {
         builder: (context, _) {
           return MaterialApp(
             title: 'UPray',
-            theme: MyTheme.lightTheme,
+            theme: MyTheme.darkTheme,
             debugShowCheckedModeBanner: false,
             home: HomePage(),
           );

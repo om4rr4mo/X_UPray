@@ -135,20 +135,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: HomeNavigationBar(
-        pageController: pageController,
-      ),
-      body: SafeArea(
-        child: PageView(
-          physics: NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: [
-            PrayersPage(),
-            QiblaPage(),
-            TrackerPage(),
-            SettingsPage(),
-          ],
-        ),
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: pageController,
+            children: [
+              PrayersPage(),
+              QiblaPage(),
+              TrackerPage(),
+              SettingsPage(),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: Colors.white10,
+              child: HomeNavigationBar(
+                pageController: pageController,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

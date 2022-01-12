@@ -6,11 +6,9 @@ class QiblaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Compass(),
-        ),
+    return SafeArea(
+      child: Center(
+        child: Compass(),
       ),
     );
   }

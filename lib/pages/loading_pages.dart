@@ -52,15 +52,13 @@ class _LoadingPageState extends State<LoadingPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.60,
-          child: Lottie.asset(
-            'assets/lotties/muslim_home.json',
-            width: double.infinity,
-            fit: BoxFit.scaleDown,
-          ),
+    return Center(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.60,
+        child: Lottie.asset(
+          'assets/lotties/muslim_home.json',
+          width: double.infinity,
+          fit: BoxFit.scaleDown,
         ),
       ),
     );

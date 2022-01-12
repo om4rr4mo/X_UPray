@@ -66,6 +66,8 @@ Future<bool> handlePermission() async {
 }
 
 bool loggedIn = false;
+bool isLocationEnabled = false;
+bool isNotificationEnabled = false;
 
 var users = const {
   'dribbble@gmail.com': '12345',

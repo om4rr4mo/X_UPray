@@ -20,6 +20,11 @@
         <source
             path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_assets\debug\out" />
     </dataSet>
+    <dataSet config=":permission"
+        ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source
+            path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission\intermediates\library_assets\debug\out" />
+    </dataSet>
     <dataSet config=":url_launcher_android"
         ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
         <source
@@ -44,6 +49,11 @@
         ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
         <source
             path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geolocator\intermediates\library_assets\debug\out" />
+    </dataSet>
+    <dataSet config=":shared_preferences_android"
+        ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source
+            path="D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\shared_preferences_android\intermediates\library_assets\debug\out" />
     </dataSet>
     <dataSet config="main"
         ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">

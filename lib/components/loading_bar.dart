@@ -35,14 +35,6 @@ class _LoadingBarState extends State<LoadingBar> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // return LinearProgressIndicator(
-    //   valueColor: const AlwaysStoppedAnimation<Color> (Colors.teal),
-    //   backgroundColor: Colors.white,
-    //   minHeight: 8,
-    //   value: controller.value,
-    //   semanticsLabel: 'Linear progress indicator',
-    // );
-
     return Lottie.asset(
       'assets/lotties/muslim_home.json',
       width: double.infinity,

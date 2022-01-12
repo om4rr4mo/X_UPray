@@ -5,11 +5,13 @@ INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\ma
 INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml:1:1-35:12
 INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml:1:1-35:12
 MERGED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml:1:1-35:12
+MERGED from [:shared_preferences_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:geolocator] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:google_api_availability] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\google_api_availability\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_compass] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\flutter_compass\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
+MERGED from [:permission] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:geocoder] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -127,6 +129,8 @@ uses-sdk
 INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml
 INJECTED from D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\android\app\src\main\AndroidManifest.xml
+MERGED from [:shared_preferences_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geolocator] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geolocator] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_api_availability] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\google_api_availability\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -137,6 +141,8 @@ MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UP
 MERGED from [:location_permissions] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location_permissions\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_android] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\url_launcher_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:permission] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:permission] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\permission\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geocoder] D:\PROGETTI\ANDROID\ANDROIDSTUDIO\FLUTTER\UPray\build\geocoder\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44

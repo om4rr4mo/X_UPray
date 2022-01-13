@@ -136,28 +136,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Stack(
-        children: [
-          PageView(
-            physics: NeverScrollableScrollPhysics(),
-            controller: pageController,
-            children: [
-              PrayersPage(),
-              QiblaPage(),
-              TrackerPage(),
-              SettingsPage(),
-            ],
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              color: Colors.white10,
-              child: HomeNavigationBar(
-                pageController: pageController,
-              ),
+      extendBody: false,
+      body: Container(
+        child: Stack(
+          children: [
+            PageView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: pageController,
+              children: [
+                PrayersPage(),
+                QiblaPage(),
+                TrackerPage(),
+                SettingsPage(),
+              ],
             ),
-          )
-        ],
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                color: Colors.white10,
+                child: HomeNavigationBar(
+                  pageController: pageController,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

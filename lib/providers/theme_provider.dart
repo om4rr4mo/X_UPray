@@ -5,9 +5,6 @@ class ThemeProvider extends ChangeNotifier {
 
   bool get isDarkMode => themeMode == ThemeMode.dark;
 
-  ThemeData get theme =>
-      themeMode == ThemeMode.dark ? MyTheme.darkTheme : MyTheme.lightTheme;
-
   void toggleTheme(bool isOn) {
     themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
@@ -24,7 +21,8 @@ class MyTheme {
     primaryColor: const Color(0xFF041C38),
     unselectedWidgetColor: Color(0xFF726D78),
     selectedRowColor: Color(0xFFF2F1EB),
-    colorScheme: const ColorScheme.dark(),
+    shadowColor: Color(0xFF041C38),
+    colorScheme: ColorScheme.dark(primary: Color(0xFF041C38)),
     fontFamily: 'Montserrat',
     iconTheme: IconThemeData(
       color: Color(0xFF4474C4),
@@ -55,7 +53,8 @@ class MyTheme {
     primaryColor: Colors.teal[50],
     unselectedWidgetColor: Colors.blueGrey,
     selectedRowColor: Colors.teal,
-    colorScheme: const ColorScheme.light(),
+    shadowColor: Colors.teal[900],
+    colorScheme: ColorScheme.light(primary: Color(0xFFF6F4F3)),
     fontFamily: 'Montserrat',
     iconTheme: const IconThemeData(
       color: Colors.teal,

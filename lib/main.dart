@@ -24,13 +24,22 @@ class IntroLaunch extends StatelessWidget {
   IntroLaunch(this.prefs, this.boolKey);
 
   Widget build(BuildContext context) {
-    prefs.setBool(boolKey, false); // You might want to save this on a callback.
-    return MaterialApp(
-      title: 'UPray',
-      theme: MyTheme.lightTheme,
-      debugShowCheckedModeBanner: false,
-      home: IntroPage(),
-    );
+    prefs.setBool(boolKey, false);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    return ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
+          return MaterialApp(
+            title: 'UPray',
+            theme: MyTheme.lightTheme,
+            darkTheme: MyTheme.darkTheme,
+            themeMode: themeProvider.themeMode,
+            debugShowCheckedModeBanner: false,
+            home: IntroPage(),
+          );
+        });
   }
 }
 
@@ -42,9 +51,12 @@ class MainLaunch extends StatelessWidget {
     return ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
         builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
           return MaterialApp(
             title: 'UPray',
             theme: MyTheme.lightTheme,
+            darkTheme: MyTheme.darkTheme,
+            themeMode: themeProvider.themeMode,
             debugShowCheckedModeBanner: false,
             home: HomePage(),
           );

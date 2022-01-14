@@ -1,0 +1,149 @@
+{
+  "assets/fonts/Montserrat-Black.ttf": [
+    "assets/fonts/Montserrat-Black.ttf"
+  ],
+  "assets/fonts/Montserrat-BlackItalic.ttf": [
+    "assets/fonts/Montserrat-BlackItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-Bold.ttf": [
+    "assets/fonts/Montserrat-Bold.ttf"
+  ],
+  "assets/fonts/Montserrat-BoldItalic.ttf": [
+    "assets/fonts/Montserrat-BoldItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-ExtraBold.ttf": [
+    "assets/fonts/Montserrat-ExtraBold.ttf"
+  ],
+  "assets/fonts/Montserrat-ExtraBoldItalic.ttf": [
+    "assets/fonts/Montserrat-ExtraBoldItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-ExtraLight.ttf": [
+    "assets/fonts/Montserrat-ExtraLight.ttf"
+  ],
+  "assets/fonts/Montserrat-ExtraLightItalic.ttf": [
+    "assets/fonts/Montserrat-ExtraLightItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-Italic.ttf": [
+    "assets/fonts/Montserrat-Italic.ttf"
+  ],
+  "assets/fonts/Montserrat-Light.ttf": [
+    "assets/fonts/Montserrat-Light.ttf"
+  ],
+  "assets/fonts/Montserrat-LightItalic.ttf": [
+    "assets/fonts/Montserrat-LightItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-Medium.ttf": [
+    "assets/fonts/Montserrat-Medium.ttf"
+  ],
+  "assets/fonts/Montserrat-MediumItalic.ttf": [
+    "assets/fonts/Montserrat-MediumItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-Regular.ttf": [
+    "assets/fonts/Montserrat-Regular.ttf"
+  ],
+  "assets/fonts/Montserrat-SemiBold.ttf": [
+    "assets/fonts/Montserrat-SemiBold.ttf"
+  ],
+  "assets/fonts/Montserrat-SemiBoldItalic.ttf": [
+    "assets/fonts/Montserrat-SemiBoldItalic.ttf"
+  ],
+  "assets/fonts/Montserrat-Thin.ttf": [
+    "assets/fonts/Montserrat-Thin.ttf"
+  ],
+  "assets/fonts/Montserrat-ThinItalic.ttf": [
+    "assets/fonts/Montserrat-ThinItalic.ttf"
+  ],
+  "assets/fonts/SFUIDisplay-Black.otf": [
+    "assets/fonts/SFUIDisplay-Black.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Bold.ttf": [
+    "assets/fonts/SFUIDisplay-Bold.ttf"
+  ],
+  "assets/fonts/SFUIDisplay-Heavy.otf": [
+    "assets/fonts/SFUIDisplay-Heavy.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Light.ttf": [
+    "assets/fonts/SFUIDisplay-Light.ttf"
+  ],
+  "assets/fonts/SFUIDisplay-Medium.otf": [
+    "assets/fonts/SFUIDisplay-Medium.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Regular.otf": [
+    "assets/fonts/SFUIDisplay-Regular.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Semibold.otf": [
+    "assets/fonts/SFUIDisplay-Semibold.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Thin.otf": [
+    "assets/fonts/SFUIDisplay-Thin.otf"
+  ],
+  "assets/fonts/SFUIDisplay-Ultralight.otf": [
+    "assets/fonts/SFUIDisplay-Ultralight.otf"
+  ],
+  "assets/fonts/Signatra.ttf": [
+    "assets/fonts/Signatra.ttf"
+  ],
+  "assets/images/incompass.png": [
+    "assets/images/incompass.png"
+  ],
+  "assets/images/mecca.png": [
+    "assets/images/mecca.png"
+  ],
+  "assets/images/mycompass.png": [
+    "assets/images/mycompass.png"
+  ],
+  "assets/lotties/muslim_home.json": [
+    "assets/lotties/muslim_home.json"
+  ],
+  "assets/lotties/progress_bar.json": [
+    "assets/lotties/progress_bar.json"
+  ],
+  "packages/cupertino_icons/assets/CupertinoIcons.ttf": [
+    "packages/cupertino_icons/assets/CupertinoIcons.ttf"
+  ],
+  "packages/flutter_login/assets/images/ecorp.png": [
+    "packages/flutter_login/assets/images/ecorp.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/2.0x/facebook_new.png": [
+    "packages/flutter_signin_button/assets/logos/2.0x/facebook_new.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/2.0x/google_dark.png": [
+    "packages/flutter_signin_button/assets/logos/2.0x/google_dark.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/2.0x/google_light.png": [
+    "packages/flutter_signin_button/assets/logos/2.0x/google_light.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/3.0x/facebook_new.png": [
+    "packages/flutter_signin_button/assets/logos/3.0x/facebook_new.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/3.0x/google_dark.png": [
+    "packages/flutter_signin_button/assets/logos/3.0x/google_dark.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/3.0x/google_light.png": [
+    "packages/flutter_signin_button/assets/logos/3.0x/google_light.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/facebook_new.png": [
+    "packages/flutter_signin_button/assets/logos/facebook_new.png",
+    "packages/flutter_signin_button/assets/logos/2.0x/facebook_new.png",
+    "packages/flutter_signin_button/assets/logos/3.0x/facebook_new.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/google_dark.png": [
+    "packages/flutter_signin_button/assets/logos/google_dark.png",
+    "packages/flutter_signin_button/assets/logos/2.0x/google_dark.png",
+    "packages/flutter_signin_button/assets/logos/3.0x/google_dark.png"
+  ],
+  "packages/flutter_signin_button/assets/logos/google_light.png": [
+    "packages/flutter_signin_button/assets/logos/google_light.png",
+    "packages/flutter_signin_button/assets/logos/2.0x/google_light.png",
+    "packages/flutter_signin_button/assets/logos/3.0x/google_light.png"
+  ],
+  "packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": [
+    "packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf"
+  ],
+  "packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": [
+    "packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf"
+  ],
+  "packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": [
+    "packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf"
+  ]
+}

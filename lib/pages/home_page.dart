@@ -138,6 +138,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       extendBody: false,
       body: Container(
+        width: double.infinity,
         child: Stack(
           children: [
             PageView(

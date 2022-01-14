@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:prayers/Utility/TGBL.dart';
+import 'package:prayers/components/request_dialog.dart';
 
 class NotificationButton extends StatefulWidget {
   NotificationButton({Key? key}) : super(key: key);
@@ -27,103 +28,11 @@ class _NotificationButtonState extends State<NotificationButton> {
         showDialog(
             context: context,
             builder: (BuildContext context) {
-              return Dialog(
-                backgroundColor: Theme.of(context).iconTheme.color,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
-                //this right here
-                child: Wrap(
-                  //constraints: BoxConstraints.expand(),
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Consenti l'invio di notifiche",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 19,
-                            ),
-                          ),
-                          AutoSizeText(
-                            'UPray vorrebbe inviarti delle notifiche\nLe notifiche possono includere avvisi, '
-                            'suoni e badge icone configurabili in Impostazioni',
-                            maxLines: 4,
-                            minFontSize: 17,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 00),
-                                  backgroundColor:
-                                      MaterialStateColor.resolveWith(
-                                          (states) => Colors.blueGrey),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side: BorderSide(
-                                          color: Colors.blueGrey,
-                                          style: BorderStyle.solid,
-                                          width: 2),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: Text("nega".toUpperCase()),
-                              ),
-                              SizedBox(
-                                width: 20.0,
-                              ),
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                  elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 0),
-                                  backgroundColor:
-                                      MaterialStateColor.resolveWith(
-                                          (states) => Theme.of(context).scaffoldBackgroundColor,),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side: BorderSide(
-                                          color: Theme.of(context).scaffoldBackgroundColor,
-                                          style: BorderStyle.solid,
-                                          width: 2),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  openAppSettings();
-                                },
-                                child: Text(
-                                  "consenti".toUpperCase(),
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              return RequestDialog(
+                title:
+                    'UPray vorrebbe inviarti delle notifiche\nLe notifiche possono includere avvisi, '
+                    'suoni e badge icone configurabili in Impostazioni',
+                content: "Consenti l'invio di notifiche",
               );
             });
       }

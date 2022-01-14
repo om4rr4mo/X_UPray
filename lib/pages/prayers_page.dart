@@ -14,7 +14,6 @@ class PrayersPage extends StatefulWidget {
 
 class _PrayersPageState extends State<PrayersPage> {
   late String date;
-  final PrayerProvider prayerProvider = new PrayerProvider();
 
   @override
   void initState() {

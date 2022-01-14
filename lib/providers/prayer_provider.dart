@@ -6,13 +6,6 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
 class PrayerProvider {
-  late String city;
-  late String country;
-  late String address;
-  late int method = 3;
-  late PrayerData list = new PrayerData();
-  late double pLat;
-  late double pLong;
 
   Future getPTCalendar() async {
     late double pLat;
@@ -84,12 +77,6 @@ class PrayerProvider {
   Future getPTHijriCalendar() async {
     late double pLat;
     late double pLong;
-
-    final hasPermission = await handlePermission();
-
-    if (!hasPermission) {
-      return;
-    }
 
     final position = await geolocatorPlatform.getCurrentPosition();
 
@@ -163,7 +150,7 @@ class PrayerProvider {
     pLong = position.longitude;
 
     final url = Uri.parse(
-        'http://api.aladhan.com/v1/timings/$date?latitude=$pLat&longitude=$pLong&method=$method');
+        'http://api.aladhan.com/v1/timings/$date?latitude=$pLat&longitude=$pLong&method=$method&school=$school');
 
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);

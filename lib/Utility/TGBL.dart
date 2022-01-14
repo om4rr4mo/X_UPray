@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
+import 'package:prayers/providers/prayer_data.dart' as prayerData;
 import 'package:prayers/providers/prayer_provider.dart';
 
 final Geolocator geolocatorPlatform = Geolocator();
@@ -34,37 +35,6 @@ Route createRoute(BuildContext context) {
   );
 }
 
-Future<bool> locationEnabled() async {
-  bool serviceEnabled;
-
-  // Test if location services are enabled.
-  serviceEnabled = await geolocatorPlatform.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    return false;
-  }
-
-  return true;
-}
-
-Future<bool> handlePermission() async {
-  // LocationPermission permission;
-  //
-  // permission = await geolocatorPlatform.checkPermission();
-  // if (permission == LocationPermission.denied) {
-  //   permission = await geolocatorPlatform.requestPermission();
-  //   if (permission == LocationPermission.denied) {
-  //
-  //     return false;
-  //   }
-  // }
-  //
-  // if (permission == LocationPermission.deniedForever) {
-  //   return false;
-  // }
-
-  return true;
-}
-
 bool loggedIn = false;
 bool isLocationEnabled = false;
 bool isNotificationEnabled = false;
@@ -73,3 +43,32 @@ var users = const {
   'dribbble@gmail.com': '12345',
   'hunter@gmail.com': 'hunter',
 };
+
+enum ThemeEnum { LIGHT, DARK, SYSTEM }
+
+BoxDecoration selectedBoxDecoration(BuildContext context) {
+  return BoxDecoration(
+    color: Theme.of(context).iconTheme.color,
+    borderRadius: BorderRadius.circular(10),
+    border: Border.all(color: Theme.of(context).iconTheme.color!, width: 4),
+  );
+}
+
+BoxDecoration unselectedBoxDecoration(BuildContext context) {
+  return BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
+    border:
+        Border.all(color: Theme.of(context).unselectedWidgetColor, width: 2),
+  );
+}
+
+late String city;
+late String country;
+late String address;
+late int method = 3;
+late int school = 1;
+late prayerData.PrayerData list = new prayerData.PrayerData();
+late double pLat;
+late double pLong;
+
+PrayerProvider prayerProvider = new PrayerProvider();

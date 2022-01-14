@@ -1,7 +1,11 @@
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:location/location.dart' as locationPackage;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:prayers/Utility/TGBL.dart';
+import 'package:prayers/providers/theme_provider.dart';
 
 class LocationButton extends StatefulWidget {
   LocationButton({Key? key}) : super(key: key);
@@ -12,14 +16,18 @@ class LocationButton extends StatefulWidget {
 
 class _LocationButtonState extends State<LocationButton> {
   enableLocation() async {
-    PermissionStatus status = await Permission.location.status;
-    if (status.isGranted) {
-      setState(() {
-        isLocationEnabled = true;
-      });
-    } else {
-      status = await Permission.location.request();
-      if (status.isGranted) {
+    locationPackage.PermissionStatus _permission = locationPackage.PermissionStatus.DENIED;
+
+    locationPackage.Location _locationService = new locationPackage.Location();
+
+    await _locationService.changeSettings(accuracy: locationPackage.LocationAccuracy.HIGH, interval: 1000);
+
+    bool serviceStatus = await _locationService.serviceEnabled();
+    print("Service status: $serviceStatus");
+    if (serviceStatus) {
+      _permission = await _locationService.requestPermission();
+      print("Permission: $_permission");
+      if (_permission == locationPackage.PermissionStatus.GRANTED) {
         setState(() {
           isLocationEnabled = true;
         });
@@ -28,9 +36,8 @@ class _LocationButtonState extends State<LocationButton> {
             context: context,
             builder: (BuildContext context) {
               return Dialog(
-                backgroundColor: Colors.teal,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0)),
+                backgroundColor: Theme.of(context).iconTheme.color,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 //this right here
                 child: Wrap(
                   //constraints: BoxConstraints.expand(),
@@ -66,43 +73,29 @@ class _LocationButtonState extends State<LocationButton> {
                             children: [
                               ElevatedButton(
                                 style: ButtonStyle(
-                                  elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 0),
-                                  backgroundColor:
-                                      MaterialStateColor.resolveWith(
-                                          (states) => Colors.blueGrey),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
+                                  elevation: MaterialStateProperty.resolveWith((states) => 0),
+                                  backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blueGrey),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      side: BorderSide(
-                                          color: Colors.blueGrey,
-                                          style: BorderStyle.solid,
-                                          width: 2),
+                                      side: BorderSide(color: Colors.blueGrey, style: BorderStyle.solid, width: 2),
                                     ),
                                   ),
                                 ),
                                 onPressed: () => Navigator.of(context).pop(),
-                                child: Text("non consentire".toUpperCase()),
+                                child: Text("nega".toUpperCase()),
                               ),
                               SizedBox(
                                 width: 20.0,
                               ),
                               ElevatedButton(
                                 style: ButtonStyle(
-                                  elevation: MaterialStateProperty.resolveWith(
-                                      (states) => 0),
-                                  backgroundColor:
-                                      MaterialStateColor.resolveWith(
-                                          (states) => Color(0xFF1BC0C5)),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
+                                  elevation: MaterialStateProperty.resolveWith((states) => 0),
+                                  backgroundColor: MaterialStateColor.resolveWith((states) => Theme.of(context).iconTheme.color!),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10.0),
-                                      side: BorderSide(
-                                          color: Color(0xFF1BC0C5),
-                                          style: BorderStyle.solid,
-                                          width: 2),
+                                      side: BorderSide(color: Theme.of(context).iconTheme.color!, style: BorderStyle.solid, width: 2),
                                     ),
                                   ),
                                 ),
@@ -112,9 +105,7 @@ class _LocationButtonState extends State<LocationButton> {
                                 },
                                 child: Text(
                                   "consenti".toUpperCase(),
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],
@@ -127,6 +118,12 @@ class _LocationButtonState extends State<LocationButton> {
               );
             });
       }
+    } else {
+      bool serviceStatusResult = await _locationService.requestService();
+      print("Service status activated after request: $serviceStatusResult");
+      if (serviceStatusResult) {
+        enableLocation();
+      }
     }
   }
 
@@ -138,23 +135,16 @@ class _LocationButtonState extends State<LocationButton> {
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.resolveWith((states) => 0),
-          backgroundColor: isLocationEnabled
-              ? MaterialStateColor.resolveWith((states) => Colors.green)
-              : MaterialStateColor.resolveWith((states) => Color(0xFF80CBC4)),
+          backgroundColor: isLocationEnabled ? MaterialStateColor.resolveWith((states) => Colors.green) : MaterialStateColor.resolveWith((states) => Theme.of(context).iconTheme.color!),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
-              side: BorderSide(
-                  color: isLocationEnabled ? Colors.green : Colors.teal,
-                  style: BorderStyle.solid,
-                  width: 2),
+              side: BorderSide(color: isLocationEnabled ? Colors.green : Theme.of(context).unselectedWidgetColor, style: BorderStyle.solid, width: 2),
             ),
           ),
         ),
         onPressed: () => enableLocation(),
-        child: Text(isLocationEnabled
-            ? "Posizione abilitata".toUpperCase()
-            : "Abilita posizione".toUpperCase()),
+        child: Text(isLocationEnabled ? "Posizione abilitata".toUpperCase() : "Abilita posizione".toUpperCase()),
       ),
     );
   }

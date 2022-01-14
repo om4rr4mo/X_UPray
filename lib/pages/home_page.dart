@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                color: Colors.white10,
+                //color: Colors.white10,
                 child: HomeNavigationBar(
                   pageController: pageController,
                 ),

@@ -25,7 +25,6 @@ class IntroLaunch extends StatelessWidget {
 
   Widget build(BuildContext context) {
     prefs.setBool(boolKey, false);
-    final themeProvider = Provider.of<ThemeProvider>(context);
 
     return ChangeNotifierProvider(
         create: (context) => ThemeProvider(),

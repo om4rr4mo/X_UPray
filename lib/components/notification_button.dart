@@ -28,7 +28,7 @@ class _NotificationButtonState extends State<NotificationButton> {
             context: context,
             builder: (BuildContext context) {
               return Dialog(
-                backgroundColor: Colors.teal,
+                backgroundColor: Theme.of(context).iconTheme.color,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)),
                 //this right here
@@ -83,7 +83,7 @@ class _NotificationButtonState extends State<NotificationButton> {
                                   ),
                                 ),
                                 onPressed: () => Navigator.of(context).pop(),
-                                child: Text("non consentire".toUpperCase()),
+                                child: Text("nega".toUpperCase()),
                               ),
                               SizedBox(
                                 width: 20.0,
@@ -94,13 +94,13 @@ class _NotificationButtonState extends State<NotificationButton> {
                                       (states) => 0),
                                   backgroundColor:
                                       MaterialStateColor.resolveWith(
-                                          (states) => Color(0xFF1BC0C5)),
+                                          (states) => Theme.of(context).scaffoldBackgroundColor,),
                                   shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10.0),
                                       side: BorderSide(
-                                          color: Color(0xFF1BC0C5),
+                                          color: Theme.of(context).scaffoldBackgroundColor,
                                           style: BorderStyle.solid,
                                           width: 2),
                                     ),
@@ -140,12 +140,12 @@ class _NotificationButtonState extends State<NotificationButton> {
           elevation: MaterialStateProperty.resolveWith((states) => 0),
           backgroundColor: isNotificationEnabled
               ? MaterialStateColor.resolveWith((states) => Colors.green)
-              : MaterialStateColor.resolveWith((states) => Color(0xFF80CBC4)),
+              : MaterialStateColor.resolveWith((states) => Theme.of(context).iconTheme.color!),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
               side: BorderSide(
-                  color: isNotificationEnabled ? Colors.green : Colors.teal,
+                  color: isNotificationEnabled ? Colors.green : Theme.of(context).unselectedWidgetColor,
                   style: BorderStyle.solid,
                   width: 2),
             ),

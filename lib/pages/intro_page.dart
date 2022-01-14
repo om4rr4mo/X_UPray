@@ -54,35 +54,34 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
 
-    const pageDecoration = PageDecoration(
+    var pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Color(0xFF80CBC4),
+      pageColor: Theme.of(context).colorScheme.background,
       imagePadding: EdgeInsets.zero,
     );
 
-    return SafeArea(
-      child: IntroductionScreen(
+    return IntroductionScreen(
         key: introKey,
         isBottomSafeArea: true,
         isProgress: true,
         isProgressTap: true,
         color: Colors.blueGrey,
-        globalBackgroundColor: Colors.teal[200],
+        globalBackgroundColor: Theme.of(context).colorScheme.background,
         globalFooter: (isNotificationEnabled && isLocationEnabled)
             ? SizedBox(
                 width: double.infinity,
-                height: 60,
+                height: 90,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateColor.resolveWith((states) => Colors.blue),
                   ),
-                  child: const Text(
+                  child: Text(
                     'Tutto pronto per iniziare',
                     style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.bodyText2!.color),
                   ),
                   onPressed: () => _onIntroEnd(context),
                 ),
@@ -90,16 +89,16 @@ class _IntroPageState extends State<IntroPage> {
             : null,
         pages: [
           PageViewModel(
-            title: "Fractional shares",
+            title: "Intro 1",
             body:
-                "Instead of having to buy an entire share, invest any amount you want.",
+                "Luuuuuuuuuuuuunga lunghissima davvero lunga descrizione di non so quante righe",
             image: _buildImage('mecca.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
-            title: "Learn as you go",
+            title: "Intro 2",
             body:
-                "Download the Stockpile app and master the market with our mini-lesson.",
+            "Luuuuuuuuuuuuunga lunghissima davvero lunga descrizione di non so quante righe",
             image: _buildImage('mecca.png'),
             decoration: pageDecoration,
           ),
@@ -127,6 +126,7 @@ class _IntroPageState extends State<IntroPage> {
         onDone: () => _onIntroEnd(context),
         showSkipButton: false,
         showDoneButton: false,
+        showNextButton: false,
         skipFlex: 0,
         nextFlex: 0,
         //rtl: true, // Display as right-to-left
@@ -138,11 +138,11 @@ class _IntroPageState extends State<IntroPage> {
         controlsPadding: kIsWeb
             ? const EdgeInsets.all(12.0)
             : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-        dotsDecorator: const DotsDecorator(
+        dotsDecorator: DotsDecorator(
           size: Size(10.0, 10.0),
-          color: Colors.blueGrey,
+          color: Theme.of(context).unselectedWidgetColor,
           activeSize: Size(22.0, 10.0),
-          activeColor: Colors.teal,
+          activeColor: Theme.of(context).scaffoldBackgroundColor,
           activeShape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25.0)),
           ),
@@ -153,7 +153,6 @@ class _IntroPageState extends State<IntroPage> {
         //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
         //   ),
         // ),
-      ),
-    );
+      );
   }
 }

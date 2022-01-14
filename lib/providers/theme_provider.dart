@@ -22,7 +22,7 @@ class MyTheme {
     unselectedWidgetColor: Color(0xFF726D78),
     selectedRowColor: Color(0xFFF2F1EB),
     shadowColor: Color(0xFF041C38),
-    colorScheme: ColorScheme.dark(primary: Color(0xFF041C38)),
+    colorScheme: ColorScheme.dark(primary: Color(0xFF041C38), background: Color(0xFF064FC9)),
     fontFamily: 'Montserrat',
     iconTheme: IconThemeData(
       color: Color(0xFF4474C4),
@@ -54,7 +54,7 @@ class MyTheme {
     unselectedWidgetColor: Colors.blueGrey,
     selectedRowColor: Colors.teal,
     shadowColor: Colors.teal[900],
-    colorScheme: ColorScheme.light(primary: Color(0xFFF6F4F3)),
+    colorScheme: ColorScheme.light(primary: Color(0xFFF6F4F3), background: Color(0xFF80CBC4)),
     fontFamily: 'Montserrat',
     iconTheme: const IconThemeData(
       color: Colors.teal,

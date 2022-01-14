@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                   pageController: pageController,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

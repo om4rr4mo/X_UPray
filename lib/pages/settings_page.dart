@@ -15,26 +15,47 @@ class SettingsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "IMPOSTAZIONI",
-            style: Theme.of(context).textTheme.headline1,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "IMPOSTAZIONI",
+                style: Theme.of(context).textTheme.headline1,
+              ),
+              //user.photoURL != null
+              //    ? ClipOval(
+              //  child: Material(
+              //    color: kBlueMainColor,
+              //    child: Image.network(
+              //      user.photoURL,
+              //      fit: BoxFit.fitHeight,
+              //    ),
+              //  ),
+              //)
+              //    :
+              ClipOval(
+                child: Material(
+                  color: Theme.of(context).backgroundColor,
+                  child: Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Icon(
+                      Icons.person,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: 30,
           ),
           ThemeSetting(),
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 8, right: 8, top: 11, bottom: 8),
-            child: Divider(
-              thickness: 2,
-              color: Theme.of(context).dividerColor,
-            ),
-          ),
+          SizedBox(height: 25,),
           SchoolSetting(),
-          SizedBox(
-            height: 50,
-          ),
+          SizedBox(height: 25,),
+
           GestureDetector(
             onTap: () => loggedIn = false,
             child: Text(

@@ -24,9 +24,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getTimesCalendarByAddress() async {
@@ -46,9 +46,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getPTCalendarByCity() async {
@@ -69,9 +69,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getPTHijriCalendar() async {
@@ -91,9 +91,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getPTHijriCalendarByAddress() async {
@@ -113,9 +113,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getPTHijriCalendarByCity() async {
@@ -136,9 +136,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getTimings(String date) async {
@@ -159,9 +159,9 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getTimingsByAddress() async {
@@ -185,9 +185,9 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 
   Future getTimingsByCity() async {
@@ -212,8 +212,8 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    list = PrayerData.fromJson(data);
+    prayerList = PrayerData.fromJson(data);
 
-    return list;
+    return prayerList;
   }
 }

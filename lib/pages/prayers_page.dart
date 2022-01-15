@@ -26,7 +26,7 @@ class _PrayersPageState extends State<PrayersPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: prayerProvider.getTimings(date),
+        future: prayerProvider.getPTCalendar(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             var data;

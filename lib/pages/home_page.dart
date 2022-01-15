@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
+import 'package:prayers/pages/quran_pages.dart';
 import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
 
@@ -146,6 +147,7 @@ class _HomePageState extends State<HomePage> {
               controller: pageController,
               children: [
                 PrayersPage(),
+                QuranPage(),
                 QiblaPage(),
                 TrackerPage(),
                 SettingsPage(),
@@ -154,6 +156,7 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 //color: Colors.white10,
                 child: HomeNavigationBar(
                   pageController: pageController,

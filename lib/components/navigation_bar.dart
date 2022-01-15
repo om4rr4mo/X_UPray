@@ -40,26 +40,32 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.home),
-            title: const Text("Home"),
+            icon: const Icon(FontAwesomeIcons.clock),
+            title: const Text("Orari"),
           ),
 
-          /// Favourites
+          /// Corano
+          SalomonBottomBarItem(
+            icon: const Icon(FontAwesomeIcons.book),
+            title: const Text("Corano"),
+          ),
+
+          /// Qibla
           SalomonBottomBarItem(
             icon: Icon(FontAwesomeIcons.compass),
             title: const Text("Qibla"),
           ),
 
-          /// Search
+          /// Tracker
           SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.prayingHands),
+            icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
             title: const Text("Tracker"),
           ),
 
-          /// Profile
+          /// Impostazioni
           SalomonBottomBarItem(
-            icon: const Icon(Icons.settings),
-            title: const Text("Impostazioni"),
+            icon: const Icon(FontAwesomeIcons.contao),
+            title: const Text("Setta"),
           ),
         ],
         currentIndex: _currentIndex,

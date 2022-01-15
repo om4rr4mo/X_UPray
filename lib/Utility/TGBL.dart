@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/providers/prayer_data.dart' as prayerData;
+import 'package:prayers/providers/quran_data.dart' as quranData;
 import 'package:prayers/providers/prayer_provider.dart';
+import 'package:prayers/providers/quran_provider.dart';
 
 final Geolocator geolocatorPlatform = Geolocator();
 final currentDate = DateTime.now();
@@ -67,8 +69,10 @@ late String country;
 late String address;
 late int method = 3;
 late int school = 1;
-late prayerData.PrayerData list = new prayerData.PrayerData();
+late prayerData.PrayerData prayerList = new prayerData.PrayerData();
+late quranData.QuranData quranList = new quranData.QuranData();
 late double pLat;
 late double pLong;
 
 PrayerProvider prayerProvider = new PrayerProvider();
+QuranProvider quranProvider = new QuranProvider();

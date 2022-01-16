@@ -190,10 +190,9 @@ class PrayerProvider {
     return prayerList;
   }
 
-  Future getTimingsByCity() async {
+  Future getTimingsByCity(String date) async {
     final position = await geolocatorPlatform.getCurrentPosition();
 
-    DateTime date = DateTime.now();
     final coordinates = new Coordinates(position.latitude, position.longitude);
 
     var addresses =
@@ -203,7 +202,7 @@ class PrayerProvider {
     country = addresses.first.countryName;
 
     final url = Uri.parse(
-        'http://api.aladhan.com/v1/timingsByCity?city=$city&country=$country&method=$method&date_or_timestamp=${DateTime.now()}');
+        'http://api.aladhan.com/v1/timingsByCity?city=$city&country=$country&method=$method&date_or_timestamp=$date');
 
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);

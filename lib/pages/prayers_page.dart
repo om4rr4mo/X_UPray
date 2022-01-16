@@ -3,8 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
-import 'package:prayers/providers/prayer_provider.dart';
-
 import 'loading_pages.dart';
 
 class PrayersPage extends StatefulWidget {
@@ -26,7 +24,7 @@ class _PrayersPageState extends State<PrayersPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: prayerProvider.getPTCalendar(),
+        future: prayerProvider.getTimings(date),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             var data;

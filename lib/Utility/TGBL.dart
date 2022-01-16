@@ -68,7 +68,7 @@ late String city;
 late String country;
 late String address;
 late int method = 3;
-late int school = 1;
+late int school = 0;
 late prayerData.PrayerData prayerList = new prayerData.PrayerData();
 late quranData.QuranData quranList = new quranData.QuranData();
 late double pLat;

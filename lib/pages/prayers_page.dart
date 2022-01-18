@@ -85,7 +85,6 @@ class _PrayersPageState extends State<PrayersPage> {
                     ),
                     Text(
                       "",
-                      //nextPrayer.toCapitalized(),
                       textAlign: TextAlign.center,
                     ),
                     PrayerItem(

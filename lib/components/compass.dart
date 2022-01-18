@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-import 'package:flutter_compass/flutter_compass.dart';
 import 'package:location/location.dart';
 import 'package:after_layout/after_layout.dart';
 
@@ -40,28 +38,28 @@ class _CompassState extends State<Compass> with AfterLayoutMixin<Compass>{
             ),
           ),
         ),
-        Positioned(
-          top: 0,
-          bottom: 0,
-          child: StreamBuilder<double>(
-            stream: FlutterCompass.events,
-            builder: (context, snapshot) {
-              double angle = ((snapshot.data ?? 0) * (math.pi / 180) * -1);
-              return Transform.rotate(
-                angle: angle + imageAngle - tangentAngle,
-                // alignment: Alignment(-0.05, -0.035),
-                alignment: Alignment(0, 0),
-                child: ClipPath(
-                  //clipper: CompassClipper(),
-                  child: Image.asset(
-                    'assets/images/mycompass.png',
-                    fit: BoxFit.scaleDown,
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
+        // Positioned(
+        //   top: 0,
+        //   bottom: 0,
+        //   child: StreamBuilder<double>(
+        //     stream: FlutterCompass.events,
+        //     builder: (context, snapshot) {
+        //       double angle = ((snapshot.data ?? 0) * (math.pi / 180) * -1);
+        //       return Transform.rotate(
+        //         angle: angle + imageAngle - tangentAngle,
+        //         // alignment: Alignment(-0.05, -0.035),
+        //         alignment: Alignment(0, 0),
+        //         child: ClipPath(
+        //           //clipper: CompassClipper(),
+        //           child: Image.asset(
+        //             'assets/images/mycompass.png',
+        //             fit: BoxFit.scaleDown,
+        //           ),
+        //         ),
+        //       );
+        //     },
+        //   ),
+        // ),
       ],
     );
   }

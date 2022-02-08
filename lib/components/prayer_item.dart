@@ -15,18 +15,41 @@ class PrayerItem extends StatelessWidget {
     String formattedPrayerTime = DateFormat('kk:mm').format(parseDate);
     
     return Padding(
-      padding: const EdgeInsets.all(13.0),
-      child: Column(
-        children: [
-          Text(
-            formattedPrayerTime,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
+      padding: const EdgeInsets.all(12.0),
+      child: Container(
+        decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.teal,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+              ),
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                  formattedPrayerTime,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+              Text(
+                prayerName,
+                style: const TextStyle(
+                  fontSize: 17,
+                ),
+                ),
+              Icon(
+                Icons.add_alert,
+                color: Colors.teal,
+                size: 24.0,
+              ),
+            ],
           ),
-          Text(prayerName),
-        ],
+        ),
       ),
     );
   }

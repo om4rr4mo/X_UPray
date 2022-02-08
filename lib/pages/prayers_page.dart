@@ -33,85 +33,88 @@ class _PrayersPageState extends State<PrayersPage> {
               data = snapshot.data.data[currentDate.day - 1];
             else
               data = snapshot.data.data[0];
-            return Container(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              DateTime d =
-                                  DateFormat('dd-MM-y').parseStrict(date);
-                              d = d.subtract(Duration(days: 1));
-                              date = DateFormat('dd-MM-y').format(d);
-                            });
-                          },
-                          child: Icon(
-                            FontAwesomeIcons.arrowLeft,
-                            size: 30,
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              data.date.hijri.date,
-                              textAlign: TextAlign.center,
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                DateTime d =
+                                    DateFormat('dd-MM-y').parseStrict(date);
+                                d = d.subtract(Duration(days: 1));
+                                date = DateFormat('dd-MM-y').format(d);
+                              });
+                            },
+                            child: Icon(
+                              FontAwesomeIcons.arrowLeft,
+                              size: 30,
                             ),
-                            Text(
-                              data.date.readable,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              DateTime d =
-                                  DateFormat('dd-MM-y').parseStrict(date);
-                              d = d.add(Duration(days: 1));
-                              date = DateFormat('dd-MM-y').format(d);
-                            });
-                          },
-                          child: Icon(
-                            FontAwesomeIcons.arrowRight,
-                            size: 30,
                           ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "",
-                      textAlign: TextAlign.center,
-                    ),
-                    PrayerItem(
-                      prayerName: "Fajr",
-                      prayerTime: data.timings.fajr,
-                    ),
-                    PrayerItem(
-                      prayerName: "Sunrise",
-                      prayerTime: data.timings.sunrise,
-                    ),
-                    PrayerItem(
-                      prayerName: "Dhuhr",
-                      prayerTime: data.timings.dhuhr,
-                    ),
-                    PrayerItem(
-                      prayerName: "Asr",
-                      prayerTime: data.timings.asr,
-                    ),
-                    PrayerItem(
-                      prayerName: "Maghreb",
-                      prayerTime: data.timings.maghrib,
-                    ),
-                    PrayerItem(
-                      prayerName: "Ishaa",
-                      prayerTime: data.timings.isha,
-                    ),
-                  ],
+                          Column(
+                            children: [
+                              Text(
+                                data.date.hijri.date,
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                data.date.readable,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                DateTime d =
+                                    DateFormat('dd-MM-y').parseStrict(date);
+                                d = d.add(Duration(days: 1));
+                                date = DateFormat('dd-MM-y').format(d);
+                              });
+                            },
+                            child: Icon(
+                              FontAwesomeIcons.arrowRight,
+                              size: 30,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "",
+                        textAlign: TextAlign.center,
+                      ),
+                      PrayerItem(
+                        prayerName: "Fajr",
+                        prayerTime: data.timings.fajr,
+                      ),
+                      PrayerItem(
+                        prayerName: "Sunrise",
+                        prayerTime: data.timings.sunrise,
+                      ),
+                      PrayerItem(
+                        prayerName: "Dhuhr",
+                        prayerTime: data.timings.dhuhr,
+                      ),
+                      PrayerItem(
+                        prayerName: "Asr",
+                        prayerTime: data.timings.asr,
+                      ),
+                      PrayerItem(
+                        prayerName: "Maghreb",
+                        prayerTime: data.timings.maghrib,
+                      ),
+                      PrayerItem(
+                        prayerName: "Ishaa",
+                        prayerTime: data.timings.isha,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );

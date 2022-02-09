@@ -46,8 +46,6 @@ var users = const {
   'hunter@gmail.com': 'hunter',
 };
 
-enum ThemeEnum { LIGHT, DARK, SYSTEM }
-
 BoxDecoration selectedBoxDecoration(BuildContext context) {
   return BoxDecoration(
     color: Theme.of(context).iconTheme.color,

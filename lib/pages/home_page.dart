@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
 import 'package:prayers/pages/quran_pages.dart';

@@ -64,9 +64,9 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
 
           /// Impostazioni
           SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.contao),
-            title: const Text("Setta"),
-          ),
+            icon: const Icon(FontAwesomeIcons.slidersH),
+          title: const Text("Setta"),
+        ),
         ],
         currentIndex: _currentIndex,
         onTap: _onItemTapped,

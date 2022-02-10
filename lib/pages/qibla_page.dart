@@ -6,17 +6,17 @@ class QiblaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return SafeArea(
-    //   child: Center(
-    //     child: Compass(),
-    //   ),
-    // );
     return SafeArea(
       child: Center(
-        child: Container(
-          child: Text("QIBLA PAGE"),
-        ),
+        child: Compass(),
       ),
     );
+    // return SafeArea(
+    //   child: Center(
+    //     child: Container(
+    //       child: Text("QIBLA PAGE"),
+    //     ),
+    //   ),
+    // );
   }
 }

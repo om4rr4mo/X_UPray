@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/pages/intro_page.dart';
 import 'package:prayers/pages/loading_pages.dart';
@@ -13,6 +16,8 @@ Future<void> main() async {
   var prefs = await SharedPreferences.getInstance();
   var boolKey = 'isFirstTime';
   var isFirstTime = prefs.getBool(boolKey) ?? true;
+
+  await Firebase.initializeApp();
 
   runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : MainLaunch());
 }
@@ -47,6 +52,15 @@ class MainLaunch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null)
+        loggedIn = false;
+      else {
+        loggedIn = true;
+        userLogged = user;
+      }
+    });
+
     return ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
         builder: (context, _) {

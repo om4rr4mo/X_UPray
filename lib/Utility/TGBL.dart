@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/providers/prayer_data.dart' as prayerData;
@@ -71,6 +73,45 @@ late prayerData.PrayerData prayerList = new prayerData.PrayerData();
 late quranData.QuranData quranList = new quranData.QuranData();
 late double pLat;
 late double pLong;
-
+bool isSigningIn = false;
+late User userLogged;
+late String userUrlPhoto =
+    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fvectors%2Fblank-profile-picture-mystery-man-973460%2F&psig=AOvVaw0Vsqk2A0BTIydQY1pw-0pv&ust=1644594132572000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCMDoztK89fUCFQAAAAAdAAAAABAE";
 PrayerProvider prayerProvider = new PrayerProvider();
 QuranProvider quranProvider = new QuranProvider();
+
+ShowToastError({required String message}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: Colors.red,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
+}
+
+ShowToastDone({required String message}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: Colors.green,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
+}
+
+ShowToastMessage({required String message}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: Colors.white10,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
+}

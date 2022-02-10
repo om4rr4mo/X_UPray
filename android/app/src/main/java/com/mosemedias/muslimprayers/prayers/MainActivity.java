@@ -1,4 +1,4 @@
-package com.mosemedias.muslimprayers.prayers;
+package com.ugroup.upray;
 
 import io.flutter.embedding.android.FlutterActivity;
 

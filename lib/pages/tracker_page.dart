@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prayers/Utility/TGBL.dart';
+
+import '../providers/firebase_authentication.dart';
 
 class TrackerPage extends StatefulWidget {
   const TrackerPage({Key? key}) : super(key: key);
@@ -102,7 +105,18 @@ class _TrackerPageState extends State<TrackerPage> {
               label: '',
               callback: () async {
                 debugPrint('start google sign in');
-                await Future.delayed(loginTime);
+                userLogged =
+                    (await Authentication.signInWithGoogle(context: context))!;
+
+                if (userLogged != null) {
+                  setState(() {
+                    loggedIn = true;
+                  });
+                } else {
+                  setState(() {
+                    loggedIn = false;
+                  });
+                }
                 debugPrint('stop google sign in');
                 return null;
               },
@@ -139,9 +153,7 @@ class _TrackerPageState extends State<TrackerPage> {
             //),
           ],
           onSubmitAnimationCompleted: () {
-            setState(() {
-              loggedIn = true;
-            });
+            setState(() {});
             // Navigator.of(context).pushReplacement(MaterialPageRoute(
             //   builder: (context) => TrackerPage(),
             // ));

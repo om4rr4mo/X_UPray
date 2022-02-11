@@ -60,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: CircleAvatarWithTransition(
               transitionBorderwidth: 20,
               primaryColor: Colors.blue,
-              image: loggedIn
+              image: loggedIn && userLogged.photoURL != null
                   ? NetworkImage(
                       userLogged.photoURL!,
                       // "https://lh3.googleusercontent.com/a-/AOh14GiYlXT-DJ8baR8Q_qrx1LxBGYBVQu6JDtC-gr2zGMw=s288-p-rw-no",

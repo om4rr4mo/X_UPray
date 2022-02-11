@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prayers/Utility/TGBL.dart';
+import 'package:prayers/pages/verify_mail_page.dart';
 
 import '../providers/firebase_authentication.dart';
 
@@ -17,34 +18,24 @@ class TrackerPage extends StatefulWidget {
 class _TrackerPageState extends State<TrackerPage> {
   Duration get loginTime => Duration(milliseconds: 2250);
 
-  Future<String?> _authUser(LoginData data) {
+  Future<String?> _authUser(LoginData data) async {
     debugPrint('Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'User not exists';
-      }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
-      return null;
-    });
+    userLogged = (await Authentication.signInWithEmailAndPassword(
+        data.name.trim(), data.password.trim()))!;
   }
 
-  Future<String?> _signupUser(SignupData data) {
+  Future<String?> _signupUser(SignupData data) async {
     debugPrint('Signup Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      return null;
-    });
+    User? user = (await Authentication.createUserWithEmailAndPassword(
+        data.name!.trim(), data.password!.trim()))!;
+
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
   }
 
-  Future<String> _recoverPassword(String name) {
+  Future<String?> _recoverPassword(String name) async {
     debugPrint('Name: $name');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(name)) {
-        return 'User not exists';
-      }
-      return "";
-    });
+    await Authentication.sendPasswordResetEmail(name.trim());
   }
 
   @override
@@ -60,6 +51,7 @@ class _TrackerPageState extends State<TrackerPage> {
         resizeToAvoidBottomInset: false,
         extendBody: false,
         body: FlutterLogin(
+          onConfirmSignup: (value, logindata) {},
           theme: LoginTheme(
             primaryColor: Theme.of(context).scaffoldBackgroundColor,
             accentColor: Theme.of(context).textTheme.bodyText2!.color,
@@ -104,9 +96,8 @@ class _TrackerPageState extends State<TrackerPage> {
               icon: FontAwesomeIcons.google,
               label: '',
               callback: () async {
-                debugPrint('start google sign in');
                 userLogged =
-                    (await Authentication.signInWithGoogle(context: context))!;
+                (await Authentication.signInWithGoogle(context: context))!;
 
                 if (userLogged != null) {
                   setState(() {
@@ -117,7 +108,7 @@ class _TrackerPageState extends State<TrackerPage> {
                     loggedIn = false;
                   });
                 }
-                debugPrint('stop google sign in');
+
                 return null;
               },
             ),

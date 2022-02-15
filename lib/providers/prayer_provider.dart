@@ -9,7 +9,7 @@ class PrayerProvider {
     late double pLat;
     late double pLong;
 
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     pLat = position.latitude;
     pLong = position.longitude;
@@ -28,7 +28,7 @@ class PrayerProvider {
   }
 
   Future getTimesCalendarByAddress() async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     DateTime date = DateTime.now();
 
@@ -44,7 +44,7 @@ class PrayerProvider {
   }
 
   Future getPTCalendarByCity() async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     DateTime date = DateTime.now();
 
@@ -63,7 +63,7 @@ class PrayerProvider {
     late double pLat;
     late double pLong;
 
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     pLat = position.latitude;
     pLong = position.longitude;
@@ -82,7 +82,7 @@ class PrayerProvider {
   }
 
   Future getPTHijriCalendarByAddress() async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     DateTime date = DateTime.now();
 
@@ -98,7 +98,7 @@ class PrayerProvider {
   }
 
   Future getPTHijriCalendarByCity() async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     DateTime date = DateTime.now();
 
@@ -114,7 +114,7 @@ class PrayerProvider {
   }
 
   Future getTimings(String date) async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     if (position == null) return;
 
@@ -137,7 +137,7 @@ class PrayerProvider {
   }
 
   Future getTimingsByAddress() async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     DateTime date = DateTime.now();
 
@@ -157,7 +157,7 @@ class PrayerProvider {
   }
 
   Future getTimingsByCity(String date) async {
-    final position = await geolocatorPlatform.getCurrentPosition();
+    final position = await Geolocator.getCurrentPosition();
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/timingsByCity?city=$city&country=$country&method=$method&date_or_timestamp=$date');

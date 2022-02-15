@@ -17,19 +17,19 @@ class LocationButton extends StatefulWidget {
 class _LocationButtonState extends State<LocationButton> {
   enableLocation() async {
     locationPackage.PermissionStatus _permission =
-        locationPackage.PermissionStatus.DENIED;
+        locationPackage.PermissionStatus.denied;
 
     locationPackage.Location _locationService = new locationPackage.Location();
 
     await _locationService.changeSettings(
-        accuracy: locationPackage.LocationAccuracy.HIGH, interval: 1000);
+        accuracy: locationPackage.LocationAccuracy.high, interval: 1000);
 
     bool serviceStatus = await _locationService.serviceEnabled();
     print("Service status: $serviceStatus");
     if (serviceStatus) {
       _permission = await _locationService.requestPermission();
       print("Permission: $_permission");
-      if (_permission == locationPackage.PermissionStatus.GRANTED) {
+      if (_permission == locationPackage.PermissionStatus.granted) {
         setState(() {
           isLocationEnabled = true;
         });

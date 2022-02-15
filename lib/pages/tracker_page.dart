@@ -29,7 +29,7 @@ class _TrackerPageState extends State<TrackerPage> {
     User? user = (await Authentication.createUserWithEmailAndPassword(
         data.name!.trim(), data.password!.trim()))!;
 
-    Navigator.of(context).pushReplacement(
+    Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
   }
 
@@ -51,7 +51,7 @@ class _TrackerPageState extends State<TrackerPage> {
         resizeToAvoidBottomInset: false,
         extendBody: false,
         body: FlutterLogin(
-          onConfirmSignup: (value, logindata) {},
+          //onConfirmSignup: (value, logindata) {},
           theme: LoginTheme(
             primaryColor: Theme.of(context).scaffoldBackgroundColor,
             accentColor: Theme.of(context).textTheme.bodyText2!.color,

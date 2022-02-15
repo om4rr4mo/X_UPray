@@ -52,7 +52,7 @@ class AniControl extends FlareControls {
   @override
   void initialize(FlutterActorArtboard board) {
     super.initialize(board);
-    items.forEach((a) => a.actor = board.getAnimation(a.name));
+    items.forEach((a) => a.actor = board.getAnimation(a.name)!);
   }
 
   operator [](String name) {
@@ -119,7 +119,7 @@ class _CompassState extends State<Compass> {
       Anim('lon', -180, 180, 1, true),
     ]);
 
-    FlutterCompass.events.listen((angle) {
+    FlutterCompass.events!.listen((angle) {
       compass['dir'].value = angle;
       earth['dir'].value = angle;
     });

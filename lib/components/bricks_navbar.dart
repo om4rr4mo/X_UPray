@@ -12,7 +12,7 @@ class BottomNavBarCurvedFb1 extends StatefulWidget {
 }
 
 class _BottomNavBarCurvedFb1State extends State<BottomNavBarCurvedFb1> {
-  //- - - - - - - - - instructions - - - - - - - - - - - - - - - - - -
+  // - - - - - - - - - - - - instructions - - - - - - - - - - - -
   // WARNING! MUST ADD extendBody: true; TO CONTAINING SCAFFOLD
   //
   // Instructions:
@@ -29,16 +29,13 @@ class _BottomNavBarCurvedFb1State extends State<BottomNavBarCurvedFb1> {
   //
   // For help implementing this in a real app, watch https://www.youtube.com/watch?v=C0_3w0kd0nc. The style is different, but connecting it to navigation is the same.
   //
-  //- - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - -
+  // - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - -
 
   int _currentIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
-
-      //widget.pageController.jumpToPage(index);
-      //widget.pageController.animateTo(2, duration: Duration(milliseconds: 500), curve: Curves.easeIn)
       widget.pageController.animateToPage(index,
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     });

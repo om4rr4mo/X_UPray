@@ -27,7 +27,6 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     timer = Timer.periodic(Duration(milliseconds: 500), (_) {
@@ -91,14 +90,14 @@ class _IntroPageState extends State<IntroPage> {
           PageViewModel(
             title: "Intro 1",
             body:
-                "Luuuuuuuuuuuuunga lunghissima davvero lunga descrizione di non so quante righe",
+              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
             image: _buildImage('mecca.png'),
             decoration: pageDecoration,
           ),
           PageViewModel(
             title: "Intro 2",
             body:
-            "Luuuuuuuuuuuuunga lunghissima davvero lunga descrizione di non so quante righe",
+              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
             image: _buildImage('mecca.png'),
             decoration: pageDecoration,
           ),
@@ -129,7 +128,6 @@ class _IntroPageState extends State<IntroPage> {
         showNextButton: false,
         skipFlex: 0,
         nextFlex: 0,
-        //rtl: true, // Display as right-to-left
         skip: const Text('Skip'),
         next: const Icon(Icons.arrow_forward),
         done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
@@ -147,12 +145,6 @@ class _IntroPageState extends State<IntroPage> {
             borderRadius: BorderRadius.all(Radius.circular(25.0)),
           ),
         ),
-        // dotsContainerDecorator: const ShapeDecoration(
-        //   color: Colors.black87,
-        //   shape: RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.all(Radius.circular(8.0)),
-        //   ),
-        // ),
       );
   }
 }

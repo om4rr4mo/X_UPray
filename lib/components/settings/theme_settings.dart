@@ -13,7 +13,6 @@ class _ThemeSettingState extends State<ThemeSetting> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     themeMode = ThemeMode.dark;

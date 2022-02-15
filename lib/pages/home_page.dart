@@ -24,9 +24,6 @@ class _HomePageState extends State<HomePage> {
   late PageController pageController = new PageController();
   var currentIndex = 0;
 
-  // final PermissionHandler permissionHandler = PermissionHandler();
-  // late Map<PermissionGroup, PermissionStatus> permissions;
-
   String timeBetween(DateTime from, DateTime to) {
     from = DateTime(
         from.year, from.month, from.day, from.hour, from.minute, from.second);
@@ -38,54 +35,9 @@ class _HomePageState extends State<HomePage> {
         (to.difference(from).inSeconds % 60).toString().padLeft(2, '0');
   }
 
-  // String fetchPatientCount() {
-  //   Prayer p = prayerTimes.nextPrayer();
-  //   DateTime d = DateTime.now().add(new Duration(days: 1));
-  //   d = new DateTime(d.year, d.month, d.day, 0, 0, 0);
-  //   String s = "";
-  //
-  //   if (p != Prayer.none) {
-  //     p = prayerTimes.nextPrayerByDateTime(d);
-  //     s = timeBetween(DateTime.now(), prayerTimes.timeForPrayer(prayerTimes.nextPrayerByDateTime(DateTime.now())));
-  //   }
-  //   return s;
-  // }
-
-  // Future<bool> _requestPermission(PermissionGroup permission) async {
-  //   final PermissionHandler _permissionHandler = PermissionHandler();
-  //   var result = await _permissionHandler.requestPermissions([permission]);
-  //   if (result[permission] == PermissionStatus.granted) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-  //
-  // /*Checking if your App has been Given Permission*/
-  // Future<bool> requestLocationPermission({Function? onPermissionDenied}) async {
-  //   var granted = await _requestPermission(PermissionGroup.location);
-  //   if (granted != true) {
-  //     requestLocationPermission();
-  //   }
-  //   debugPrint('requestContactsPermission $granted');
-  //   return granted;
-  // }
-
-
   @override
   void initState() {
     super.initState();
-
-    //requestLocationPermission();
-    // timer = Timer.periodic(Duration(seconds: 1), (_) {
-    //   setState(() {
-    //     Prayer xx = Prayer.values.toList().firstWhere((element) => element.index == prayerTimes.nextPrayer().index);
-    //
-    //     if (xx != null) {
-    //       nextPrayer = xx.toString().split('.')[1];
-    //     }
-    //     timeRemain = fetchPatientCount();
-    //   });
-    // });
   }
 
   @override
@@ -118,7 +70,6 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-                //color: Colors.white10,
                 child: HomeNavigationBar(
                   pageController: pageController,
                 ),

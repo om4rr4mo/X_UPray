@@ -7,7 +7,7 @@ class CircleAvatarWithTransition extends StatelessWidget {
   /// the profile image to be displayed.
   final ImageProvider image;
 
-  ///the diameter of the entire widget, including the concentric circles.
+  /// the diameter of the entire widget, including the concentric circles.
   final double size;
 
   /// the width between the edges of each concentric circle.
@@ -32,7 +32,8 @@ class CircleAvatarWithTransition extends StatelessWidget {
           width: size,
           decoration: BoxDecoration(
               shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
-        )),
+        ),
+        ),
         Container(
           child: Container(
               height: size - transitionBorderwidth,

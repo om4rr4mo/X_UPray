@@ -42,10 +42,44 @@ class PrayerItem extends StatelessWidget {
                   fontSize: 17,
                 ),
                 ),
-              Icon(
-                Icons.add_alert,
+              IconButton(
+                icon: const Icon(Icons.add_alert),
                 color: Colors.teal,
-                size: 24.0,
+                iconSize: 24.0,
+                onPressed: () {
+                  showModalBottomSheet<void>(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    backgroundColor: Colors.teal[50],
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        padding: const EdgeInsets.only(top: 16),
+                        height: 800,
+                        child: Column(
+                          children: <Widget>[
+                            const Text(
+                              'Notification Menu',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                              ),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.teal,
+                              ),
+                              child: const Text('Close'),
+                              onPressed: () => Navigator.pop(context),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),

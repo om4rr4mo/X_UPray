@@ -122,32 +122,9 @@ class _TrackerPageState extends State<TrackerPage> {
                 return null;
               },
             ),
-            //LoginProvider(
-            //  icon: FontAwesomeIcons.linkedinIn,
-            //  label: "LinkedIn",
-            //  callback: () async {
-            //    debugPrint('start linkdin sign in');
-            //    await Future.delayed(loginTime);
-            //    debugPrint('stop linkdin sign in');
-            //    return null;
-            //  },
-            //),
-            //LoginProvider(
-            //  icon: FontAwesomeIcons.githubAlt,
-            //  label: "GitHub",
-            //  callback: () async {
-            //    debugPrint('start github sign in');
-            //    await Future.delayed(loginTime);
-            //    debugPrint('stop github sign in');
-            //    return null;
-            //  },
-            //),
           ],
           onSubmitAnimationCompleted: () {
             setState(() {});
-            // Navigator.of(context).pushReplacement(MaterialPageRoute(
-            //   builder: (context) => TrackerPage(),
-            // ));
           },
           onRecoverPassword: _recoverPassword,
           showDebugButtons: false,

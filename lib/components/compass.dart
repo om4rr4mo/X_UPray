@@ -79,8 +79,7 @@ class _CompassState extends State<Compass> {
 
   void getWeather() async {
     var key = '7c5c03c8acacd8dea3abd517ae22af34';
-    var url =
-        'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$key';
+    var url = 'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$key';
     var uri = Uri.parse(url);
     var resp = await http.Client().get(uri);
     var data = json.decode(resp.body);
@@ -168,7 +167,6 @@ class _CompassState extends State<Compass> {
   Widget Compass() {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
       Text(city, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-      //Text('lat:${lat.toStringAsFixed(2)}  lon:${lon.toStringAsFixed(2)}'),
       Container(
         height: MediaQuery.of(context).size.height * 0.4,
         child: GestureDetector(
@@ -197,11 +195,6 @@ class _CompassState extends State<Compass> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Compass(),
-      // PageView(
-      //   controller: PageController(viewportFraction: 0.8),
-      //   scrollDirection: Axis.vertical,
-      //   children: [Compass(), Earth()],
-      // ),
     );
   }
 }

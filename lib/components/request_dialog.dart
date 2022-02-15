@@ -14,9 +14,7 @@ class RequestDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: Theme.of(context).iconTheme.color,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      //this right here
       child: Wrap(
-        //constraints: BoxConstraints.expand(),
         children: [
           Padding(
             padding: const EdgeInsets.all(24.0),

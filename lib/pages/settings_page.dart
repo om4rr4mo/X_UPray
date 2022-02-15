@@ -22,39 +22,6 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-              //     Text(
-              //       "IMPOSTAZIONI",
-              //       style: Theme.of(context).textTheme.headline1,
-              //     ),
-              //     //user.photoURL != null
-              //     //    ? ClipOval(
-              //     //  child: Material(
-              //     //    color: kBlueMainColor,
-              //     //    child: Image.network(
-              //     //      user.photoURL,
-              //     //      fit: BoxFit.fitHeight,
-              //     //    ),
-              //     //  ),
-              //     //)
-              //     //    :
-              //     ClipOval(
-              //       child: Material(
-              //         color: Theme.of(context).backgroundColor,
-              //         child: Padding(
-              //           padding: EdgeInsets.all(5.0),
-              //           child: Icon(
-              //             Icons.person,
-              //             size: 25,
-              //             color: Colors.white,
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Align(
                 alignment: Alignment.center,
                 child: CircleAvatarWithTransition(
@@ -63,45 +30,10 @@ class _SettingsPageState extends State<SettingsPage> {
               image: loggedIn && userLogged.photoURL != null
                   ? NetworkImage(
                       userLogged.photoURL!,
-                      // "https://lh3.googleusercontent.com/a-/AOh14GiYlXT-DJ8baR8Q_qrx1LxBGYBVQu6JDtC-gr2zGMw=s288-p-rw-no",
                     )
                   : NetworkImage(""),
             ),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Text(
-              //       "IMPOSTAZIONI",
-              //       style: Theme.of(context).textTheme.headline1,
-              //     ),
-              //     //user.photoURL != null
-              //     //    ? ClipOval(
-              //     //  child: Material(
-              //     //    color: kBlueMainColor,
-              //     //    child: Image.network(
-              //     //      user.photoURL,
-              //     //      fit: BoxFit.fitHeight,
-              //     //    ),
-              //     //  ),
-              //     //)
-              //     //    :
-              //     // ClipOval(
-              //     //   child: Material(
-              //     //     color: Theme.of(context).backgroundColor,
-              //     //     child: const Padding(
-              //     //       padding: EdgeInsets.all(5.0),
-              //     //       child: Icon(
-              //     //         Icons.person,
-              //     //         size: 25,
-              //     //         color: Colors.white,
-              //     //       ),
-              //     //     ),
-              //     //   ),
-              //     // ),
-              //     const CircleAvatarWithTransition(primaryColor: Colors.blue, image: NetworkImage("https://lh3.googleusercontent.com/a-/AOh14GiYlXT-DJ8baR8Q_qrx1LxBGYBVQu6JDtC-gr2zGMw=s288-p-rw-no",)),
-              //   ],
-              // ),
               SizedBox(
                 height: 30,
               ),

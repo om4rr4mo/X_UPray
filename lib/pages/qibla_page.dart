@@ -11,12 +11,5 @@ class QiblaPage extends StatelessWidget {
         child: Compass(),
       ),
     );
-    // return SafeArea(
-    //   child: Center(
-    //     child: Container(
-    //       child: Text("QIBLA PAGE"),
-    //     ),
-    //   ),
-    // );
   }
 }

@@ -13,8 +13,6 @@ class _LoadingBarState extends State<LoadingBar> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    //dispose del controller va messo sempre prima della dispose della superclasse
-    //https://stackoverflow.com/questions/58802223/flutter-ticker-must-be-disposed-before-calling-super-dispose
     controller.dispose();
     super.dispose();
   }

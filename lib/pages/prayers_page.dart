@@ -15,7 +15,6 @@ class _PrayersPageState extends State<PrayersPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     date = DateFormat('dd-MM-y').format(currentDate);

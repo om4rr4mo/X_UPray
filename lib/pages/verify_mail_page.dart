@@ -52,7 +52,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen>
                   child: Text(
                     "E' stata inviata una mail a ${user.email} per verificare il tuo account",
                     textAlign: TextAlign.center,
-                    //style: kBodyLabelStyle,
                   )),
             ),
           ]),

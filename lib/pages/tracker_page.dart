@@ -97,7 +97,7 @@ class _TrackerPageState extends State<TrackerPage> {
               label: '',
               callback: () async {
                 userLogged =
-                (await Authentication.signInWithGoogle(context: context))!;
+                    (await Authentication.signInWithGoogle(context: context))!;
 
                 if (userLogged != null) {
                   setState(() {

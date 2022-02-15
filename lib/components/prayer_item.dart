@@ -13,35 +13,35 @@ class PrayerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime parseDate = new DateFormat("HH:mm").parse(prayerTime);
     String formattedPrayerTime = DateFormat('kk:mm').format(parseDate);
-    
+
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.teal,
-                  width: 3,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
+          border: Border.all(
+            color: Colors.teal,
+            width: 3,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(6.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                  formattedPrayerTime,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ),
+                formattedPrayerTime,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
                 ),
+              ),
               Text(
                 prayerName,
                 style: const TextStyle(
                   fontSize: 17,
                 ),
-                ),
+              ),
               IconButton(
                 icon: const Icon(Icons.add_alert),
                 color: Colors.teal,
@@ -49,8 +49,7 @@ class PrayerItem extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet<void>(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
+                        borderRadius: BorderRadius.circular(8)),
                     backgroundColor: Colors.teal[50],
                     context: context,
                     builder: (BuildContext context) {
@@ -66,7 +65,7 @@ class PrayerItem extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
                               ),
-                              ),
+                            ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.teal,

@@ -22,9 +22,9 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-              Align(
-                alignment: Alignment.center,
-                child: CircleAvatarWithTransition(
+          Align(
+            alignment: Alignment.center,
+            child: CircleAvatarWithTransition(
               transitionBorderwidth: 20,
               primaryColor: Colors.blue,
               image: loggedIn && userLogged.photoURL != null
@@ -33,20 +33,19 @@ class _SettingsPageState extends State<SettingsPage> {
                     )
                   : NetworkImage(""),
             ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              ThemeSetting(),
-              SizedBox(
-                height: 25,
-              ),
-              SchoolSetting(),
-              SizedBox(
-                height: 25,
-              ),
-
-              GestureDetector(
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          ThemeSetting(),
+          SizedBox(
+            height: 25,
+          ),
+          SchoolSetting(),
+          SizedBox(
+            height: 25,
+          ),
+          GestureDetector(
             onTap: () async {
               await Authentication.signOut();
               setState(() {
@@ -58,8 +57,8 @@ class _SettingsPageState extends State<SettingsPage> {
               textAlign: TextAlign.center,
             ),
           ),
-            ],
-          ),
-        ));
+        ],
+      ),
+    ));
   }
 }

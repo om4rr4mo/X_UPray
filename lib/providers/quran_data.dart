@@ -39,13 +39,13 @@ class Data {
 
   Data(
       {this.number,
-        this.name,
-        this.englishName,
-        this.englishNameTranslation,
-        this.revelationType,
-        this.numberOfAyahs,
-        this.ayahs,
-        this.edition});
+      this.name,
+      this.englishName,
+      this.englishNameTranslation,
+      this.revelationType,
+      this.numberOfAyahs,
+      this.ayahs,
+      this.edition});
 
   Data.fromJson(Map<String, dynamic> json) {
     number = json['number'];
@@ -61,7 +61,7 @@ class Data {
       });
     }
     edition =
-    json['edition'] != null ? new Edition.fromJson(json['edition']) : null;
+        json['edition'] != null ? new Edition.fromJson(json['edition']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -95,14 +95,14 @@ class Ayahs {
 
   Ayahs(
       {this.number,
-        this.text,
-        this.numberInSurah,
-        this.juz,
-        this.manzil,
-        this.page,
-        this.ruku,
-        this.hizbQuarter,
-        this.sajda});
+      this.text,
+      this.numberInSurah,
+      this.juz,
+      this.manzil,
+      this.page,
+      this.ruku,
+      this.hizbQuarter,
+      this.sajda});
 
   Ayahs.fromJson(Map<String, dynamic> json) {
     number = json['number'];
@@ -142,12 +142,12 @@ class Edition {
 
   Edition(
       {this.identifier,
-        this.language,
-        this.name,
-        this.englishName,
-        this.format,
-        this.type,
-        this.direction});
+      this.language,
+      this.name,
+      this.englishName,
+      this.format,
+      this.type,
+      this.direction});
 
   Edition.fromJson(Map<String, dynamic> json) {
     identifier = json['identifier'];

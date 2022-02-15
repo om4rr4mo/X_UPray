@@ -37,36 +37,27 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
       items: [
         /// Home
         SalomonBottomBarItem(
-          icon: const Icon(FontAwesomeIcons.clock),
-          title: const Text("")
-        ),
+            icon: const Icon(FontAwesomeIcons.clock), title: const Text("")),
 
         /// Corano
         SalomonBottomBarItem(
-          icon: const Icon(FontAwesomeIcons.book),
-          title: const Text("")
-        ),
+            icon: const Icon(FontAwesomeIcons.book), title: const Text("")),
 
         /// Qibla
         SalomonBottomBarItem(
-          icon: Icon(FontAwesomeIcons.compass),
-          title: const Text("")
-        ),
+            icon: Icon(FontAwesomeIcons.compass), title: const Text("")),
 
         /// Tracker
         SalomonBottomBarItem(
-          icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
-          title: const Text("")
-        ),
+            icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
+            title: const Text("")),
 
         /// Impostazioni
         SalomonBottomBarItem(
-          icon: const Icon(FontAwesomeIcons.slidersH),
-          title: const Text("")
-        ),
+            icon: const Icon(FontAwesomeIcons.slidersH), title: const Text("")),
       ],
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
+      currentIndex: _currentIndex,
+      onTap: _onItemTapped,
     );
   }
 }

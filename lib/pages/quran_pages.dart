@@ -21,12 +21,36 @@ class QuranPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(data.ayahs[0].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
-                    Text(data.ayahs[1].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
-                    Text(data.ayahs[2].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
-                    Text(data.ayahs[3].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
-                    Text(data.ayahs[4].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
-                    Text(data.ayahs[5].text, style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.normal, fontSize: 20),),
+                    Text(
+                      data.ayahs[0].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
+                    Text(
+                      data.ayahs[1].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
+                    Text(
+                      data.ayahs[2].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
+                    Text(
+                      data.ayahs[3].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
+                    Text(
+                      data.ayahs[4].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
+                    Text(
+                      data.ayahs[5].text,
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontWeight: FontWeight.normal, fontSize: 20),
+                    ),
                   ],
                 ),
               ),

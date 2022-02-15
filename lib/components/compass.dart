@@ -79,7 +79,8 @@ class _CompassState extends State<Compass> {
 
   void getWeather() async {
     var key = '7c5c03c8acacd8dea3abd517ae22af34';
-    var url = 'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$key';
+    var url =
+        'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$key';
     var uri = Uri.parse(url);
     var resp = await http.Client().get(uri);
     var data = json.decode(resp.body);

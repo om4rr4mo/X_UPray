@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
 class PrayerProvider {
-
   Future getPTCalendar() async {
     late double pLat;
     late double pLong;

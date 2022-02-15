@@ -27,12 +27,12 @@ class CircleAvatarWithTransition extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       children: <Widget>[
         Container(
-            child: Container(
-          height: size,
-          width: size,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
-        ),
+          child: Container(
+            height: size,
+            width: size,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
+          ),
         ),
         Container(
           child: Container(

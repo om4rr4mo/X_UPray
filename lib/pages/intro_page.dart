@@ -62,89 +62,91 @@ class _IntroPageState extends State<IntroPage> {
     );
 
     return IntroductionScreen(
-        key: introKey,
-        isBottomSafeArea: true,
-        isProgress: true,
-        isProgressTap: true,
-        color: Colors.blueGrey,
-        globalBackgroundColor: Theme.of(context).colorScheme.background,
-        globalFooter: (isNotificationEnabled && isLocationEnabled)
-            ? SizedBox(
-                width: double.infinity,
-                height: 90,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateColor.resolveWith((states) => Colors.blue),
-                  ),
-                  child: Text(
-                    'Tutto pronto per iniziare',
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Theme.of(context).textTheme.bodyText2!.color),
-                  ),
-                  onPressed: () => _onIntroEnd(context),
+      key: introKey,
+      isBottomSafeArea: true,
+      isProgress: true,
+      isProgressTap: true,
+      color: Colors.blueGrey,
+      globalBackgroundColor: Theme.of(context).colorScheme.background,
+      globalFooter: (isNotificationEnabled && isLocationEnabled)
+          ? SizedBox(
+              width: double.infinity,
+              height: 90,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateColor.resolveWith((states) => Colors.blue),
                 ),
-              )
-            : null,
-        pages: [
-          PageViewModel(
-            title: "Intro 1",
-            body:
-              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
-            image: _buildImage('mecca.png'),
-            decoration: pageDecoration,
-          ),
-          PageViewModel(
-            title: "Intro 2",
-            body:
-              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
-            image: _buildImage('mecca.png'),
-            decoration: pageDecoration,
-          ),
-          PageViewModel(
-            image: _buildImage('mecca.png'),
-            titleWidget: Text(
-              "Attiva funzionalità",
-              style: pageDecoration.titleTextStyle,
-            ),
-            bodyWidget: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  LocationButton(),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  NotificationButton(),
-                ],
+                child: Text(
+                  'Tutto pronto per iniziare',
+                  style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).textTheme.bodyText2!.color),
+                ),
+                onPressed: () => _onIntroEnd(context),
               ),
-            ),
-            decoration: pageDecoration,
-          ),
-        ],
-        onDone: () => _onIntroEnd(context),
-        showSkipButton: false,
-        showDoneButton: false,
-        showNextButton: false,
-        skipFlex: 0,
-        nextFlex: 0,
-        skip: const Text('Skip'),
-        next: const Icon(Icons.arrow_forward),
-        done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
-        curve: Curves.fastLinearToSlowEaseIn,
-        controlsMargin: const EdgeInsets.all(16),
-        controlsPadding: kIsWeb
-            ? const EdgeInsets.all(12.0)
-            : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-        dotsDecorator: DotsDecorator(
-          size: Size(10.0, 10.0),
-          color: Theme.of(context).unselectedWidgetColor,
-          activeSize: Size(22.0, 10.0),
-          activeColor: Theme.of(context).scaffoldBackgroundColor,
-          activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25.0)),
-          ),
+            )
+          : null,
+      pages: [
+        PageViewModel(
+          title: "Intro 1",
+          body:
+              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
+          image: _buildImage('mecca.png'),
+          decoration: pageDecoration,
         ),
-      );
+        PageViewModel(
+          title: "Intro 2",
+          body:
+              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
+          image: _buildImage('mecca.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          image: _buildImage('mecca.png'),
+          titleWidget: Text(
+            "Attiva funzionalità",
+            style: pageDecoration.titleTextStyle,
+          ),
+          bodyWidget: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LocationButton(),
+                SizedBox(
+                  height: 20,
+                ),
+                NotificationButton(),
+              ],
+            ),
+          ),
+          decoration: pageDecoration,
+        ),
+      ],
+      onDone: () => _onIntroEnd(context),
+      showSkipButton: false,
+      showDoneButton: false,
+      showNextButton: false,
+      skipFlex: 0,
+      nextFlex: 0,
+      skip: const Text('Skip'),
+      next: const Icon(Icons.arrow_forward),
+      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      curve: Curves.fastLinearToSlowEaseIn,
+      controlsMargin: const EdgeInsets.all(16),
+      controlsPadding: kIsWeb
+          ? const EdgeInsets.all(12.0)
+          : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+      dotsDecorator: DotsDecorator(
+        size: Size(10.0, 10.0),
+        color: Theme.of(context).unselectedWidgetColor,
+        activeSize: Size(22.0, 10.0),
+        activeColor: Theme.of(context).scaffoldBackgroundColor,
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+        ),
+      ),
+    );
   }
 }

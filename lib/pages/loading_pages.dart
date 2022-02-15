@@ -35,8 +35,8 @@ class _LoadingPageState extends State<LoadingPage>
       vsync: this,
       duration: const Duration(seconds: 3),
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
 
     animation = CurvedAnimation(
       parent: controller,
@@ -45,8 +45,6 @@ class _LoadingPageState extends State<LoadingPage>
 
     controller.forward();
   }
-
-
 
   @override
   Widget build(BuildContext context) {

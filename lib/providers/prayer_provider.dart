@@ -32,12 +32,6 @@ class PrayerProvider {
     final position = await geolocatorPlatform.getCurrentPosition();
 
     DateTime date = DateTime.now();
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // var address = addresses.first.addressLine;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/calendarByAddress?address=$address&method=$method&month=${date.month}&year=${date.year}');
@@ -54,13 +48,6 @@ class PrayerProvider {
     final position = await geolocatorPlatform.getCurrentPosition();
 
     DateTime date = DateTime.now();
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // city = addresses.first.locality;
-    // country = addresses.first.countryName;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/calendarByCity?city=$city&country=$country&method=$method&month=${date.month}&year=${date.year}');
@@ -99,12 +86,6 @@ class PrayerProvider {
     final position = await geolocatorPlatform.getCurrentPosition();
 
     DateTime date = DateTime.now();
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // var address = addresses.first.addressLine;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/hijriCalendarByAddress?address=$address&method=$method&month=${date.month}&year=${date.year}');
@@ -121,13 +102,6 @@ class PrayerProvider {
     final position = await geolocatorPlatform.getCurrentPosition();
 
     DateTime date = DateTime.now();
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // city = addresses.first.locality;
-    // country = addresses.first.countryName;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/hijriCalendarByCity?city=$city&country=$country&method=$method&month=${date.month}&year=${date.year}');
@@ -167,12 +141,6 @@ class PrayerProvider {
     final position = await geolocatorPlatform.getCurrentPosition();
 
     DateTime date = DateTime.now();
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // var address = addresses.first.addressLine;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/timingsByAddress?address=$address&method=$method');
@@ -191,14 +159,6 @@ class PrayerProvider {
 
   Future getTimingsByCity(String date) async {
     final position = await geolocatorPlatform.getCurrentPosition();
-
-    //final coordinates = new Coordinates(position.latitude, position.longitude);
-
-    // var addresses =
-    // await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    //
-    // city = addresses.first.locality;
-    // country = addresses.first.countryName;
 
     final url = Uri.parse(
         'http://api.aladhan.com/v1/timingsByCity?city=$city&country=$country&method=$method&date_or_timestamp=$date');

@@ -35,8 +35,6 @@ class Authentication {
       ShowToastError(message: AuthExceptionHandler.generateExceptionMessage(e));
       return null;
     }
-    // Update the username
-    //await updateUserName(name, authResult.user);
   }
 
   // Email & Password Log In
@@ -66,7 +64,7 @@ class Authentication {
     return auth.sendPasswordResetEmail(email: email);
   }
 
-  //Google Login
+  // Google Login
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -94,23 +92,6 @@ class Authentication {
       }
     }
   }
-
-  // static Future<void> signOut({@required BuildContext context}) async {
-  //   final GoogleSignIn googleSignIn = GoogleSignIn();
-  //
-  //   try{
-  //     if(!kIsWeb){
-  //       await googleSignIn.signOut();
-  //     }
-  //     await FirebaseAuth.instance.signOut();
-  //   }catch (e) {
-  //     Scaffold.of(context).showSnackBar(
-  //       CustomSnackBar(
-  //         content: 'Log out non riuscito. Riprova',
-  //       ),
-  //     );
-  //   }
-  // }
 
   static Future createUserWithPhone(String phone, BuildContext context) async {
     FirebaseAuth auth = FirebaseAuth.instance;

@@ -171,4 +171,3 @@ class Edition {
     return data;
   }
 }
-

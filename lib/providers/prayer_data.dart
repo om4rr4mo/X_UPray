@@ -1,14 +1,9 @@
 class PrayerData {
-  // int? code;
-  // String? status;
   List<Data>? data;
 
-  // PrayerData({this.code, this.status, this.data});
   PrayerData({this.data});
 
   PrayerData.fromJson(Map<String, dynamic> json) {
-    // code = json['code'];
-    // status = json['status'];
     if (json['data'] != null) {
       data = <Data>[];
       try {
@@ -23,8 +18,6 @@ class PrayerData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    // data['code'] = this.code;
-    // data['status'] = this.status;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }

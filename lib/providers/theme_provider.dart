@@ -43,7 +43,7 @@ class MyTheme {
       headline5: TextStyle(color: Color(0xFFF6F4F3)),
       headline6: TextStyle(color: Color(0xFFF6F4F3)),
       overline: TextStyle(
-          color: Color(0xFFF6F4F3), fontSize: 13, fontWeight: FontWeight.w400),
+          color: Color(0xFFF6F4F3), fontSize: 11, fontWeight: FontWeight.w400),
       subtitle2: TextStyle(
           color: Color(0xFFF6F4F3), fontSize: 20, fontWeight: FontWeight.w500),
       button: TextStyle(color: Color(0xFFF6F4F3), fontSize: 17),

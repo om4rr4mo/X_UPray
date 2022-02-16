@@ -29,8 +29,8 @@ class _TrackerPageState extends State<TrackerPage> {
     User? user = (await Authentication.createUserWithEmailAndPassword(
         data.name!.trim(), data.password!.trim()))!;
 
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
   }
 
   Future<String?> _recoverPassword(String name) async {
@@ -51,7 +51,6 @@ class _TrackerPageState extends State<TrackerPage> {
         resizeToAvoidBottomInset: false,
         extendBody: false,
         body: FlutterLogin(
-          //onConfirmSignup: (value, logindata) {},
           theme: LoginTheme(
             primaryColor: Theme.of(context).scaffoldBackgroundColor,
             accentColor: Theme.of(context).textTheme.bodyText2!.color,

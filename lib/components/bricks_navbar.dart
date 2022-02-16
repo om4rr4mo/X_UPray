@@ -12,7 +12,7 @@ class BottomNavBarCurvedFb1 extends StatefulWidget {
 }
 
 class _BottomNavBarCurvedFb1State extends State<BottomNavBarCurvedFb1> {
-  // - - - - - - - - - - - - instructions - - - - - - - - - - - -
+  //
   // WARNING! MUST ADD extendBody: true; TO CONTAINING SCAFFOLD
   //
   // Instructions:
@@ -29,7 +29,6 @@ class _BottomNavBarCurvedFb1State extends State<BottomNavBarCurvedFb1> {
   //
   // For help implementing this in a real app, watch https://www.youtube.com/watch?v=C0_3w0kd0nc. The style is different, but connecting it to navigation is the same.
   //
-  // - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - -
 
   int _currentIndex = 0;
 
@@ -146,7 +145,7 @@ class BottomNavCurvePainter extends CustomPainter {
     path.lineTo(
         0,
         size.height +
-            56); //+56 here extends the navbar below app bar to include extra space on some screens (iphone 11)
+            56); // +56 here extends the navbar below app bar to include extra space on some screens (iPhone 11)
     canvas.drawPath(path, paint);
   }
 

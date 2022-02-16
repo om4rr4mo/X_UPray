@@ -86,7 +86,6 @@ class _PrayersPageState extends State<PrayersPage> {
                       ),
                       Text(
                         "",
-                        textAlign: TextAlign.center,
                       ),
                       PrayerItem(
                         prayerName: "Fajr",
@@ -105,11 +104,11 @@ class _PrayersPageState extends State<PrayersPage> {
                         prayerTime: data.timings.asr,
                       ),
                       PrayerItem(
-                        prayerName: "Maghreb",
+                        prayerName: "Maghrib",
                         prayerTime: data.timings.maghrib,
                       ),
                       PrayerItem(
-                        prayerName: "Ishaa",
+                        prayerName: "Isha",
                         prayerTime: data.timings.isha,
                       ),
                     ],

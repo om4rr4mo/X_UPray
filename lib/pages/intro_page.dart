@@ -56,7 +56,6 @@ class _IntroPageState extends State<IntroPage> {
     var pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
-      //descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Theme.of(context).colorScheme.background,
       imagePadding: EdgeInsets.zero,
     );
@@ -66,7 +65,6 @@ class _IntroPageState extends State<IntroPage> {
       isBottomSafeArea: true,
       isProgress: true,
       isProgressTap: true,
-      //color: Colors.blueGrey,
       globalBackgroundColor: Theme.of(context).colorScheme.background,
       globalFooter: (isNotificationEnabled && isLocationEnabled)
           ? SizedBox(
@@ -91,15 +89,13 @@ class _IntroPageState extends State<IntroPage> {
       pages: [
         PageViewModel(
           title: "Intro 1",
-          body:
-              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
+          body: "Lunga descrizione",
           image: _buildImage('mecca.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Intro 2",
-          body:
-              "Lunga lunghissima davvero molto lunga descrizione di non so quante righe",
+          body: "Lunga descrizione",
           image: _buildImage('mecca.png'),
           decoration: pageDecoration,
         ),
@@ -128,7 +124,6 @@ class _IntroPageState extends State<IntroPage> {
       showSkipButton: false,
       showDoneButton: false,
       showNextButton: false,
-      //skipFlex: 0,
       nextFlex: 0,
       skip: const Text('Skip'),
       next: const Icon(Icons.arrow_forward),

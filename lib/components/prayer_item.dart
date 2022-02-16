@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:prayers/Utility/TGBL.dart';
 
 class PrayerItem extends StatelessWidget {
   final String prayerName;
@@ -30,16 +31,16 @@ class PrayerItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
+                prayerName,
+                style: const TextStyle(
+                  fontSize: 17,
+                ),
+              ),
+              Text(
                 formattedPrayerTime,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
-                ),
-              ),
-              Text(
-                prayerName,
-                style: const TextStyle(
-                  fontSize: 17,
                 ),
               ),
               IconButton(
@@ -50,29 +51,95 @@ class PrayerItem extends StatelessWidget {
                   showModalBottomSheet<void>(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    backgroundColor: Colors.teal[50],
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     context: context,
                     builder: (BuildContext context) {
                       return Container(
                         padding: const EdgeInsets.only(top: 16),
                         height: 800,
                         child: Column(
-                          children: <Widget>[
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
                             const Text(
                               'Notification Menu',
-                              textAlign: TextAlign.start,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
                               ),
                             ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    padding: EdgeInsets.all(20),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.45,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.10,
+                                    decoration:
+                                        unselectedBoxDecoration(context),
+                                    child: Center(
+                                        child: Text(
+                                      'on'.toUpperCase(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    padding: EdgeInsets.all(20),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.45,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.10,
+                                    decoration:
+                                        unselectedBoxDecoration(context),
+                                    child: Center(
+                                        child: Text(
+                                      'off'.toUpperCase(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                padding: EdgeInsets.all(20),
+                                width: MediaQuery.of(context).size.width * 0.90,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.10,
+                                decoration: unselectedBoxDecoration(context),
+                                child: Center(
+                                    child: Text(
+                                  'scegli un adhan'.toUpperCase(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                              ),
+                            ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.teal,
+                                primary: Theme.of(context).iconTheme.color,
                               ),
                               child: const Text('Close'),
                               onPressed: () => Navigator.pop(context),
-                            )
+                            ),
                           ],
                         ),
                       );

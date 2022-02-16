@@ -6,58 +6,47 @@ import 'package:prayers/pages/settings_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeNavigationBar extends StatefulWidget {
-  final PageController pageController;
+  final List<NavigationDestination> destinations;
+  final int selectedIndex;
+  final void Function(int index) onItemTap;
 
-  const HomeNavigationBar({Key? key, required this.pageController})
-      : super(key: key);
+  const HomeNavigationBar({
+    Key? key,
+    required this.onItemTap,
+    required this.destinations,
+    this.selectedIndex = 0,
+  }) : super(key: key);
 
   @override
   State<HomeNavigationBar> createState() => _HomeNavigationBarState();
 }
 
 class _HomeNavigationBarState extends State<HomeNavigationBar> {
-  int _currentIndex = 0;
+  late int _selectedIndex;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-      widget.pageController.animateToPage(index,
-          duration: Duration(milliseconds: 300), curve: Curves.linear);
-    });
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _selectedIndex = widget.selectedIndex;
   }
 
   @override
   Widget build(BuildContext context) {
-    return SalomonBottomBar(
-      unselectedItemColor: Theme.of(context).unselectedWidgetColor,
-      duration: Duration(milliseconds: 300),
-      curve: Curves.linear,
-      selectedColorOpacity: 0.3,
-      selectedItemColor: Theme.of(context).selectedRowColor,
-      items: [
-        /// Home
-        SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.clock), title: const Text("")),
+    return NavigationBar(
+      animationDuration: const Duration(milliseconds: 900),
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+      backgroundColor: Colors.white10,
+      selectedIndex: _selectedIndex,
+      onDestinationSelected: (int tappedIndex) {
+        setState(() {
+          _selectedIndex = tappedIndex;
+        });
 
-        /// Corano
-        SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.book), title: const Text("")),
-
-        /// Qibla
-        SalomonBottomBarItem(
-            icon: Icon(FontAwesomeIcons.compass), title: const Text("")),
-
-        /// Tracker
-        SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
-            title: const Text("")),
-
-        /// Impostazioni
-        SalomonBottomBarItem(
-            icon: const Icon(FontAwesomeIcons.slidersH), title: const Text("")),
-      ],
-      currentIndex: _currentIndex,
-      onTap: _onItemTapped,
+        widget.onItemTap(tappedIndex);
+      },
+      destinations: widget.destinations,
     );
   }
 }

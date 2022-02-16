@@ -17,8 +17,6 @@ Future<void> main() async {
   var boolKey = 'isFirstTime';
   var isFirstTime = prefs.getBool(boolKey) ?? true;
 
-  await Firebase.initializeApp();
-
   runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : MainLaunch());
 }
 
@@ -29,8 +27,6 @@ class IntroLaunch extends StatelessWidget {
   IntroLaunch(this.prefs, this.boolKey);
 
   Widget build(BuildContext context) {
-    prefs.setBool(boolKey, false);
-
     return ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
         builder: (context, _) {
@@ -41,7 +37,7 @@ class IntroLaunch extends StatelessWidget {
             darkTheme: MyTheme.darkTheme,
             themeMode: themeProvider.themeMode,
             debugShowCheckedModeBanner: false,
-            home: IntroPage(),
+            home: IntroPage(prefs: prefs, boolKey: boolKey),
           );
         });
   }

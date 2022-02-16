@@ -33,16 +33,17 @@ class MyTheme {
     textTheme: const TextTheme(
       headline1: TextStyle(
           color: Color(0xFFF6F4F3), fontSize: 30, fontWeight: FontWeight.bold),
-      bodyText1: TextStyle(color: Color(0xFFF6F4F3)),
-      subtitle1: TextStyle(color: Color(0xFFF6F4F3)),
-      bodyText2: TextStyle(color: Color(0xFFF6F4F3)),
-      caption: TextStyle(color: Color(0xFFF6F4F3)),
+      bodyText1: TextStyle(color: Color(0xFFF6F4F3), fontSize: 17),
+      subtitle1: TextStyle(color: Color(0xFFF6F4F3), fontSize: 13),
+      bodyText2: TextStyle(color: Color(0xFFF6F4F3), fontSize: 17),
+      caption: TextStyle(color: Color(0xFFF6F4F3), fontSize: 13),
       headline2: TextStyle(color: Color(0xFFF6F4F3)),
       headline3: TextStyle(color: Color(0xFFF6F4F3)),
       headline4: TextStyle(color: Color(0xFFF6F4F3)),
       headline5: TextStyle(color: Color(0xFFF6F4F3)),
       headline6: TextStyle(color: Color(0xFFF6F4F3)),
-      overline: TextStyle(color: Color(0xFFF6F4F3)),
+      overline: TextStyle(
+          color: Color(0xFFF6F4F3), fontSize: 13, fontWeight: FontWeight.w500),
       subtitle2: TextStyle(
           color: Color(0xFFF6F4F3), fontSize: 20, fontWeight: FontWeight.w500),
       button: TextStyle(color: Color(0xFFF6F4F3), fontSize: 17),
@@ -69,16 +70,16 @@ class MyTheme {
     textTheme: const TextTheme(
       headline1: TextStyle(
           color: Color(0xFF455A64), fontSize: 30, fontWeight: FontWeight.bold),
-      bodyText1: TextStyle(color: Color(0xFF455A64)),
-      subtitle1: TextStyle(color: Color(0xFF455A64)),
-      bodyText2: TextStyle(color: Color(0xFF455A64)),
-      caption: TextStyle(color: Color(0xFF455A64)),
+      bodyText1: TextStyle(color: Color(0xFF455A64), fontSize: 17),
+      subtitle1: TextStyle(color: Color(0xFF455A64), fontSize: 13),
+      bodyText2: TextStyle(color: Color(0xFF455A64), fontSize: 17),
+      caption: TextStyle(color: Color(0xFF455A64), fontSize: 13),
       headline2: TextStyle(color: Color(0xFF455A64)),
       headline3: TextStyle(color: Color(0xFF455A64)),
       headline4: TextStyle(color: Color(0xFF455A64)),
       headline5: TextStyle(color: Color(0xFF455A64)),
       headline6: TextStyle(color: Color(0xFF455A64)),
-      overline: TextStyle(color: Color(0xFF455A64)),
+      overline: TextStyle(color: Color(0xFF455A64), fontSize: 12),
       subtitle2: TextStyle(
           color: Color(0xFF455A64), fontSize: 20, fontWeight: FontWeight.w500),
       button: TextStyle(color: Color(0xFF455A64), fontSize: 17),

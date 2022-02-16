@@ -17,6 +17,12 @@ import 'package:prayers/providers/theme_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroPage extends StatefulWidget {
+  final SharedPreferences prefs;
+  final String boolKey;
+
+  const IntroPage({Key? key, required this.prefs, required this.boolKey})
+      : super(key: key);
+
   @override
   State<IntroPage> createState() => _IntroPageState();
 }
@@ -41,6 +47,7 @@ class _IntroPageState extends State<IntroPage> {
   }
 
   void _onIntroEnd(context) {
+    widget.prefs.setBool(widget.boolKey, false);
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => HomePage()),
     );

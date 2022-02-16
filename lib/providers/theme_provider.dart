@@ -43,7 +43,7 @@ class MyTheme {
       headline5: TextStyle(color: Color(0xFFF6F4F3)),
       headline6: TextStyle(color: Color(0xFFF6F4F3)),
       overline: TextStyle(
-          color: Color(0xFFF6F4F3), fontSize: 13, fontWeight: FontWeight.w500),
+          color: Color(0xFFF6F4F3), fontSize: 13, fontWeight: FontWeight.w400),
       subtitle2: TextStyle(
           color: Color(0xFFF6F4F3), fontSize: 20, fontWeight: FontWeight.w500),
       button: TextStyle(color: Color(0xFFF6F4F3), fontSize: 17),
@@ -79,7 +79,8 @@ class MyTheme {
       headline4: TextStyle(color: Color(0xFF455A64)),
       headline5: TextStyle(color: Color(0xFF455A64)),
       headline6: TextStyle(color: Color(0xFF455A64)),
-      overline: TextStyle(color: Color(0xFF455A64), fontSize: 12),
+      overline: TextStyle(
+          color: Color(0xFF455A64), fontSize: 13, fontWeight: FontWeight.w400),
       subtitle2: TextStyle(
           color: Color(0xFF455A64), fontSize: 20, fontWeight: FontWeight.w500),
       button: TextStyle(color: Color(0xFF455A64), fontSize: 17),

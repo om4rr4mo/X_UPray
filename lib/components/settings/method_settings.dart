@@ -11,20 +11,20 @@ class MethodSetting extends StatefulWidget {
 
 class _MethodSettingState extends State<MethodSetting> {
   List<String> methodList = <String>[];
-  String ansari = 'Shia Ithna-Ansari';
-  String karachi = 'University of Islamic Sciences, Karachi';
-  String america = 'Islamic Society of North America';
+  //String ansari = 'Shia Ithna-Ansari';
+  String karachi = 'Karachi';
+  String america = 'ISNA, North America';
   String worldLeague = 'Muslim World League';
   String makkah = 'Umm Al-Qura University, Makkah';
-  String egyptian = 'Egyptian General Authority of Survey';
-  String tehran = 'Institute of Geophysics, University of Tehran';
-  String gulf = 'Gulf Region';
+  String egyptian = 'Egypt';
+  //String tehran = 'Institute of Geophysics, University of Tehran';
+  //String gulf = 'Gulf Region';
   String kuwait = 'Kuwait';
   String qatar = 'Qatar';
   String singapura = 'Majlis Ugama Islam Singapura';
-  String france = 'Union Organization islamic de France';
+  String france = 'UOIF, France';
   String turkey = ' Diyanet İşleri Başkanlığı, Turkey';
-  String worldwide = 'Moonsighting Committee Worldwide';
+  String worldwide = 'Moonsighting Committee';
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _MethodSettingState extends State<MethodSetting> {
 
     switch (method) {
       case 0:
-        methodList.add(ansari);
+        //methodList.add(ansari);
         break;
       case 1:
         methodList.add(karachi);
@@ -53,10 +53,10 @@ class _MethodSettingState extends State<MethodSetting> {
         methodList.add(egyptian);
         break;
       case 7:
-        methodList.add(tehran);
+        //methodList.add(tehran);
         break;
       case 8:
-        methodList.add(gulf);
+        //methodList.add(gulf);
         break;
       case 9:
         methodList.add(kuwait);
@@ -96,34 +96,34 @@ class _MethodSettingState extends State<MethodSetting> {
           height: 10,
         ),
         Container(
-          height: MediaQuery.of(context).size.height * 0.60,
+          height: MediaQuery.of(context).size.height * 0.40,
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                child: ElevatedButton(
-                  style:
-                      toggleButtonStyle(context, methodList.contains(ansari)),
-                  onPressed: () {
-                    methodList = <String>[];
-                    methodList.add(ansari);
-
-                    setState(() {
-                      method = 0;
-
-                      prayerProvider.getTimings(
-                          DateFormat('dd-MM-y').format(currentDate));
-                    });
-                  },
-                  child: Center(
-                      child: Text(
-                    ansari,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 0),
-                  )),
-                ),
-              ),
+              //Container(
+              //  height: MediaQuery.of(context).size.height * 0.07,
+              //  child: ElevatedButton(
+              //    style:
+              //        toggleButtonStyle(context, methodList.contains(ansari)),
+              //    onPressed: () {
+              //      methodList = <String>[];
+              //      methodList.add(ansari);
+//
+              //      setState(() {
+              //        method = 0;
+//
+              //        prayerProvider.getTimings(
+              //            DateFormat('dd-MM-y').format(currentDate));
+              //      });
+              //    },
+              //    child: Center(
+              //        child: Text(
+              //      ansari,
+              //      style: toggleTextStyle(context,
+              //          Theme.of(context).textTheme.button!, method == 0),
+              //    )),
+              //  ),
+              //),
               SizedBox(
                 height: 10,
               ),
@@ -262,59 +262,59 @@ class _MethodSettingState extends State<MethodSetting> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                child: ElevatedButton(
-                  style:
-                      toggleButtonStyle(context, methodList.contains(tehran)),
-                  onPressed: () {
-                    methodList = <String>[];
-                    methodList.add(tehran);
-
-                    setState(() {
-                      method = 7;
-
-                      prayerProvider.getTimings(
-                          DateFormat('dd-MM-y').format(currentDate));
-                    });
-                  },
-                  child: Center(
-                      child: Text(
-                    tehran,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 7),
-                  )),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                child: ElevatedButton(
-                  style: toggleButtonStyle(context, methodList.contains(gulf)),
-                  onPressed: () {
-                    methodList = <String>[];
-                    methodList.add(gulf);
-
-                    setState(() {
-                      method = 8;
-
-                      prayerProvider.getTimings(
-                          DateFormat('dd-MM-y').format(currentDate));
-                    });
-                  },
-                  child: Center(
-                      child: Text(
-                    gulf,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 8),
-                  )),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              //Container(
+              //  height: MediaQuery.of(context).size.height * 0.07,
+              //  child: ElevatedButton(
+              //    style:
+              //        toggleButtonStyle(context, methodList.contains(tehran)),
+              //    onPressed: () {
+              //      methodList = <String>[];
+              //      methodList.add(tehran);
+//
+              //      setState(() {
+              //        method = 7;
+//
+              //        prayerProvider.getTimings(
+              //            DateFormat('dd-MM-y').format(currentDate));
+              //      });
+              //    },
+              //    child: Center(
+              //        child: Text(
+              //      tehran,
+              //      style: toggleTextStyle(context,
+              //          Theme.of(context).textTheme.button!, method == 7),
+              //    )),
+              //  ),
+              //),
+              //SizedBox(
+              //  height: 10,
+              //),
+              //Container(
+              //  height: MediaQuery.of(context).size.height * 0.07,
+              //  child: ElevatedButton(
+              //    style: toggleButtonStyle(context, methodList.contains(gulf)),
+              //    onPressed: () {
+              //      methodList = <String>[];
+              //      methodList.add(gulf);
+//
+              //      setState(() {
+              //        method = 8;
+//
+              //        prayerProvider.getTimings(
+              //            DateFormat('dd-MM-y').format(currentDate));
+              //      });
+              //    },
+              //    child: Center(
+              //        child: Text(
+              //      gulf,
+              //      style: toggleTextStyle(context,
+              //          Theme.of(context).textTheme.button!, method == 8),
+              //    )),
+              //  ),
+              //),
+              //SizedBox(
+              //  height: 10,
+              //),
               Container(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(

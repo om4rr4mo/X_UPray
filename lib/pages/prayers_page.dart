@@ -117,7 +117,7 @@ class _PrayersPageState extends State<PrayersPage> {
               ),
             );
           } else {
-            return Center(child: LoadingPage());
+            return Center(child: Container(height: 0,width: 0,));
           }
         });
   }

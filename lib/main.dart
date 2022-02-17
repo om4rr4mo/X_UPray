@@ -17,6 +17,7 @@ Future<void> main() async {
   var boolKey = 'isFirstTime';
   var isFirstTime = prefs.getBool(boolKey) ?? true;
 
+  await Firebase.initializeApp();
   runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : MainLaunch());
 }
 

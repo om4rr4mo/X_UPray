@@ -47,21 +47,15 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 setState(() {});
               },
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(5),
                 width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.10,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: themeMode == ThemeMode.light
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
                     child: Text(
-                  "Chiaro".toUpperCase(),
-                  style: themeMode == ThemeMode.light
-                      ? Theme.of(context)
-                          .textTheme
-                          .button!
-                          .copyWith(fontWeight: FontWeight.bold)
-                      : null,
+                  "Chiaro",
                 )),
               ),
             ),
@@ -76,21 +70,15 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 setState(() {});
               },
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(5),
                 width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.10,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: themeMode == ThemeMode.dark
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
                     child: Text(
-                  "scuro".toUpperCase(),
-                  style: themeMode == ThemeMode.dark
-                      ? Theme.of(context)
-                          .textTheme
-                          .button!
-                          .copyWith(fontWeight: FontWeight.bold)
-                      : null,
+                  "Scuro",
                 )),
               ),
             ),

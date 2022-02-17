@@ -36,21 +36,15 @@ class _SchoolSettingState extends State<SchoolSetting> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(5),
                 width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.10,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: school == 0
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
                     child: Text(
-                  "Shafi".toUpperCase(),
-                  style: school == 0
-                      ? Theme.of(context)
-                          .textTheme
-                          .button!
-                          .copyWith(fontWeight: FontWeight.bold)
-                      : null,
+                  "Shafi",
                 )),
               ),
             ),
@@ -64,21 +58,15 @@ class _SchoolSettingState extends State<SchoolSetting> {
                 });
               },
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.10,
+                height: MediaQuery.of(context).size.height * 0.07,
                 decoration: school == 1
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
                     child: Text(
-                  "Hanafi".toUpperCase(),
-                  style: school == 1
-                      ? Theme.of(context)
-                          .textTheme
-                          .button!
-                          .copyWith(fontWeight: FontWeight.bold)
-                      : null,
+                  "Hanafi",
                 )),
               ),
             ),

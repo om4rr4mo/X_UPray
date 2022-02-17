@@ -64,6 +64,25 @@ BoxDecoration unselectedBoxDecoration(BuildContext context) {
   );
 }
 
+showSlider(BuildContext context, Widget widget) {
+  showModalBottomSheet<void>(
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)),
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    context: context,
+    builder: (BuildContext context) {
+      return Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+          padding: const EdgeInsets.only(top: 16),
+          height: 800,
+          child: widget,
+        ),
+      );
+    },
+  );
+}
+
 late String city;
 late String country;
 late String address;

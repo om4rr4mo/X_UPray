@@ -57,27 +57,116 @@ Color textColorForBackground(Color backgroundColor) {
   return Color(0xFF455A64);
 }
 
-BoxDecoration selectedBoxDecoration(BuildContext context) {
-  return BoxDecoration(
-    color: Theme.of(context).iconTheme.color,
-    borderRadius: BorderRadius.circular(10),
-    border: Border.all(color: Theme.of(context).iconTheme.color!, width: 4),
-  );
+// ButtonStyle selectedBoxDecoration(BuildContext context, ThemeMode themeMode) {
+//   return ButtonStyle(
+//     backgroundColor: MaterialStateProperty.resolveWith((states) {
+//       if (states.contains(MaterialState.selected))
+//         return Theme.of(context).iconTheme.color;
+//       else
+//         return Theme.of(context).scaffoldBackgroundColor;
+//     }),
+//     textStyle: MaterialStateProperty.resolveWith((states) {
+//       if (states.contains(MaterialState.selected)) {
+//         if (themeMode == ThemeMode.light) {
+//           return Theme.of(context).textTheme.button!.copyWith(
+//               color:
+//                   textColorForBackground(Theme.of(context).iconTheme.color!));
+//         } else {
+//           return Theme.of(context).textTheme.button!.copyWith(
+//               color:
+//                   textColorForBackground(Theme.of(context).scaffoldBackgroundColor!));
+//         }
+//       } else
+//         if (themeMode == ThemeMode.light) {
+//           return Theme.of(context).textTheme.button!.copyWith(
+//               color:
+//                   textColorForBackground(Theme.of(context).scaffoldBackgroundColor!));
+//         } else {
+//           return Theme.of(context).textTheme.button!.copyWith(
+//               color:
+//                   textColorForBackground(Theme.of(context).iconTheme.color!));
+//         }
+//     }),
+//     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//       RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(18.0),
+//         side: BorderSide(
+//           color: Theme.of(context).iconTheme.color!,
+//           width: 4,
+//         ),
+//       ),
+//     ),
+//   );
+// }
+//
+// ButtonStyle unselectedBoxDecoration(BuildContext context) {
+//   return ButtonStyle(
+//     backgroundColor:
+//         MaterialStateProperty.all(Theme.of(context).scaffoldBackgroundColor),
+//     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//       RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(18.0),
+//         side: BorderSide(
+//           color: Theme.of(context).unselectedWidgetColor,
+//           width: 2,
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
+  if (selected) {
+    return BoxDecoration(
+      color: Theme.of(context).iconTheme.color,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: Theme.of(context).iconTheme.color!, width: 0),
+    );
+  } else {
+    return BoxDecoration(
+      color: Theme.of(context).colorScheme.background,
+      borderRadius: BorderRadius.circular(10),
+    );
+  }
 }
 
-BoxDecoration unselectedBoxDecoration(BuildContext context) {
-  return BoxDecoration(
-    color: Theme.of(context).scaffoldBackgroundColor,
-    borderRadius: BorderRadius.circular(10),
-    border:
-        Border.all(color: Theme.of(context).unselectedWidgetColor, width: 2),
+ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
+  if (selected) {
+    return ButtonStyle(
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+    );
+  } else {
+    return ButtonStyle(
+      backgroundColor:
+          MaterialStateProperty.all(Theme.of(context).colorScheme.background),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          side: BorderSide(
+              width: 2, color: Theme.of(context).colorScheme.secondary),
+        ),
+      ),
+    );
+  }
+}
+
+TextStyle toggleTextStyle(
+    BuildContext context, TextStyle style, bool selected) {
+  return style.copyWith(
+    color: textColorForBackground(
+      toggleBoxDecoration(context, selected).color!,
+    ),
+    fontWeight: selected ? FontWeight.bold : FontWeight.w500,
   );
 }
 
 showSlider(BuildContext context, Widget widget) {
   showModalBottomSheet<void>(
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
     builder: (BuildContext context) {
@@ -104,8 +193,6 @@ late double pLat;
 late double pLong;
 bool isSigningIn = false;
 late User userLogged;
-late String userUrlPhoto =
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fvectors%2Fblank-profile-picture-mystery-man-973460%2F&psig=AOvVaw0Vsqk2A0BTIydQY1pw-0pv&ust=1644594132572000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCMDoztK89fUCFQAAAAAdAAAAABAE";
 PrayerProvider prayerProvider = new PrayerProvider();
 QuranProvider quranProvider = new QuranProvider();
 

@@ -12,6 +12,23 @@ class SchoolSetting extends StatefulWidget {
 }
 
 class _SchoolSettingState extends State<SchoolSetting> {
+  List<String> schoolList = <String>[];
+  String hanafi = 'Hanafi';
+  String shafi = 'Shafi';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    schoolList = <String>[];
+    if (school == 0) {
+      schoolList.add(shafi);
+    } else {
+      schoolList.add(hanafi);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,62 +45,52 @@ class _SchoolSettingState extends State<SchoolSetting> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  school = 0;
+            Container(
+              width: MediaQuery.of(context).size.width * 0.45,
+              height: MediaQuery.of(context).size.height * 0.07,
+              child: ElevatedButton(
+                style: toggleButtonStyle(context, schoolList.contains(shafi)),
+                onPressed: () {
+                  schoolList = <String>[];
+                  schoolList.add(shafi);
 
-                  prayerProvider
-                      .getTimings(DateFormat('dd-MM-y').format(currentDate));
-                });
-              },
-              child: Container(
-                padding: EdgeInsets.all(5),
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.07,
-                decoration: school == 0
-                    ? selectedBoxDecoration(context)
-                    : unselectedBoxDecoration(context),
+                  setState(() {
+                    school = 0;
+
+                    prayerProvider
+                        .getTimings(DateFormat('dd-MM-y').format(currentDate));
+                  });
+                },
                 child: Center(
                   child: Text(
-                    "Shafi",
-                    style: school == 0
-                        ? Theme.of(context).textTheme.button!.copyWith(
-                            color: textColorForBackground(
-                                selectedBoxDecoration(context).color!))
-                        : Theme.of(context).textTheme.button!.copyWith(
-                            color: textColorForBackground(
-                                unselectedBoxDecoration(context).color!)),
+                    shafi,
+                    style: toggleTextStyle(context,
+                        Theme.of(context).textTheme.button!, school == 0),
                   ),
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  school = 1;
+            Container(
+              width: MediaQuery.of(context).size.width * 0.45,
+              height: MediaQuery.of(context).size.height * 0.07,
+              child: ElevatedButton(
+                style: toggleButtonStyle(context, schoolList.contains(hanafi)),
+                onPressed: () {
+                  schoolList = <String>[];
+                  schoolList.add(hanafi);
 
-                  prayerProvider
-                      .getTimings(DateFormat('dd-MM-y').format(currentDate));
-                });
-              },
-              child: Container(
-                padding: EdgeInsets.all(10),
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.07,
-                decoration: school == 1
-                    ? selectedBoxDecoration(context)
-                    : unselectedBoxDecoration(context),
+                  setState(() {
+                    school = 1;
+
+                    prayerProvider
+                        .getTimings(DateFormat('dd-MM-y').format(currentDate));
+                  });
+                },
                 child: Center(
                   child: Text(
-                    "Hanafi",
-                    style: school == 1
-                        ? Theme.of(context).textTheme.button!.copyWith(
-                            color: textColorForBackground(
-                                selectedBoxDecoration(context).color!))
-                        : Theme.of(context).textTheme.button!.copyWith(
-                            color: textColorForBackground(
-                                unselectedBoxDecoration(context).color!)),
+                    hanafi,
+                    style: toggleTextStyle(context,
+                        Theme.of(context).textTheme.button!, school == 1),
                   ),
                 ),
               ),

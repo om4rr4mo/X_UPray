@@ -35,38 +35,32 @@ class PrayerItem extends StatelessWidget {
               onTap: () {},
               child: Container(
                 padding: EdgeInsets.all(20),
-                width: MediaQuery.of(context).size.width *
-                    0.45,
-                height: MediaQuery.of(context).size.height *
-                    0.10,
-                decoration:
-                unselectedBoxDecoration(context),
+                width: MediaQuery.of(context).size.width * 0.45,
+                height: MediaQuery.of(context).size.height * 0.10,
+                decoration: toggleBoxDecoration(context, true),
                 child: Center(
                     child: Text(
-                      'on'.toUpperCase(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )),
+                  'on'.toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
               ),
             ),
             GestureDetector(
               onTap: () {},
               child: Container(
                 padding: EdgeInsets.all(20),
-                width: MediaQuery.of(context).size.width *
-                    0.45,
-                height: MediaQuery.of(context).size.height *
-                    0.10,
-                decoration:
-                unselectedBoxDecoration(context),
+                width: MediaQuery.of(context).size.width * 0.45,
+                height: MediaQuery.of(context).size.height * 0.10,
+                decoration: toggleBoxDecoration(context, false),
                 child: Center(
                     child: Text(
-                      'off'.toUpperCase(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )),
+                  'off'.toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
               ),
             ),
           ],
@@ -79,16 +73,15 @@ class PrayerItem extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(20),
             //width: MediaQuery.of(context).size.width * 0.95,
-            height:
-            MediaQuery.of(context).size.height * 0.10,
-            decoration: unselectedBoxDecoration(context),
+            height: MediaQuery.of(context).size.height * 0.10,
+            decoration: toggleBoxDecoration(context, false),
             child: Center(
                 child: Text(
-                  'scegli un adhan'.toUpperCase(),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
+              'scegli un adhan'.toUpperCase(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            )),
           ),
         ),
         ElevatedButton(

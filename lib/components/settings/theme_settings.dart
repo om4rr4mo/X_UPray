@@ -9,22 +9,27 @@ class ThemeSetting extends StatefulWidget {
 }
 
 class _ThemeSettingState extends State<ThemeSetting> {
-  late ThemeMode themeMode;
+  List<String> themeList = <String>[];
+  String chiaro = 'Chiaro';
+  String scuro = 'Scuro';
 
   @override
   void initState() {
-    super.initState();
+    themeList = <String>[];
+    if (ThemeProvider().getTheme == ThemeMode.dark)
+      themeList.add(scuro);
+    else
+      themeList.add(chiaro);
 
-    themeMode = ThemeMode.dark;
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     ThemeProvider themeProvider = ThemeProvider();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(
           "Tema",
           style: Theme.of(context).textTheme.subtitle2,
@@ -34,66 +39,55 @@ class _ThemeSettingState extends State<ThemeSetting> {
           height: 10,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                final provider =
-                    Provider.of<ThemeProvider>(context, listen: false);
-                provider.toggleTheme(ThemeMode.light);
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width * 0.45,
+              height: MediaQuery.of(context).size.height * 0.07,
+              child: ElevatedButton(
+                style: toggleButtonStyle(context, themeList.contains(chiaro)),
+                onPressed: () {
+                  themeList = <String>[];
+                  themeList.add(chiaro);
 
-                themeMode = ThemeMode.light;
+                  final provider =
+                      Provider.of<ThemeProvider>(context, listen: false);
+                  provider.toggleTheme(ThemeMode.light);
 
-                setState(() {});
-              },
-              child: Container(
-                padding: EdgeInsets.all(5),
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.07,
-                decoration: themeMode == ThemeMode.light
-                    ? selectedBoxDecoration(context)
-                    : unselectedBoxDecoration(context),
+                  setState(() {});
+                },
                 child: Center(
-                    child: Text(
-                  "Chiaro",
-                  style: themeMode == ThemeMode.light
-                      ? Theme.of(context).textTheme.button!.copyWith(
-                          color: textColorForBackground(
-                              selectedBoxDecoration(context).color!))
-                      : Theme.of(context).textTheme.button!.copyWith(
-                          color: textColorForBackground(
-                              unselectedBoxDecoration(context).color!)),
-                )),
+                  child: Icon(Icons.brightness_7_rounded,
+                      color: themeList.contains(chiaro)
+                          ? Colors.amberAccent
+                          : Theme.of(context).colorScheme.secondary),
+                ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                final provider =
-                    Provider.of<ThemeProvider>(context, listen: false);
-                provider.toggleTheme(ThemeMode.dark);
+            SizedBox(
+              width: 2.0,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.45,
+              height: MediaQuery.of(context).size.height * 0.07,
+              child: ElevatedButton(
+                style: toggleButtonStyle(context, themeList.contains(scuro)),
+                onPressed: () {
+                  themeList = <String>[];
+                  themeList.add(scuro);
 
-                themeMode = ThemeMode.dark;
+                  final provider =
+                      Provider.of<ThemeProvider>(context, listen: false);
+                  provider.toggleTheme(ThemeMode.dark);
 
-                setState(() {});
-              },
-              child: Container(
-                padding: EdgeInsets.all(5),
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.07,
-                decoration: themeMode == ThemeMode.dark
-                    ? selectedBoxDecoration(context)
-                    : unselectedBoxDecoration(context),
+                  setState(() {});
+                },
                 child: Center(
-                    child: Text(
-                      "Scuro",
-                  style: themeMode == ThemeMode.dark
-                      ? Theme.of(context).textTheme.button!.copyWith(
-                          color: textColorForBackground(
-                              selectedBoxDecoration(context).color!))
-                      : Theme.of(context).textTheme.button!.copyWith(
-                          color: textColorForBackground(
-                              unselectedBoxDecoration(context).color!)),
-                )),
+                  child: Icon(Icons.brightness_2_rounded,
+                      color: themeList.contains(scuro)
+                          ? Colors.amberAccent
+                          : Theme.of(context).colorScheme.secondary),
+                ),
               ),
             ),
           ],

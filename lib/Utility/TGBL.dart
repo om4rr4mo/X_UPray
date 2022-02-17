@@ -48,6 +48,15 @@ var users = const {
   'hunter@gmail.com': 'hunter',
 };
 
+Color textColorForBackground(Color backgroundColor) {
+  if (ThemeData.estimateBrightnessForColor(backgroundColor) ==
+      Brightness.dark) {
+    return Color(0xFFF6F4F3);
+  }
+
+  return Color(0xFF455A64);
+}
+
 BoxDecoration selectedBoxDecoration(BuildContext context) {
   return BoxDecoration(
     color: Theme.of(context).iconTheme.color,
@@ -58,6 +67,7 @@ BoxDecoration selectedBoxDecoration(BuildContext context) {
 
 BoxDecoration unselectedBoxDecoration(BuildContext context) {
   return BoxDecoration(
+    color: Theme.of(context).scaffoldBackgroundColor,
     borderRadius: BorderRadius.circular(10),
     border:
         Border.all(color: Theme.of(context).unselectedWidgetColor, width: 2),

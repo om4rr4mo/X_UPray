@@ -56,6 +56,13 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 child: Center(
                     child: Text(
                   "Chiaro",
+                  style: themeMode == ThemeMode.light
+                      ? Theme.of(context).textTheme.button!.copyWith(
+                          color: textColorForBackground(
+                              selectedBoxDecoration(context).color!))
+                      : Theme.of(context).textTheme.button!.copyWith(
+                          color: textColorForBackground(
+                              unselectedBoxDecoration(context).color!)),
                 )),
               ),
             ),
@@ -78,7 +85,14 @@ class _ThemeSettingState extends State<ThemeSetting> {
                     : unselectedBoxDecoration(context),
                 child: Center(
                     child: Text(
-                  "Scuro",
+                      "Scuro",
+                  style: themeMode == ThemeMode.dark
+                      ? Theme.of(context).textTheme.button!.copyWith(
+                          color: textColorForBackground(
+                              selectedBoxDecoration(context).color!))
+                      : Theme.of(context).textTheme.button!.copyWith(
+                          color: textColorForBackground(
+                              unselectedBoxDecoration(context).color!)),
                 )),
               ),
             ),

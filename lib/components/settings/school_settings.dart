@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 
+import '../../providers/theme_provider.dart';
+
 class SchoolSetting extends StatefulWidget {
   const SchoolSetting({Key? key}) : super(key: key);
 
@@ -43,9 +45,17 @@ class _SchoolSettingState extends State<SchoolSetting> {
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
-                    child: Text(
-                  "Shafi",
-                )),
+                  child: Text(
+                    "Shafi",
+                    style: school == 0
+                        ? Theme.of(context).textTheme.button!.copyWith(
+                            color: textColorForBackground(
+                                selectedBoxDecoration(context).color!))
+                        : Theme.of(context).textTheme.button!.copyWith(
+                            color: textColorForBackground(
+                                unselectedBoxDecoration(context).color!)),
+                  ),
+                ),
               ),
             ),
             GestureDetector(
@@ -65,9 +75,17 @@ class _SchoolSettingState extends State<SchoolSetting> {
                     ? selectedBoxDecoration(context)
                     : unselectedBoxDecoration(context),
                 child: Center(
-                    child: Text(
-                  "Hanafi",
-                )),
+                  child: Text(
+                    "Hanafi",
+                    style: school == 1
+                        ? Theme.of(context).textTheme.button!.copyWith(
+                            color: textColorForBackground(
+                                selectedBoxDecoration(context).color!))
+                        : Theme.of(context).textTheme.button!.copyWith(
+                            color: textColorForBackground(
+                                unselectedBoxDecoration(context).color!)),
+                  ),
+                ),
               ),
             ),
           ],

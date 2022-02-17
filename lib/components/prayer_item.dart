@@ -106,7 +106,7 @@ class PrayerItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.teal,
+            //color: Colors.teal,
             width: 3,
           ),
           borderRadius: BorderRadius.circular(8),
@@ -131,8 +131,8 @@ class PrayerItem extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.add_alert),
-                color: Colors.teal,
-                iconSize: 24.0,
+                  //color: Colors.teal,
+                  iconSize: 24.0,
                 onPressed: () => showSlider(context, sliderContent)
               ),
             ],

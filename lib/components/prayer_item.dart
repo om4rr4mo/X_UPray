@@ -141,7 +141,6 @@ class PrayerItem extends StatelessWidget {
                   ),
                 ),
               ),
-<<<<<<< HEAD
               Flexible(
                 flex: 1,
                 child: Container(
@@ -259,14 +258,12 @@ class PrayerItem extends StatelessWidget {
                     },
                   ),
                 ),
-=======
+              ),
               IconButton(
-                icon: const Icon(Icons.add_alert),
+                  icon: const Icon(Icons.add_alert),
                   //color: Colors.teal,
                   iconSize: 24.0,
-                onPressed: () => showSlider(context, sliderContent)
->>>>>>> 329e8c4e4796eab20fd23478dd99b163defcb214
-              ),
+                  onPressed: () => showSlider(context, sliderContent)),
             ],
           ),
         ),

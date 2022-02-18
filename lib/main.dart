@@ -7,6 +7,7 @@ import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/pages/intro_page.dart';
 import 'package:prayers/pages/loading_pages.dart';
 import 'package:prayers/pages/tracker_page.dart';
+import 'package:prayers/providers/notification_service.dart';
 import 'package:prayers/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,7 +19,7 @@ Future<void> main() async {
   var isFirstTime = prefs.getBool(boolKey) ?? true;
 
   await Firebase.initializeApp();
-
+  //await NotificationService().init();
   runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : MainLaunch());
 }
 

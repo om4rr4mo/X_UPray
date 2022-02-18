@@ -31,40 +31,37 @@ class _MethodSettingState extends State<MethodSetting> {
     methodList = <String>[];
 
     switch (method) {
-      case 0:
+      case 1:
         methodList.add(karachi);
         break;
-      case 1:
+      case 2:
         methodList.add(america);
         break;
-      case 2:
+      case 3:
         methodList.add(worldLeague);
         break;
-      case 3:
+      case 4:
         methodList.add(makkah);
         break;
-      case 4:
+      case 5:
         methodList.add(egyptian);
         break;
-      case 5:
-        methodList.add(kuwait);
-        break;
-      case 6:
-        methodList.add(kuwait);
-        break;
-      case 7:
-        methodList.add(qatar);
-        break;
-      case 8:
-        methodList.add(singapura);
-        break;
       case 9:
-        methodList.add(france);
+        methodList.add(kuwait);
         break;
       case 10:
-        methodList.add(turkey);
+        methodList.add(qatar);
         break;
       case 11:
+        methodList.add(singapura);
+        break;
+      case 12:
+        methodList.add(france);
+        break;
+      case 13:
+        methodList.add(turkey);
+        break;
+      case 15:
         methodList.add(worldwide);
         break;
     }

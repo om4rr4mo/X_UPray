@@ -33,6 +33,8 @@ class _PrayersPageState extends State<PrayersPage> {
       setState(() {
         currentDate = picked;
       });
+    date = DateFormat('dd-MM-y').format(currentDate);
+    prayerProvider.getTimings(date);
   }
 
   @override

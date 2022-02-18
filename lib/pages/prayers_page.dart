@@ -3,7 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
+import 'package:prayers/providers/prayer_data.dart';
 import 'loading_pages.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class PrayersPage extends StatefulWidget {
   @override
@@ -18,6 +20,19 @@ class _PrayersPageState extends State<PrayersPage> {
     super.initState();
 
     date = DateFormat('dd-MM-y').format(currentDate);
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: currentDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != currentDate)
+      setState(() {
+        currentDate = picked;
+      });
   }
 
   @override
@@ -58,13 +73,20 @@ class _PrayersPageState extends State<PrayersPage> {
                           ),
                           Column(
                             children: [
-                              Text(
-                                data.date.hijri.date,
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                data.date.readable,
-                                textAlign: TextAlign.center,
+                              GestureDetector(
+                                onTap: () {
+                                  _selectDate(context);
+                                },
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "${currentDate.toLocal()}".split(' ')[0],
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -117,7 +139,11 @@ class _PrayersPageState extends State<PrayersPage> {
               ),
             );
           } else {
-            return Center(child: Container(height: 0,width: 0,));
+            return Center(
+                child: Container(
+              height: 0,
+              width: 0,
+            ));
           }
         });
   }

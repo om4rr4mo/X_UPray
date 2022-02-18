@@ -112,6 +112,7 @@ class PrayerItem extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
                   alignment: Alignment.centerLeft,
                   child: Text(
                     prayerName,

@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
 
   static List<Widget> pages = <Widget>[
     PrayersPage(),
-    //QuranPage(),
     QiblaPage(),
     TrackerPage(),
     SettingsPage(),
@@ -66,14 +65,12 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: HomeNavigationBar(
         onItemTap: _onItemTapped,
         destinations: [
-          ///Orari preghiera
+          /// Orario
           NavigationDestination(
             icon: const Icon(FontAwesomeIcons.clock),
             label: "Preghiere",
           ),
 
-          /// Corano
-//BottomNavigationBarItem(icon: const Icon(FontAwesomeIcons.book), label: "Corano"),
           /// Qibla
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.compass),
@@ -93,42 +90,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      // BottomNavigationBar(
-      //   showUnselectedLabels: true,
-      //   unselectedItemColor: Theme.of(context).unselectedWidgetColor,
-      //   backgroundColor:  Colors.white10,
-      //   selectedItemColor: Theme.of(context).selectedRowColor,
-      //   items: [
-      //     ///Orari preghiera
-      //     BottomNavigationBarItem(
-      //       icon: const Icon(FontAwesomeIcons.clock),
-      //       label: "Preghiere",
-      //     ),
-      //
-      //     /// Corano
-      //     //BottomNavigationBarItem(icon: const Icon(FontAwesomeIcons.book), label: "Corano"),
-      //
-      //     /// Qibla
-      //     BottomNavigationBarItem(
-      //       icon: Icon(FontAwesomeIcons.compass),
-      //       label: "Qibla",
-      //     ),
-      //
-      //     /// Tracker
-      //     BottomNavigationBarItem(
-      //       icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
-      //       label: "Tracker",
-      //     ),
-      //
-      //     /// Impostazioni
-      //     BottomNavigationBarItem(
-      //       icon: const Icon(FontAwesomeIcons.slidersH),
-      //       label: "Impostazioni",
-      //     ),
-      //   ],
-      //   currentIndex: currentIndex,
-      //   onTap: _onItemTapped,
-      // ),
       resizeToAvoidBottomInset: false,
       extendBody: false,
       body: Center(

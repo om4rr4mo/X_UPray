@@ -11,14 +11,11 @@ class MethodSetting extends StatefulWidget {
 
 class _MethodSettingState extends State<MethodSetting> {
   List<String> methodList = <String>[];
-  //String ansari = 'Shia Ithna-Ansari';
   String karachi = 'Karachi';
   String america = 'ISNA, North America';
   String worldLeague = 'Muslim World League';
   String makkah = 'Umm Al-Qura University, Makkah';
   String egyptian = 'Egypt';
-  //String tehran = 'Institute of Geophysics, University of Tehran';
-  //String gulf = 'Gulf Region';
   String kuwait = 'Kuwait';
   String qatar = 'Qatar';
   String singapura = 'Majlis Ugama Islam Singapura';
@@ -35,48 +32,39 @@ class _MethodSettingState extends State<MethodSetting> {
 
     switch (method) {
       case 0:
-        //methodList.add(ansari);
-        break;
-      case 1:
         methodList.add(karachi);
         break;
-      case 2:
+      case 1:
         methodList.add(america);
         break;
-      case 3:
+      case 2:
         methodList.add(worldLeague);
         break;
-      case 4:
+      case 3:
         methodList.add(makkah);
         break;
-      case 5:
+      case 4:
         methodList.add(egyptian);
         break;
+      case 5:
+        methodList.add(kuwait);
+        break;
+      case 6:
+        methodList.add(kuwait);
+        break;
       case 7:
-        //methodList.add(tehran);
-        break;
-      case 8:
-        //methodList.add(gulf);
-        break;
-      case 9:
-        methodList.add(kuwait);
-        break;
-      case 10:
-        methodList.add(kuwait);
-        break;
-      case 11:
         methodList.add(qatar);
         break;
-      case 12:
+      case 8:
         methodList.add(singapura);
         break;
-      case 13:
+      case 9:
         methodList.add(france);
         break;
-      case 14:
+      case 10:
         methodList.add(turkey);
         break;
-      case 15:
+      case 11:
         methodList.add(worldwide);
         break;
     }
@@ -100,30 +88,6 @@ class _MethodSettingState extends State<MethodSetting> {
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              //Container(
-              //  height: MediaQuery.of(context).size.height * 0.07,
-              //  child: ElevatedButton(
-              //    style:
-              //        toggleButtonStyle(context, methodList.contains(ansari)),
-              //    onPressed: () {
-              //      methodList = <String>[];
-              //      methodList.add(ansari);
-//
-              //      setState(() {
-              //        method = 0;
-//
-              //        prayerProvider.getTimings(
-              //            DateFormat('dd-MM-y').format(currentDate));
-              //      });
-              //    },
-              //    child: Center(
-              //        child: Text(
-              //      ansari,
-              //      style: toggleTextStyle(context,
-              //          Theme.of(context).textTheme.button!, method == 0),
-              //    )),
-              //  ),
-              //),
               SizedBox(
                 height: 10,
               ),
@@ -262,59 +226,6 @@ class _MethodSettingState extends State<MethodSetting> {
               SizedBox(
                 height: 10,
               ),
-              //Container(
-              //  height: MediaQuery.of(context).size.height * 0.07,
-              //  child: ElevatedButton(
-              //    style:
-              //        toggleButtonStyle(context, methodList.contains(tehran)),
-              //    onPressed: () {
-              //      methodList = <String>[];
-              //      methodList.add(tehran);
-//
-              //      setState(() {
-              //        method = 7;
-//
-              //        prayerProvider.getTimings(
-              //            DateFormat('dd-MM-y').format(currentDate));
-              //      });
-              //    },
-              //    child: Center(
-              //        child: Text(
-              //      tehran,
-              //      style: toggleTextStyle(context,
-              //          Theme.of(context).textTheme.button!, method == 7),
-              //    )),
-              //  ),
-              //),
-              //SizedBox(
-              //  height: 10,
-              //),
-              //Container(
-              //  height: MediaQuery.of(context).size.height * 0.07,
-              //  child: ElevatedButton(
-              //    style: toggleButtonStyle(context, methodList.contains(gulf)),
-              //    onPressed: () {
-              //      methodList = <String>[];
-              //      methodList.add(gulf);
-//
-              //      setState(() {
-              //        method = 8;
-//
-              //        prayerProvider.getTimings(
-              //            DateFormat('dd-MM-y').format(currentDate));
-              //      });
-              //    },
-              //    child: Center(
-              //        child: Text(
-              //      gulf,
-              //      style: toggleTextStyle(context,
-              //          Theme.of(context).textTheme.button!, method == 8),
-              //    )),
-              //  ),
-              //),
-              //SizedBox(
-              //  height: 10,
-              //),
               Container(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(

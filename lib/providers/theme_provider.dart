@@ -82,17 +82,8 @@ class MyTheme {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
-    // dividerColor: Colors.blue[600],
-    // scaffoldBackgroundColor: const Color(0xFF041C38),
-    // primaryColor: const Color(0xFF041C38),
-    // unselectedWidgetColor: Color(0xFF726D78),
-    // selectedRowColor: Color(0xFFF2F1EB),
-    // shadowColor: Color(0xFF041C38),
     colorScheme: darkColorScheme,
     fontFamily: 'Montserrat',
-    // iconTheme: IconThemeData(
-    //   color: Color(0xFF4474C4),
-    // ),
     textTheme: const TextTheme(
       headline1: TextStyle(
           color: Color(0xFFF6F4F3), fontSize: 30, fontWeight: FontWeight.bold),
@@ -118,17 +109,8 @@ class MyTheme {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
-    // dividerColor: Colors.teal[300],
-    // scaffoldBackgroundColor: Colors.teal[50],
-    // primaryColor: Colors.teal[50],
-    // unselectedWidgetColor: Colors.blueGrey,
-    // selectedRowColor: Colors.teal,
-    // shadowColor: Colors.teal[900],
     colorScheme: lightColorScheme,
     fontFamily: 'Montserrat',
-    // iconTheme: const IconThemeData(
-    //   color: Colors.teal,
-    // ),
     textTheme: const TextTheme(
       headline1: TextStyle(
           color: Color(0xFF455A64), fontSize: 30, fontWeight: FontWeight.bold),

@@ -9,7 +9,7 @@ import 'package:prayers/providers/prayer_provider.dart';
 import 'package:prayers/providers/quran_provider.dart';
 
 final Geolocator geolocatorPlatform = Geolocator();
-final currentDate = DateTime.now();
+DateTime currentDate = DateTime.now();
 
 extension StringCasingExtension on String {
   String toCapitalized() =>
@@ -56,64 +56,6 @@ Color textColorForBackground(Color backgroundColor) {
 
   return Color(0xFF455A64);
 }
-
-// ButtonStyle selectedBoxDecoration(BuildContext context, ThemeMode themeMode) {
-//   return ButtonStyle(
-//     backgroundColor: MaterialStateProperty.resolveWith((states) {
-//       if (states.contains(MaterialState.selected))
-//         return Theme.of(context).iconTheme.color;
-//       else
-//         return Theme.of(context).scaffoldBackgroundColor;
-//     }),
-//     textStyle: MaterialStateProperty.resolveWith((states) {
-//       if (states.contains(MaterialState.selected)) {
-//         if (themeMode == ThemeMode.light) {
-//           return Theme.of(context).textTheme.button!.copyWith(
-//               color:
-//                   textColorForBackground(Theme.of(context).iconTheme.color!));
-//         } else {
-//           return Theme.of(context).textTheme.button!.copyWith(
-//               color:
-//                   textColorForBackground(Theme.of(context).scaffoldBackgroundColor!));
-//         }
-//       } else
-//         if (themeMode == ThemeMode.light) {
-//           return Theme.of(context).textTheme.button!.copyWith(
-//               color:
-//                   textColorForBackground(Theme.of(context).scaffoldBackgroundColor!));
-//         } else {
-//           return Theme.of(context).textTheme.button!.copyWith(
-//               color:
-//                   textColorForBackground(Theme.of(context).iconTheme.color!));
-//         }
-//     }),
-//     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-//       RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(18.0),
-//         side: BorderSide(
-//           color: Theme.of(context).iconTheme.color!,
-//           width: 4,
-//         ),
-//       ),
-//     ),
-//   );
-// }
-//
-// ButtonStyle unselectedBoxDecoration(BuildContext context) {
-//   return ButtonStyle(
-//     backgroundColor:
-//         MaterialStateProperty.all(Theme.of(context).scaffoldBackgroundColor),
-//     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-//       RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(18.0),
-//         side: BorderSide(
-//           color: Theme.of(context).unselectedWidgetColor,
-//           width: 2,
-//         ),
-//       ),
-//     ),
-//   );
-// }
 
 BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
   if (selected) {

@@ -83,7 +83,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 void main() => runApp(MainLaunch());
 
 class MainLaunch extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

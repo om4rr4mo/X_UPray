@@ -33,8 +33,8 @@ class _PrayersPageState extends State<PrayersPage> {
       setState(() {
         currentDate = picked;
       });
-      date = DateFormat('dd-MM-y').format(currentDate);
-      prayerProvider.getTimings(date);
+    date = DateFormat('dd-MM-y').format(currentDate);
+    prayerProvider.getTimings(date);
   }
 
   @override
@@ -66,6 +66,7 @@ class _PrayersPageState extends State<PrayersPage> {
                                     DateFormat('dd-MM-y').parseStrict(date);
                                 d = d.subtract(Duration(days: 1));
                                 date = DateFormat('dd-MM-y').format(d);
+                                currentDate = currentDate.subtract(Duration(days: 1));
                               });
                             },
                             child: Icon(
@@ -84,8 +85,15 @@ class _PrayersPageState extends State<PrayersPage> {
                                     Text(
                                       "${currentDate.toLocal()}".split(' ')[0],
                                       style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      data.date.hijri.date,
+                                      style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ],
                                 ),
@@ -99,6 +107,7 @@ class _PrayersPageState extends State<PrayersPage> {
                                     DateFormat('dd-MM-y').parseStrict(date);
                                 d = d.add(Duration(days: 1));
                                 date = DateFormat('dd-MM-y').format(d);
+                                currentDate = currentDate.add(Duration(days: 1));
                               });
                             },
                             child: Icon(

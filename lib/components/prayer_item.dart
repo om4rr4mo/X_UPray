@@ -87,6 +87,9 @@ class PrayerItem extends StatelessWidget {
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Theme.of(context).iconTheme.color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(21),
+            ),
           ),
           child: const Text('Close'),
           onPressed: () => Navigator.pop(context),
@@ -102,7 +105,7 @@ class PrayerItem extends StatelessWidget {
             //color: Colors.teal,
             width: 3,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(21),
         ),
         child: Padding(
           padding: const EdgeInsets.all(6.0),

@@ -61,13 +61,13 @@ BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
   if (selected) {
     return BoxDecoration(
       color: Theme.of(context).iconTheme.color,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(21),
       border: Border.all(color: Theme.of(context).iconTheme.color!, width: 0),
     );
   } else {
     return BoxDecoration(
       color: Theme.of(context).colorScheme.background,
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(21),
     );
   }
 }
@@ -77,7 +77,7 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
     return ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(21),
         ),
       ),
     );
@@ -87,7 +87,7 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
           MaterialStateProperty.all(Theme.of(context).colorScheme.background),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(21),
           side: BorderSide(
               width: 2, color: Theme.of(context).colorScheme.secondary),
         ),
@@ -108,7 +108,7 @@ TextStyle toggleTextStyle(
 
 showSlider(BuildContext context, Widget widget) {
   showModalBottomSheet<void>(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
     builder: (BuildContext context) {

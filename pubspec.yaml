@@ -59,6 +59,7 @@ dependencies:
   flutter_local_notifications: ^9.3.2
   sliding_up_panel: ^2.0.0+1
   syncfusion_flutter_datepicker: ^19.4.52
+  flutter_native_timezone: ^2.0.0
 
 dev_dependencies:
   flutter_test:

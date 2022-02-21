@@ -10,6 +10,7 @@ import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
 
 import '../components/navigation_bar.dart';
+import '../providers/notification_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -54,9 +55,9 @@ class _HomePageState extends State<HomePage> {
 
   static List<Widget> pages = <Widget>[
     PrayersPage(),
-    QiblaPage(),
-    TrackerPage(),
-    SettingsPage(),
+    const QiblaPage(),
+    const TrackerPage(),
+    const SettingsPage(),
   ];
 
   @override
@@ -64,10 +65,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: HomeNavigationBar(
         onItemTap: _onItemTapped,
-        destinations: [
+        destinations: const [
           /// Orario
           NavigationDestination(
-            icon: const Icon(FontAwesomeIcons.clock),
+            icon: Icon(FontAwesomeIcons.clock),
             label: "Preghiere",
           ),
 
@@ -79,13 +80,13 @@ class _HomePageState extends State<HomePage> {
 
           /// Tracker
           NavigationDestination(
-            icon: const Icon(FontAwesomeIcons.solidCalendarCheck),
+            icon: Icon(FontAwesomeIcons.solidCalendarCheck),
             label: "Tracker",
           ),
 
           /// Impostazioni
           NavigationDestination(
-            icon: const Icon(FontAwesomeIcons.slidersH),
+            icon: Icon(FontAwesomeIcons.slidersH),
             label: "Impostazioni",
           ),
         ],

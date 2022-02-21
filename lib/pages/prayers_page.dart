@@ -4,10 +4,13 @@ import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
 import 'package:prayers/providers/prayer_data.dart';
+import '../providers/notification_service.dart';
 import 'loading_pages.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class PrayersPage extends StatefulWidget {
+  const PrayersPage({Key? key}) : super(key: key);
+
   @override
   State<PrayersPage> createState() => _PrayersPageState();
 }

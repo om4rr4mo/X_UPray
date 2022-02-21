@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
+import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/providers/prayer_data.dart';
 import '../providers/notification_service.dart';
 import 'loading_pages.dart';
@@ -69,7 +70,8 @@ class _PrayersPageState extends State<PrayersPage> {
                                     DateFormat('dd-MM-y').parseStrict(date);
                                 d = d.subtract(Duration(days: 1));
                                 date = DateFormat('dd-MM-y').format(d);
-                                currentDate = currentDate.subtract(Duration(days: 1));
+                                currentDate =
+                                    currentDate.subtract(Duration(days: 1));
                               });
                             },
                             child: Icon(
@@ -110,7 +112,8 @@ class _PrayersPageState extends State<PrayersPage> {
                                     DateFormat('dd-MM-y').parseStrict(date);
                                 d = d.add(Duration(days: 1));
                                 date = DateFormat('dd-MM-y').format(d);
-                                currentDate = currentDate.add(Duration(days: 1));
+                                currentDate =
+                                    currentDate.add(Duration(days: 1));
                               });
                             },
                             child: Icon(
@@ -118,6 +121,16 @@ class _PrayersPageState extends State<PrayersPage> {
                               size: 30,
                             ),
                           ),
+                          IconButton(
+                            icon: Icon(Icons.settings),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SettingsPage()),
+                              );
+                            },
+                          )
                         ],
                       ),
                       Text(

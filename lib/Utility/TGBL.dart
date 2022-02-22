@@ -51,10 +51,10 @@ var users = const {
 Color textColorForBackground(Color backgroundColor) {
   if (ThemeData.estimateBrightnessForColor(backgroundColor) ==
       Brightness.dark) {
-    return Color(0xFFF6F4F3);
+    return const Color(0xFFF6F4F3);
   }
 
-  return Color(0xFF455A64);
+  return const Color(0xFF455A64);
 }
 
 BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
@@ -129,14 +129,14 @@ late String country;
 late String address;
 late int method = 3;
 late int school = 0;
-late prayerData.PrayerData prayerList = new prayerData.PrayerData();
-late quranData.QuranData quranList = new quranData.QuranData();
+late prayerData.PrayerData prayerList = prayerData.PrayerData();
+late quranData.QuranData quranList = quranData.QuranData();
 late double pLat;
 late double pLong;
 bool isSigningIn = false;
 late User userLogged;
-PrayerProvider prayerProvider = new PrayerProvider();
-QuranProvider quranProvider = new QuranProvider();
+PrayerProvider prayerProvider = PrayerProvider();
+QuranProvider quranProvider = QuranProvider();
 
 ShowToastError({required String message}) {
   Fluttertoast.showToast(

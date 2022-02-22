@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prayers/Utility/TGBL.dart';
-import 'package:prayers/components/navigation_bar.dart';
 import 'package:prayers/components/settings/method_settings.dart';
 import 'package:prayers/components/settings/school_settings.dart';
 import 'package:prayers/components/settings/theme_settings.dart';
@@ -28,11 +28,14 @@ class _SettingsPageState extends State<SettingsPage> {
               ListView(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back_ios),
+                    icon: const Icon(
+                      FontAwesomeIcons.arrowAltCircleLeft,
+                      size: 30,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    alignment: Alignment.bottomLeft,
+                    alignment: Alignment.centerLeft,
                   ),
                   loggedIn && userLogged.photoURL != null
                       ? Align(
@@ -44,20 +47,20 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ? NetworkImage(
                                     userLogged.photoURL!,
                                   )
-                                : NetworkImage(""),
+                                : const NetworkImage(""),
                           ),
                         )
                       : Container(),
-                  ThemeSetting(),
-                  SizedBox(
+                  const ThemeSetting(),
+                  const SizedBox(
                     height: 25,
                   ),
-                  SchoolSetting(),
-                  SizedBox(
+                  const SchoolSetting(),
+                  const SizedBox(
                     height: 25,
                   ),
-                  MethodSetting(),
-                  SizedBox(
+                  const MethodSetting(),
+                  const SizedBox(
                     height: 25,
                   ),
                   GestureDetector(
@@ -67,7 +70,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         loggedIn = false;
                       });
                     },
-                    child: Text(
+                    child: const Text(
                       "SETTINGS\nclicca qui per fare il logout (solo test)\nNella pagina tracker si dovrà rifare il login",
                       textAlign: TextAlign.center,
                     ),

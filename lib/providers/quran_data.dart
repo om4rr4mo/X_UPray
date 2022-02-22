@@ -11,15 +11,15 @@ class QuranData {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
-    data['status'] = this.status;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
+    data['status'] = status;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -57,26 +57,26 @@ class Data {
     if (json['ayahs'] != null) {
       ayahs = <Ayahs>[];
       json['ayahs'].forEach((v) {
-        ayahs!.add(new Ayahs.fromJson(v));
+        ayahs!.add(Ayahs.fromJson(v));
       });
     }
     edition =
-        json['edition'] != null ? new Edition.fromJson(json['edition']) : null;
+        json['edition'] != null ? Edition.fromJson(json['edition']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['number'] = this.number;
-    data['name'] = this.name;
-    data['englishName'] = this.englishName;
-    data['englishNameTranslation'] = this.englishNameTranslation;
-    data['revelationType'] = this.revelationType;
-    data['numberOfAyahs'] = this.numberOfAyahs;
-    if (this.ayahs != null) {
-      data['ayahs'] = this.ayahs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['number'] = number;
+    data['name'] = name;
+    data['englishName'] = englishName;
+    data['englishNameTranslation'] = englishNameTranslation;
+    data['revelationType'] = revelationType;
+    data['numberOfAyahs'] = numberOfAyahs;
+    if (ayahs != null) {
+      data['ayahs'] = ayahs!.map((v) => v.toJson()).toList();
     }
-    if (this.edition != null) {
-      data['edition'] = this.edition!.toJson();
+    if (edition != null) {
+      data['edition'] = edition!.toJson();
     }
     return data;
   }
@@ -117,16 +117,16 @@ class Ayahs {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['number'] = this.number;
-    data['text'] = this.text;
-    data['numberInSurah'] = this.numberInSurah;
-    data['juz'] = this.juz;
-    data['manzil'] = this.manzil;
-    data['page'] = this.page;
-    data['ruku'] = this.ruku;
-    data['hizbQuarter'] = this.hizbQuarter;
-    data['sajda'] = this.sajda;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['number'] = number;
+    data['text'] = text;
+    data['numberInSurah'] = numberInSurah;
+    data['juz'] = juz;
+    data['manzil'] = manzil;
+    data['page'] = page;
+    data['ruku'] = ruku;
+    data['hizbQuarter'] = hizbQuarter;
+    data['sajda'] = sajda;
     return data;
   }
 }
@@ -160,14 +160,14 @@ class Edition {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['identifier'] = this.identifier;
-    data['language'] = this.language;
-    data['name'] = this.name;
-    data['englishName'] = this.englishName;
-    data['format'] = this.format;
-    data['type'] = this.type;
-    data['direction'] = this.direction;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['identifier'] = identifier;
+    data['language'] = language;
+    data['name'] = name;
+    data['englishName'] = englishName;
+    data['format'] = format;
+    data['type'] = type;
+    data['direction'] = direction;
     return data;
   }
 }

@@ -4,10 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
 import 'package:prayers/pages/settings_page.dart';
-import 'package:prayers/providers/prayer_data.dart';
-import '../providers/notification_service.dart';
-import 'loading_pages.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class PrayersPage extends StatefulWidget {
   const PrayersPage({Key? key}) : super(key: key);
@@ -33,10 +29,11 @@ class _PrayersPageState extends State<PrayersPage> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2025),
     );
-    if (picked != null && picked != currentDate)
+    if (picked != null && picked != currentDate) {
       setState(() {
         currentDate = picked;
       });
+    }
     date = DateFormat('dd-MM-y').format(currentDate);
     prayerProvider.getTimings(date);
   }
@@ -49,125 +46,125 @@ class _PrayersPageState extends State<PrayersPage> {
           if (snapshot.hasData) {
             var data;
 
-            if (snapshot.data.data.length > 1)
+            if (snapshot.data.data.length > 1) {
               data = snapshot.data.data[currentDate.day - 1];
-            else
+            } else {
               data = snapshot.data.data[0];
+            }
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                DateTime d =
-                                    DateFormat('dd-MM-y').parseStrict(date);
-                                d = d.subtract(Duration(days: 1));
-                                date = DateFormat('dd-MM-y').format(d);
-                                currentDate =
-                                    currentDate.subtract(Duration(days: 1));
-                              });
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.arrowLeft,
-                              size: 30,
-                            ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    IconButton(
+                        icon: const Icon(Icons.settings_rounded),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SettingsPage()),
+                          );
+                        },
+                        alignment: Alignment.centerRight),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              DateTime d =
+                                  DateFormat('dd-MM-y').parseStrict(date);
+                              d = d.subtract(const Duration(days: 1));
+                              date = DateFormat('dd-MM-y').format(d);
+                              currentDate =
+                                  currentDate.subtract(const Duration(days: 1));
+                            });
+                          },
+                          child: const Icon(
+                            FontAwesomeIcons.arrowAltCircleLeft,
+                            size: 30,
                           ),
-                          Column(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  _selectDate(context);
-                                },
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "${currentDate.toLocal()}".split(' ')[0],
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      data.date.hijri.date,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
+                        ),
+                        Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                _selectDate(context);
+                              },
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "${currentDate.toLocal()}".split(' ')[0],
+                                    style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    data.date.hijri.date,
+                                    style: const TextStyle(fontSize: 16),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                DateTime d =
-                                    DateFormat('dd-MM-y').parseStrict(date);
-                                d = d.add(Duration(days: 1));
-                                date = DateFormat('dd-MM-y').format(d);
-                                currentDate =
-                                    currentDate.add(Duration(days: 1));
-                              });
-                            },
-                            child: Icon(
-                              FontAwesomeIcons.arrowRight,
-                              size: 30,
                             ),
+                          ],
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              DateTime d =
+                                  DateFormat('dd-MM-y').parseStrict(date);
+                              d = d.add(const Duration(days: 1));
+                              date = DateFormat('dd-MM-y').format(d);
+                              currentDate =
+                                  currentDate.add(const Duration(days: 1));
+                            });
+                          },
+                          child: const Icon(
+                            FontAwesomeIcons.arrowAltCircleRight,
+                            size: 30,
                           ),
-                          IconButton(
-                            icon: Icon(Icons.settings),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SettingsPage()),
-                              );
-                            },
-                          )
-                        ],
-                      ),
-                      Text(
-                        "",
-                      ),
-                      PrayerItem(
-                        prayerName: "Fajr",
-                        prayerTime: data.timings.fajr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Sunrise",
-                        prayerTime: data.timings.sunrise,
-                      ),
-                      PrayerItem(
-                        prayerName: "Dhuhr",
-                        prayerTime: data.timings.dhuhr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Asr",
-                        prayerTime: data.timings.asr,
-                      ),
-                      PrayerItem(
-                        prayerName: "Maghrib",
-                        prayerTime: data.timings.maghrib,
-                      ),
-                      PrayerItem(
-                        prayerName: "Isha",
-                        prayerTime: data.timings.isha,
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      "",
+                    ),
+                    PrayerItem(
+                      prayerName: "Fajr",
+                      prayerTime: data.timings.fajr,
+                    ),
+                    PrayerItem(
+                      prayerName: "Sunrise",
+                      prayerTime: data.timings.sunrise,
+                    ),
+                    PrayerItem(
+                      prayerName: "Dhuhr",
+                      prayerTime: data.timings.dhuhr,
+                    ),
+                    PrayerItem(
+                      prayerName: "Asr",
+                      prayerTime: data.timings.asr,
+                    ),
+                    PrayerItem(
+                      prayerName: "Maghrib",
+                      prayerTime: data.timings.maghrib,
+                    ),
+                    PrayerItem(
+                      prayerName: "Isha",
+                      prayerTime: data.timings.isha,
+                    ),
+                  ],
                 ),
               ),
             );
           } else {
-            return Center(
-                child: Container(
+            return const Center(
+                child: SizedBox(
               height: 0,
               width: 0,
             ));

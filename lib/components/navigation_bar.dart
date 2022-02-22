@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:prayers/pages/home_page.dart';
-import 'package:prayers/pages/settings_page.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomeNavigationBar extends StatefulWidget {
   final List<NavigationDestination> destinations;

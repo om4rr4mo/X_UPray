@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.light;
@@ -13,9 +12,9 @@ class ThemeProvider extends ChangeNotifier {
 }
 
 class MyTheme {
-  static final seed = Color(0xFF009688);
+  static const seed = Color(0xFF009688);
 
-  static final lightColorScheme = ColorScheme(
+  static const lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: Color(0xFF006A5F),
     onPrimary: Color(0xFFFFFFFF),
@@ -46,7 +45,7 @@ class MyTheme {
     shadow: Color(0xFF000000),
   );
 
-  static final darkColorScheme = ColorScheme(
+  static const darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     primary: Color(0xFF53DBC9),
     onPrimary: Color(0xFF003730),

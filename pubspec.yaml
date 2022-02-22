@@ -1,5 +1,5 @@
 name: prayers
-description: Prayer time app
+description: Prayer times
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -134,7 +134,3 @@ flutter:
         - asset: assets/fonts/Montserrat-Italic.ttf
           style: italic
           weight: 900
-#  assets:
-#    - assets/lotties/
-#    - assets/images/
-#    - assets/icons/

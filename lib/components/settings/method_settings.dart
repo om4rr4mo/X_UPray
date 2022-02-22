@@ -77,18 +77,18 @@ class _MethodSettingState extends State<MethodSetting> {
           style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.40,
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -112,10 +112,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -139,10 +139,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style: toggleButtonStyle(
@@ -166,10 +166,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -193,10 +193,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -220,10 +220,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -247,10 +247,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style: toggleButtonStyle(context, methodList.contains(qatar)),
@@ -273,10 +273,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style: toggleButtonStyle(
@@ -300,10 +300,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -327,10 +327,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style:
@@ -354,10 +354,10 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: ElevatedButton(
                   style: toggleButtonStyle(
@@ -381,7 +381,7 @@ class _MethodSettingState extends State<MethodSetting> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],

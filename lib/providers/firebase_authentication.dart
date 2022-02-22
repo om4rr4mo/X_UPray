@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -91,13 +89,14 @@ class Authentication {
         return null;
       }
     }
+    return null;
   }
 
   static Future createUserWithPhone(String phone, BuildContext context) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth.verifyPhoneNumber(
         phoneNumber: phone,
-        timeout: Duration(seconds: 0),
+        timeout: const Duration(seconds: 0),
         verificationCompleted: (AuthCredential authCredential) {
           auth.signInWithCredential(authCredential).then((result) {
             Navigator.of(context).pushReplacementNamed('/home');
@@ -112,14 +111,14 @@ class Authentication {
             context: context,
             barrierDismissible: false,
             builder: (context) => AlertDialog(
-              title: Text("Enter Verification Code From Text Message"),
+              title: const Text("Enter Verification Code From Text Message"),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[TextField(controller: _codeController)],
               ),
               actions: <Widget>[
                 FlatButton(
-                  child: Text("submit"),
+                  child: const Text("submit"),
                   textColor: Colors.white,
                   color: Colors.green,
                   onPressed: () {

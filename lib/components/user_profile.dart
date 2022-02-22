@@ -15,8 +15,8 @@ class CircleAvatarWithTransition extends StatelessWidget {
 
   const CircleAvatarWithTransition(
       {Key? key,
-      required Color this.primaryColor,
-      required ImageProvider this.image,
+      required this.primaryColor,
+      required this.image,
       this.size = 190.0,
       this.transitionBorderwidth = 20.0})
       : super(key: key);
@@ -27,47 +27,38 @@ class CircleAvatarWithTransition extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       children: <Widget>[
         Container(
-          child: Container(
-            height: size,
-            width: size,
+          height: size,
+          width: size,
+          decoration: BoxDecoration(
+              shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
+        ),
+        Container(
+            height: size - transitionBorderwidth,
+            width: size - transitionBorderwidth,
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
-          ),
-        ),
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                  stops: const [0.01, 0.5],
+                  colors: [Colors.white, primaryColor.withOpacity(0.1)]),
+            )),
         Container(
-          child: Container(
-              height: size - transitionBorderwidth,
-              width: size - transitionBorderwidth,
-              decoration: BoxDecoration(
+            height: size - (transitionBorderwidth * 2),
+            width: size - (transitionBorderwidth * 2),
+            decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: RadialGradient(
-                    stops: [0.01, 0.5],
-                    colors: [Colors.white, primaryColor.withOpacity(0.1)]),
-              )),
-        ),
+                color: primaryColor.withOpacity(0.4))),
         Container(
-          child: Container(
-              height: size - (transitionBorderwidth * 2),
-              width: size - (transitionBorderwidth * 2),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: primaryColor.withOpacity(0.4))),
-        ),
+            height: size - (transitionBorderwidth * 3),
+            width: size - (transitionBorderwidth * 3),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: primaryColor.withOpacity(0.5))),
         Container(
-          child: Container(
-              height: size - (transitionBorderwidth * 3),
-              width: size - (transitionBorderwidth * 3),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: primaryColor.withOpacity(0.5))),
-        ),
-        Container(
-            child: Container(
-                height: size - (transitionBorderwidth * 4),
-                width: size - (transitionBorderwidth * 4),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(fit: BoxFit.cover, image: image))))
+            height: size - (transitionBorderwidth * 4),
+            width: size - (transitionBorderwidth * 4),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(fit: BoxFit.cover, image: image)))
       ],
     );
   }

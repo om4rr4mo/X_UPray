@@ -1,14 +1,11 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flare_flutter/flare.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
-import 'dart:math' as math;
 import 'package:location/location.dart';
-import 'package:after_layout/after_layout.dart';
 import 'package:sensors/sensors.dart';
 import 'package:http/http.dart' as http;
 
@@ -52,11 +49,15 @@ class AniControl extends FlareControls {
   @override
   void initialize(FlutterActorArtboard board) {
     super.initialize(board);
-    items.forEach((a) => a.actor = board.getAnimation(a.name)!);
+    for (var a in items) {
+      a.actor = board.getAnimation(a.name)!;
+    }
   }
 
   operator [](String name) {
-    for (var a in items) if (a.name == name) return a;
+    for (var a in items) {
+      if (a.name == name) return a;
+    }
   }
 }
 
@@ -135,7 +136,8 @@ class _CompassState extends State<Compass> {
 
   Widget Earth() {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text(city, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      Text(city,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
       Text('lat:${lat.toStringAsFixed(2)}  lon:${lon.toStringAsFixed(2)}'),
       Expanded(
         child: GestureDetector(
@@ -148,7 +150,7 @@ class _CompassState extends State<Compass> {
         ),
       ),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Container(
+        SizedBox(
             width: 128,
             height: 128,
             child: FlareActor(
@@ -157,7 +159,7 @@ class _CompassState extends State<Compass> {
               fit: BoxFit.contain,
             )),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('${temp.toInt()}°', style: TextStyle(fontSize: 60)),
+          Text('${temp.toInt()}°', style: const TextStyle(fontSize: 60)),
           Text(weather),
           Text('Humidity ${humidity.toInt()}%'),
         ]),
@@ -167,8 +169,9 @@ class _CompassState extends State<Compass> {
 
   Widget Compass() {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Text(city, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-      Container(
+      Text(city,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      SizedBox(
         height: MediaQuery.of(context).size.height * 0.4,
         child: GestureDetector(
           onTap: () => setState(() => mode++),
@@ -179,12 +182,12 @@ class _CompassState extends State<Compass> {
         ),
       ),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Container(
+        SizedBox(
             width: 128,
             height: 128,
             child: FlareActor('assets/flare/weather.flr', animation: icon)),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('${temp.toInt()}°', style: TextStyle(fontSize: 60)),
+          Text('${temp.toInt()}°', style: const TextStyle(fontSize: 60)),
           Text(weather),
           Text('Humidity ${humidity.toInt()}%'),
         ]),

@@ -2,15 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
-import 'package:prayers/pages/quran_pages.dart';
-import 'package:prayers/pages/settings_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
 
 import '../components/navigation_bar.dart';
-import '../providers/notification_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -54,10 +50,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   static List<Widget> pages = <Widget>[
-    PrayersPage(),
+    const PrayersPage(),
     const QiblaPage(),
     const TrackerPage(),
-    //const SettingsPage(),
   ];
 
   @override
@@ -86,12 +81,6 @@ class _HomePageState extends State<HomePage> {
             selectedIcon: Icon(FontAwesomeIcons.solidCalendarCheck),
             label: "Tracker",
           ),
-
-          /// Impostazioni
-          //NavigationDestination(
-            //icon: Icon(FontAwesomeIcons.slidersH),
-            //label: "Impostazioni",
-          //),
         ],
       ),
       resizeToAvoidBottomInset: false,

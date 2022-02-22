@@ -1,11 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/request_dialog.dart';
 
 class NotificationButton extends StatefulWidget {
-  NotificationButton({Key? key}) : super(key: key);
+  const NotificationButton({Key? key}) : super(key: key);
 
   @override
   State<NotificationButton> createState() => _NotificationButtonState();
@@ -28,7 +27,7 @@ class _NotificationButtonState extends State<NotificationButton> {
         showDialog(
             context: context,
             builder: (BuildContext context) {
-              return RequestDialog(
+              return const RequestDialog(
                 title:
                     'UPray vorrebbe inviarti delle notifiche\nLe notifiche possono includere avvisi, '
                     'suoni e badge icone configurabili in Impostazioni',
@@ -41,7 +40,7 @@ class _NotificationButtonState extends State<NotificationButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.60,
       height: 50,
       child: ElevatedButton(

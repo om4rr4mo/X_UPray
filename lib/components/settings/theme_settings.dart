@@ -4,6 +4,8 @@ import 'package:prayers/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ThemeSetting extends StatefulWidget {
+  const ThemeSetting({Key? key}) : super(key: key);
+
   @override
   State<ThemeSetting> createState() => _ThemeSettingState();
 }
@@ -16,10 +18,11 @@ class _ThemeSettingState extends State<ThemeSetting> {
   @override
   void initState() {
     themeList = <String>[];
-    if (ThemeProvider().getTheme == ThemeMode.dark)
+    if (ThemeProvider().getTheme == ThemeMode.dark) {
       themeList.add(scuro);
-    else
+    } else {
       themeList.add(chiaro);
+    }
 
     super.initState();
   }
@@ -35,13 +38,13 @@ class _ThemeSettingState extends State<ThemeSetting> {
           style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.07,
               child: ElevatedButton(
@@ -64,10 +67,10 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 2.0,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.07,
               child: ElevatedButton(

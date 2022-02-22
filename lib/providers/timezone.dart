@@ -3,7 +3,7 @@ import 'package:timezone/data/latest.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 class TimeZone {
-  factory TimeZone() => _this ?? TimeZone._();
+  factory TimeZone() => _this;
 
   TimeZone._() {
     initializeTimeZones();

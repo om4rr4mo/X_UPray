@@ -1,9 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import 'package:prayers/Utility/TGBL.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({
@@ -49,7 +45,7 @@ class _LoadingPageState extends State<LoadingPage>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.60,
         child: Lottie.asset(
           'assets/lotties/muslim_home.json',

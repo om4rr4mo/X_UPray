@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 
-import '../../providers/theme_provider.dart';
-
 class SchoolSetting extends StatefulWidget {
   const SchoolSetting({Key? key}) : super(key: key);
 
@@ -39,13 +37,13 @@ class _SchoolSettingState extends State<SchoolSetting> {
           style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.07,
               child: ElevatedButton(
@@ -70,7 +68,7 @@ class _SchoolSettingState extends State<SchoolSetting> {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.height * 0.07,
               child: ElevatedButton(

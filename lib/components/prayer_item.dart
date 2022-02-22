@@ -12,7 +12,7 @@ class PrayerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime parseDate = new DateFormat("HH:mm").parse(prayerTime);
+    DateTime parseDate = DateFormat("HH:mm").parse(prayerTime);
     String formattedPrayerTime = DateFormat('kk:mm').format(parseDate);
 
     Widget sliderContent = Column(
@@ -25,7 +25,7 @@ class PrayerItem extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -34,14 +34,14 @@ class PrayerItem extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width * 0.45,
                 height: MediaQuery.of(context).size.height * 0.10,
                 decoration: toggleBoxDecoration(context, true),
                 child: Center(
                     child: Text(
                   'on'.toUpperCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 )),
@@ -50,14 +50,14 @@ class PrayerItem extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width * 0.45,
                 height: MediaQuery.of(context).size.height * 0.10,
                 decoration: toggleBoxDecoration(context, false),
                 child: Center(
                     child: Text(
                   'off'.toUpperCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 )),
@@ -65,20 +65,19 @@ class PrayerItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         GestureDetector(
           onTap: () {},
           child: Container(
-            padding: EdgeInsets.all(20),
-            //width: MediaQuery.of(context).size.width * 0.95,
+            padding: const EdgeInsets.all(20),
             height: MediaQuery.of(context).size.height * 0.10,
             decoration: toggleBoxDecoration(context, false),
             child: Center(
                 child: Text(
               'scegli un adhan'.toUpperCase(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             )),
@@ -102,7 +101,6 @@ class PrayerItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            //color: Colors.teal,
             width: 3,
           ),
           borderRadius: BorderRadius.circular(21),
@@ -115,7 +113,7 @@ class PrayerItem extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   alignment: Alignment.centerLeft,
                   child: Text(
                     prayerName,
@@ -144,7 +142,6 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: IconButton(
                       icon: const Icon(Icons.add_alert),
-                      //color: Colors.teal,
                       iconSize: 24.0,
                       onPressed: () => showSlider(context, sliderContent)),
                 ),

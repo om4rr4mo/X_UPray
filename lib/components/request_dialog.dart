@@ -25,7 +25,7 @@ class RequestDialog extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 19,
@@ -36,9 +36,9 @@ class RequestDialog extends StatelessWidget {
                   maxLines: 4,
                   minFontSize: 17,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -54,7 +54,7 @@ class RequestDialog extends StatelessWidget {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(
+                            side: const BorderSide(
                                 color: Colors.blueGrey,
                                 style: BorderStyle.solid,
                                 width: 2),
@@ -64,7 +64,7 @@ class RequestDialog extends StatelessWidget {
                       onPressed: () => Navigator.of(context).pop(),
                       child: Text("nega".toUpperCase()),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20.0,
                     ),
                     ElevatedButton(
@@ -90,7 +90,7 @@ class RequestDialog extends StatelessWidget {
                       },
                       child: Text(
                         "consenti".toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),

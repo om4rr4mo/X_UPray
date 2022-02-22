@@ -18,6 +18,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Impostazioni",
+          textAlign: TextAlign.center,
+          ),
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -25,12 +31,12 @@ class _SettingsPageState extends State<SettingsPage> {
           height: MediaQuery.of(context).size.height * 0.90,
           child: Stack(
             children: [
-              IconButton(
-                icon: Icon(Icons.arrow_back_ios),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+              //IconButton(
+                //icon: Icon(Icons.arrow_back_ios),
+                //onPressed: () {
+                  //Navigator.pop(context);
+                //},
+              //),
               ListView(
                 children: [
                   loggedIn && userLogged.photoURL != null

@@ -25,14 +25,11 @@ class _SettingsPageState extends State<SettingsPage> {
           height: MediaQuery.of(context).size.height * 0.90,
           child: Stack(
             children: [
-              GestureDetector(
-                onTap: (){
-                  Navigator.of(context).pop();
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
                 },
-                child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Icon(Icons.arrow_back_ios),
-                ),
               ),
               ListView(
                 children: [

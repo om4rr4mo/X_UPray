@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
     PrayersPage(),
     const QiblaPage(),
     const TrackerPage(),
-    const SettingsPage(),
+    //const SettingsPage(),
   ];
 
   @override
@@ -69,26 +69,29 @@ class _HomePageState extends State<HomePage> {
           /// Orario
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.clock),
+            selectedIcon: Icon(FontAwesomeIcons.solidClock),
             label: "Preghiere",
           ),
 
           /// Qibla
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.compass),
+            selectedIcon: Icon(FontAwesomeIcons.solidCompass),
             label: "Qibla",
           ),
 
           /// Tracker
           NavigationDestination(
-            icon: Icon(FontAwesomeIcons.solidCalendarCheck),
+            icon: Icon(FontAwesomeIcons.calendarCheck),
+            selectedIcon: Icon(FontAwesomeIcons.solidCalendarCheck),
             label: "Tracker",
           ),
 
           /// Impostazioni
-          NavigationDestination(
-            icon: Icon(FontAwesomeIcons.slidersH),
-            label: "Impostazioni",
-          ),
+          //NavigationDestination(
+            //icon: Icon(FontAwesomeIcons.slidersH),
+            //label: "Impostazioni",
+          //),
         ],
       ),
       resizeToAvoidBottomInset: false,

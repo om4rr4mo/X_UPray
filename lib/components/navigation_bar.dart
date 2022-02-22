@@ -36,7 +36,7 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
   Widget build(BuildContext context) {
     return NavigationBar(
       animationDuration: const Duration(milliseconds: 900),
-      labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
       backgroundColor: Colors.white10,
       selectedIndex: _selectedIndex,
       onDestinationSelected: (int tappedIndex) {

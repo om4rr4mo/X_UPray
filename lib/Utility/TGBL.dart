@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -84,7 +85,7 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
   } else {
     return ButtonStyle(
       backgroundColor:
-          MaterialStateProperty.all(Theme.of(context).colorScheme.background),
+      MaterialStateProperty.all(Theme.of(context).colorScheme.background),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(21),
@@ -96,8 +97,7 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
   }
 }
 
-TextStyle toggleTextStyle(
-    BuildContext context, TextStyle style, bool selected) {
+TextStyle toggleTextStyle(BuildContext context, TextStyle style, bool selected) {
   return style.copyWith(
     color: textColorForBackground(
       toggleBoxDecoration(context, selected).color!,
@@ -172,4 +172,8 @@ ShowToastMessage({required String message}) {
     textColor: Colors.white,
     fontSize: 16.0,
   );
+}
+
+int random(min, max) {
+  return min + Random().nextInt(max - min);
 }

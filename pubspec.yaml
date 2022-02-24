@@ -60,6 +60,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   syncfusion_flutter_datepicker: ^19.4.52
   flutter_native_timezone: ^2.0.0
+  timezone: ^0.8.0
+  geocoder: ^0.2.1
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +88,7 @@ flutter:
     - assets/images/
     - assets/flare/
     - assets/icons/
+    - packages/timezone/data/2020a.tzf
   fonts:
     - family: Montserrat
       fonts:

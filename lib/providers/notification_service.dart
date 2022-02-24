@@ -101,12 +101,8 @@ class NotificationService {
 
   Future<void> notificationScheduled(int id, String title, String descriprion,
       DateTime dt, var scheduledDate) async {
-    DateTime date = DateTime.now().add(const Duration(minutes: 1));
-    int hour = date.hour;
-    var ogValue = hour;
-    int minute = date.minute;
 
-    var time = Time(hour, minute, 20);
+    var time = Time(dt.hour, dt.minute, 0);
 
     var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
       'repeatDailyAtTime channel id',
@@ -137,6 +133,15 @@ class NotificationService {
             UILocalNotificationDateInterpretation.absoluteTime,
         androidAllowWhileIdle: true);
 
-    print('Set at ' + time.hour.toString() + ":" + time.minute.toString());
+    print('ID: ' +
+        id.toString() +
+        '  Giorno: ' +
+        dt.month.toString() +
+        "/" +
+        dt.day.toString() +
+        " alle " +
+        time.hour.toString() +
+        ":" +
+        time.minute.toString());
   }
 }

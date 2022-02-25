@@ -12,8 +12,7 @@ class RequestDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Theme.of(context).iconTheme.color,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
       child: Wrap(
         children: [
           Padding(
@@ -25,18 +24,12 @@ class RequestDialog extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 19,
-                  ),
                 ),
                 AutoSizeText(
                   content,
                   maxLines: 4,
                   minFontSize: 17,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
                 ),
                 const SizedBox(
                   height: 30,
@@ -48,16 +41,11 @@ class RequestDialog extends StatelessWidget {
                       style: ButtonStyle(
                         elevation:
                             MaterialStateProperty.resolveWith((states) => 0),
-                        backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.blueGrey),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: const BorderSide(
-                                color: Colors.blueGrey,
-                                style: BorderStyle.solid,
-                                width: 2),
+                            borderRadius: BorderRadius.circular(21),
+                            side: const BorderSide(width: 2),
                           ),
                         ),
                       ),
@@ -71,16 +59,11 @@ class RequestDialog extends StatelessWidget {
                       style: ButtonStyle(
                         elevation:
                             MaterialStateProperty.resolveWith((states) => 0),
-                        backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Theme.of(context).iconTheme.color!),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            side: BorderSide(
-                                color: Theme.of(context).iconTheme.color!,
-                                style: BorderStyle.solid,
-                                width: 2),
+                            borderRadius: BorderRadius.circular(21),
+                            side: const BorderSide(width: 2),
                           ),
                         ),
                       ),
@@ -90,8 +73,6 @@ class RequestDialog extends StatelessWidget {
                       },
                       child: Text(
                         "consenti".toUpperCase(),
-                        style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],

@@ -59,16 +59,12 @@ class _LocationButtonState extends State<LocationButton> {
           elevation: MaterialStateProperty.resolveWith((states) => 0),
           backgroundColor: isLocationEnabled
               ? MaterialStateColor.resolveWith((states) => Colors.green)
-              : MaterialStateColor.resolveWith(
-                  (states) => Theme.of(context).iconTheme.color!),
+              : MaterialStateColor.resolveWith((states) => Colors.black),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(21),
               side: BorderSide(
-                  color: isLocationEnabled
-                      ? Colors.green
-                      : Theme.of(context).unselectedWidgetColor,
-                  style: BorderStyle.solid,
+                  color: isLocationEnabled ? Colors.green : Colors.black,
                   width: 2),
             ),
           ),

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,8 +25,6 @@ class _TrackerPageState extends State<TrackerPage> {
 
   Future<String?> _signupUser(SignupData data) async {
     debugPrint('Signup Name: ${data.name}, Password: ${data.password}');
-    User? user = (await Authentication.createUserWithEmailAndPassword(
-        data.name!.trim(), data.password!.trim()))!;
 
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => const VerifyEmailScreen()));
@@ -54,34 +51,17 @@ class _TrackerPageState extends State<TrackerPage> {
         extendBody: false,
         body: FlutterLogin(
           theme: LoginTheme(
-            primaryColor: Theme.of(context).scaffoldBackgroundColor,
-            accentColor: Theme.of(context).textTheme.bodyText2!.color,
             cardTheme: CardTheme(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: Theme.of(context).iconTheme.color,
+                  borderRadius: BorderRadius.circular(21)),
               elevation: 0,
             ),
-            textFieldStyle: const TextStyle(
-              color: Color(0xFFF6F4F3),
-            ),
             inputTheme: InputDecorationTheme(
-              labelStyle: const TextStyle(fontWeight: FontWeight.bold),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide:
-                    const BorderSide(width: 1, style: BorderStyle.solid),
+                borderRadius: BorderRadius.circular(21),
+                borderSide: const BorderSide(width: 2),
               ),
             ),
-            buttonTheme: LoginButtonTheme(
-              backgroundColor: Theme.of(context).shadowColor,
-            ),
-            buttonStyle: const TextStyle(
-              color: Color(0xFFF6F4F3),
-              fontWeight: FontWeight.bold,
-            ),
-            pageColorDark: Theme.of(context).scaffoldBackgroundColor,
-            pageColorLight: Theme.of(context).scaffoldBackgroundColor,
           ),
           disableCustomPageTransformer: true,
           messages: LoginMessages(

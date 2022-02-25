@@ -18,19 +18,15 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
+      /*appBar: AppBar(
+        title: const Text(
           "IMPOSTAZIONI",
-          style: Theme.of(context)
-              .textTheme
-              .headline1!
-              .copyWith(color: Colors.white),
         ),
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.10,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
+            bottom: Radius.circular(21),
           ),
         ),
         leading: Padding(
@@ -46,7 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
             alignment: Alignment.centerLeft,
           ),
         ),
-      ),
+      ),*/
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -54,52 +50,62 @@ class _SettingsPageState extends State<SettingsPage> {
           height: MediaQuery.of(context).size.height * 0.90,
           child: Stack(
             children: [
+              IconButton(
+                icon: const Icon(
+                  FontAwesomeIcons.arrowAltCircleLeft,
+                  size: 30,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                alignment: Alignment.centerLeft,
+              ),
               ListView(
                 children: [
                   loggedIn && userLogged.photoURL != null
                       ? Align(
-                        alignment: Alignment.center,
-                        child: CircleAvatarWithTransition(
-                          transitionBorderwidth: 20,
-                          primaryColor: Colors.blue,
-                          image: loggedIn && userLogged.photoURL != null
-                              ? NetworkImage(
-                            userLogged.photoURL!,
-                          )
-                              : const NetworkImage(""),
-                        ),
-                      )
-                          : Container(),
-                      const ThemeSetting(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      const SchoolSetting(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      const MethodSetting(),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          await Authentication.signOut();
-                          setState(() {
-                            loggedIn = false;
-                          });
-                        },
-                        child: const Text(
-                          "SETTINGS\nclicca qui per fare il logout (solo test)\nNella pagina tracker si dovrà rifare il login",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
+                          alignment: Alignment.center,
+                          child: CircleAvatarWithTransition(
+                            transitionBorderwidth: 20,
+                            primaryColor: Colors.black,
+                            image: loggedIn && userLogged.photoURL != null
+                                ? NetworkImage(
+                                    userLogged.photoURL!,
+                                  )
+                                : const NetworkImage(""),
+                          ),
+                        )
+                      : Container(),
+                  const ThemeSetting(),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const SchoolSetting(),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const MethodSetting(),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      await Authentication.signOut();
+                      setState(() {
+                        loggedIn = false;
+                      });
+                    },
+                    child: const Text(
+                      "SETTINGS\nclicca qui per fare il logout (solo test)\nNella pagina tracker si dovrà rifare il login",
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
-            ),
-          )),
+            ],
+          ),
+        ),
+      )),
     );
   }
 }

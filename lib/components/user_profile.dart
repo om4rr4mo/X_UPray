@@ -29,30 +29,24 @@ class CircleAvatarWithTransition extends StatelessWidget {
         Container(
           height: size,
           width: size,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: primaryColor.withOpacity(0.05)),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
         ),
         Container(
             height: size - transitionBorderwidth,
             width: size - transitionBorderwidth,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              gradient: RadialGradient(
-                  stops: const [0.01, 0.5],
-                  colors: [Colors.white, primaryColor.withOpacity(0.1)]),
+              gradient:
+                  RadialGradient(stops: [0.01, 0.5], colors: [Colors.white]),
             )),
         Container(
             height: size - (transitionBorderwidth * 2),
             width: size - (transitionBorderwidth * 2),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: primaryColor.withOpacity(0.4))),
+            decoration: const BoxDecoration(shape: BoxShape.circle)),
         Container(
             height: size - (transitionBorderwidth * 3),
             width: size - (transitionBorderwidth * 3),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: primaryColor.withOpacity(0.5))),
+            decoration: const BoxDecoration(shape: BoxShape.circle)),
         Container(
             height: size - (transitionBorderwidth * 4),
             width: size - (transitionBorderwidth * 4),

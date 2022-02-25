@@ -72,9 +72,8 @@ class _MethodSettingState extends State<MethodSetting> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           "Metodo di calcolo",
-          style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
         const SizedBox(
@@ -104,12 +103,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    karachi,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 1),
-                  )),
+                  child: Center(child: Text(karachi)),
                 ),
               ),
               const SizedBox(
@@ -131,12 +125,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    america,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 2),
-                  )),
+                  child: Center(child: Text(america)),
                 ),
               ),
               const SizedBox(
@@ -158,12 +147,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    worldLeague,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 3),
-                  )),
+                  child: Center(child: Text(worldLeague)),
                 ),
               ),
               const SizedBox(
@@ -185,12 +169,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    makkah,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 4),
-                  )),
+                  child: Center(child: Text(makkah)),
                 ),
               ),
               const SizedBox(
@@ -212,12 +191,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    egyptian,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 5),
-                  )),
+                  child: Center(child: Text(egyptian)),
                 ),
               ),
               const SizedBox(
@@ -239,12 +213,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    kuwait,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 9),
-                  )),
+                  child: Center(child: Text(kuwait)),
                 ),
               ),
               const SizedBox(
@@ -265,12 +234,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    qatar,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 10),
-                  )),
+                  child: Center(child: Text(qatar)),
                 ),
               ),
               const SizedBox(
@@ -292,12 +256,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    singapura,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 11),
-                  )),
+                  child: Center(child: Text(singapura)),
                 ),
               ),
               const SizedBox(
@@ -319,12 +278,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    france,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 12),
-                  )),
+                  child: Center(child: Text(france)),
                 ),
               ),
               const SizedBox(
@@ -346,12 +300,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    turkey,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 13),
-                  )),
+                  child: Center(child: Text(turkey)),
                 ),
               ),
               const SizedBox(
@@ -373,12 +322,7 @@ class _MethodSettingState extends State<MethodSetting> {
                           DateFormat('dd-MM-y').format(currentDate));
                     });
                   },
-                  child: Center(
-                      child: Text(
-                    worldwide,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, method == 15),
-                  )),
+                  child: Center(child: Text(worldwide)),
                 ),
               ),
               const SizedBox(

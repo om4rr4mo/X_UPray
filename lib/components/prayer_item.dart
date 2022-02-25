@@ -20,10 +20,6 @@ class PrayerItem extends StatelessWidget {
       children: [
         const Text(
           'Notification Menu',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
         ),
         const SizedBox(
           height: 10,
@@ -41,9 +37,6 @@ class PrayerItem extends StatelessWidget {
                 child: Center(
                     child: Text(
                   'on'.toUpperCase(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
                 )),
               ),
             ),
@@ -57,9 +50,6 @@ class PrayerItem extends StatelessWidget {
                 child: Center(
                     child: Text(
                   'off'.toUpperCase(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
                 )),
               ),
             ),
@@ -77,15 +67,11 @@ class PrayerItem extends StatelessWidget {
             child: Center(
                 child: Text(
               'scegli un adhan'.toUpperCase(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
             )),
           ),
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Theme.of(context).iconTheme.color,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(21),
             ),
@@ -101,7 +87,7 @@ class PrayerItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            width: 3,
+            width: 2,
           ),
           borderRadius: BorderRadius.circular(21),
         ),
@@ -117,9 +103,6 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     prayerName,
-                    style: const TextStyle(
-                      fontSize: 17,
-                    ),
                   ),
                 ),
               ),
@@ -129,10 +112,6 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     formattedPrayerTime,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
                   ),
                 ),
               ),

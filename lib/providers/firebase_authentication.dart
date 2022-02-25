@@ -119,8 +119,6 @@ class Authentication {
               actions: <Widget>[
                 FlatButton(
                   child: const Text("submit"),
-                  textColor: Colors.white,
-                  color: Colors.green,
                   onPressed: () {
                     var _credential = PhoneAuthProvider.credential(
                         verificationId: verificationId!,

@@ -29,13 +29,11 @@ class _ThemeSettingState extends State<ThemeSetting> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeProvider themeProvider = ThemeProvider();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
+        const Text(
           "Tema",
-          style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
         const SizedBox(
@@ -62,8 +60,8 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 child: Center(
                   child: Icon(Icons.brightness_7_rounded,
                       color: themeList.contains(chiaro)
-                          ? Colors.amberAccent
-                          : Theme.of(context).colorScheme.secondary),
+                          ? Colors.white
+                          : Colors.black),
                 ),
               ),
             ),
@@ -88,8 +86,8 @@ class _ThemeSettingState extends State<ThemeSetting> {
                 child: Center(
                   child: Icon(Icons.brightness_2_rounded,
                       color: themeList.contains(scuro)
-                          ? Colors.amberAccent
-                          : Theme.of(context).colorScheme.secondary),
+                          ? Colors.white
+                          : Colors.black),
                 ),
               ),
             ),

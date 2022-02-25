@@ -52,22 +52,19 @@ var users = const {
 Color textColorForBackground(Color backgroundColor) {
   if (ThemeData.estimateBrightnessForColor(backgroundColor) ==
       Brightness.dark) {
-    return const Color(0xFFF6F4F3);
+    return const Color(0xFFFFFFFF);
   }
 
-  return const Color(0xFF455A64);
+  return const Color(0x00000000);
 }
 
 BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
   if (selected) {
     return BoxDecoration(
-      color: Theme.of(context).iconTheme.color,
       borderRadius: BorderRadius.circular(21),
-      border: Border.all(color: Theme.of(context).iconTheme.color!, width: 0),
     );
   } else {
     return BoxDecoration(
-      color: Theme.of(context).colorScheme.background,
       borderRadius: BorderRadius.circular(21),
     );
   }
@@ -84,32 +81,27 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
     );
   } else {
     return ButtonStyle(
-      backgroundColor:
-      MaterialStateProperty.all(Theme.of(context).colorScheme.background),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(21),
-          side: BorderSide(
-              width: 2, color: Theme.of(context).colorScheme.secondary),
         ),
       ),
     );
   }
 }
 
-TextStyle toggleTextStyle(BuildContext context, TextStyle style, bool selected) {
+TextStyle toggleTextStyle(
+    BuildContext context, TextStyle style, bool selected) {
   return style.copyWith(
     color: textColorForBackground(
       toggleBoxDecoration(context, selected).color!,
     ),
-    fontWeight: selected ? FontWeight.bold : FontWeight.w500,
   );
 }
 
 showSlider(BuildContext context, Widget widget) {
   showModalBottomSheet<void>(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
-    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     context: context,
     builder: (BuildContext context) {
       return Padding(
@@ -144,9 +136,6 @@ ShowToastError({required String message}) {
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
-    backgroundColor: Colors.red,
-    textColor: Colors.white,
-    fontSize: 16.0,
   );
 }
 
@@ -156,9 +145,6 @@ ShowToastDone({required String message}) {
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
-    backgroundColor: Colors.green,
-    textColor: Colors.white,
-    fontSize: 16.0,
   );
 }
 
@@ -168,9 +154,6 @@ ShowToastMessage({required String message}) {
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.BOTTOM,
     timeInSecForIosWeb: 1,
-    backgroundColor: Colors.white10,
-    textColor: Colors.white,
-    fontSize: 16.0,
   );
 }
 

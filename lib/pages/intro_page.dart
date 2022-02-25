@@ -46,18 +46,13 @@ class _IntroPageState extends State<IntroPage> {
     );
   }
 
-  Widget _buildImage(String assetName, [double width = 340]) {
-    return Image.asset('assets/images/$assetName', width: width);
+  Widget _buildImage(String assetName) {
+    return Image.asset('assets/images/$assetName');
   }
 
+  @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0);
-
-    var pageDecoration = PageDecoration(
-      titleTextStyle:
-          const TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: bodyStyle,
-      pageColor: Theme.of(context).colorScheme.background,
+    var pageDecoration = const PageDecoration(
       imagePadding: EdgeInsets.zero,
     );
 
@@ -66,23 +61,12 @@ class _IntroPageState extends State<IntroPage> {
       isBottomSafeArea: true,
       isProgress: true,
       isProgressTap: true,
-      globalBackgroundColor: Theme.of(context).colorScheme.background,
       globalFooter: (isNotificationEnabled && isLocationEnabled)
           ? SizedBox(
               width: double.infinity,
               height: 90,
               child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateColor.resolveWith((states) => Colors.blue),
-                ),
-                child: Text(
-                  'Tutto pronto per iniziare',
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).textTheme.bodyText2!.color),
-                ),
+                child: const Text('Tutto pronto per iniziare'),
                 onPressed: () => _onIntroEnd(context),
               ),
             )
@@ -102,9 +86,8 @@ class _IntroPageState extends State<IntroPage> {
         ),
         PageViewModel(
           image: _buildImage('mecca.png'),
-          titleWidget: Text(
+          titleWidget: const Text(
             "Attiva funzionalità",
-            style: pageDecoration.titleTextStyle,
           ),
           bodyWidget: Center(
             child: Column(
@@ -128,19 +111,17 @@ class _IntroPageState extends State<IntroPage> {
       nextFlex: 0,
       skip: const Text('Skip'),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      done: const Text('Done'),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-      dotsDecorator: DotsDecorator(
-        size: const Size(10.0, 10.0),
-        color: Theme.of(context).unselectedWidgetColor,
-        activeSize: const Size(22.0, 10.0),
-        activeColor: Theme.of(context).scaffoldBackgroundColor,
-        activeShape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+      dotsDecorator: const DotsDecorator(
+        size: Size(10.0, 10.0),
+        activeSize: Size(22.0, 10.0),
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(21)),
         ),
       ),
     );

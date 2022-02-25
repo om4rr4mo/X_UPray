@@ -32,9 +32,8 @@ class _SchoolSettingState extends State<SchoolSetting> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           "Scuola",
-          style: Theme.of(context).textTheme.subtitle2,
           textAlign: TextAlign.start,
         ),
         const SizedBox(
@@ -60,11 +59,7 @@ class _SchoolSettingState extends State<SchoolSetting> {
                   });
                 },
                 child: Center(
-                  child: Text(
-                    shafi,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, school == 0),
-                  ),
+                  child: Text(shafi),
                 ),
               ),
             ),
@@ -85,11 +80,7 @@ class _SchoolSettingState extends State<SchoolSetting> {
                   });
                 },
                 child: Center(
-                  child: Text(
-                    hanafi,
-                    style: toggleTextStyle(context,
-                        Theme.of(context).textTheme.button!, school == 1),
-                  ),
+                  child: Text(hanafi),
                 ),
               ),
             ),

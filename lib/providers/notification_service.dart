@@ -101,7 +101,6 @@ class NotificationService {
 
   Future<void> notificationScheduled(int id, String title, String descriprion,
       DateTime dt, var scheduledDate) async {
-
     var time = Time(dt.hour, dt.minute, 0);
 
     var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
@@ -110,15 +109,12 @@ class NotificationService {
       channelDescription: 'repeatDailyAtTime description',
       importance: Importance.max,
       priority: Priority.max,
-      ledColor: Color(0xFF3EB16F),
+      ledColor: Colors.green,
       ledOffMs: 1000,
       ledOnMs: 1000,
       enableLights: true,
     );
     var iOSPlatformChannelSpecifics = const IOSNotificationDetails();
-    var platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: iOSPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
         id,

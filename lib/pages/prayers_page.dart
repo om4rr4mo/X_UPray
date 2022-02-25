@@ -99,13 +99,9 @@ class _PrayersPageState extends State<PrayersPage> {
                                 children: [
                                   Text(
                                     "${currentDate.toLocal()}".split(' ')[0],
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     data.date.hijri.date,
-                                    style: const TextStyle(fontSize: 16),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],

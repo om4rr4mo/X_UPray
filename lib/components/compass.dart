@@ -136,8 +136,7 @@ class _CompassState extends State<Compass> {
 
   Widget Earth() {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text(city,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      Text(city),
       Text('lat:${lat.toStringAsFixed(2)}  lon:${lon.toStringAsFixed(2)}'),
       Expanded(
         child: GestureDetector(
@@ -159,7 +158,7 @@ class _CompassState extends State<Compass> {
               fit: BoxFit.contain,
             )),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('${temp.toInt()}°', style: const TextStyle(fontSize: 60)),
+          Text('${temp.toInt()}°'),
           Text(weather),
           Text('Humidity ${humidity.toInt()}%'),
         ]),
@@ -169,8 +168,7 @@ class _CompassState extends State<Compass> {
 
   Widget Compass() {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Text(city,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+      Text(city),
       SizedBox(
         height: MediaQuery.of(context).size.height * 0.4,
         child: GestureDetector(
@@ -187,7 +185,7 @@ class _CompassState extends State<Compass> {
             height: 128,
             child: FlareActor('assets/flare/weather.flr', animation: icon)),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('${temp.toInt()}°', style: const TextStyle(fontSize: 60)),
+          Text('${temp.toInt()}°'),
           Text(weather),
           Text('Humidity ${humidity.toInt()}%'),
         ]),

@@ -28,8 +28,6 @@ class PrayerProvider {
   }
 
   Future getTimesCalendarByAddress() async {
-    final position = await Geolocator.getCurrentPosition();
-
     DateTime date = DateTime.now();
 
     final url = Uri.parse(
@@ -44,8 +42,6 @@ class PrayerProvider {
   }
 
   Future getPTCalendarByCity() async {
-    final position = await Geolocator.getCurrentPosition();
-
     DateTime date = DateTime.now();
 
     final url = Uri.parse(
@@ -82,8 +78,6 @@ class PrayerProvider {
   }
 
   Future getPTHijriCalendarByAddress() async {
-    final position = await Geolocator.getCurrentPosition();
-
     DateTime date = DateTime.now();
 
     final url = Uri.parse(
@@ -98,8 +92,6 @@ class PrayerProvider {
   }
 
   Future getPTHijriCalendarByCity() async {
-    final position = await Geolocator.getCurrentPosition();
-
     DateTime date = DateTime.now();
 
     final url = Uri.parse(
@@ -137,10 +129,6 @@ class PrayerProvider {
   }
 
   Future getTimingsByAddress() async {
-    final position = await Geolocator.getCurrentPosition();
-
-    DateTime date = DateTime.now();
-
     final url = Uri.parse(
         'http://api.aladhan.com/v1/timingsByAddress?address=$address&method=$method');
 
@@ -157,8 +145,6 @@ class PrayerProvider {
   }
 
   Future getTimingsByCity(String date) async {
-    final position = await Geolocator.getCurrentPosition();
-
     final url = Uri.parse(
         'http://api.aladhan.com/v1/timingsByCity?city=$city&country=$country&method=$method&date_or_timestamp=$date');
 

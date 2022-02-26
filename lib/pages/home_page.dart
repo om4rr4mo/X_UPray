@@ -83,8 +83,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      resizeToAvoidBottomInset: false,
-      extendBody: false,
       body: Center(
         child: pages.elementAt(currentIndex),
       ),

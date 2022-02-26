@@ -17,11 +17,10 @@ class _LocationButtonState extends State<LocationButton> {
 
     locationPackage.Location _locationService = locationPackage.Location();
 
-    await _locationService.changeSettings(
-        accuracy: locationPackage.LocationAccuracy.high, interval: 1000);
+    // await _locationService.changeSettings(
+    //     accuracy: locationPackage.LocationAccuracy.high, interval: 1000);
 
     bool serviceStatus = await _locationService.serviceEnabled();
-    print("Service status: $serviceStatus");
     if (serviceStatus) {
       _permission = await _locationService.requestPermission();
       print("Permission: $_permission");
@@ -64,8 +63,7 @@ class _LocationButtonState extends State<LocationButton> {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(21),
               side: BorderSide(
-                  color: isLocationEnabled ? Colors.green : Colors.black,
-                  width: 2),
+                  color: isLocationEnabled ? Colors.green : Colors.black),
             ),
           ),
         ),

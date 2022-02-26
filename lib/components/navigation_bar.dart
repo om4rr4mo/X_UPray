@@ -30,7 +30,8 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      animationDuration: const Duration(milliseconds: 900),
+      height: 73,
+      animationDuration: const Duration(milliseconds: 1100),
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
       selectedIndex: _selectedIndex,
       onDestinationSelected: (int tappedIndex) {

@@ -69,7 +69,7 @@ class _PrayersPageState extends State<PrayersPage> {
                                 builder: (context) => const SettingsPage()),
                           );
                         },
-                        alignment: Alignment.centerRight),
+                        alignment: Alignment.center),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -86,7 +86,7 @@ class _PrayersPageState extends State<PrayersPage> {
                           },
                           child: const Icon(
                             FontAwesomeIcons.arrowAltCircleLeft,
-                            size: 30,
+                            size: 27,
                           ),
                         ),
                         Column(
@@ -99,10 +99,14 @@ class _PrayersPageState extends State<PrayersPage> {
                                 children: [
                                   Text(
                                     "${currentDate.toLocal()}".split(' ')[0],
+                                    style: const TextStyle(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   Text(
                                     data.date.hijri.date,
-                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(fontSize: 15),
                                   ),
                                 ],
                               ),
@@ -122,7 +126,7 @@ class _PrayersPageState extends State<PrayersPage> {
                           },
                           child: const Icon(
                             FontAwesomeIcons.arrowAltCircleRight,
-                            size: 30,
+                            size: 27,
                           ),
                         ),
                       ],

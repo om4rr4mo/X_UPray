@@ -41,7 +41,7 @@ class _IntroPageState extends State<IntroPage> {
 
   void _onIntroEnd(context) {
     widget.prefs.setBool(widget.boolKey, false);
-    Navigator.of(context).push(
+    Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => const HomePage()),
     );
   }
@@ -59,15 +59,24 @@ class _IntroPageState extends State<IntroPage> {
     return IntroductionScreen(
       key: introKey,
       isBottomSafeArea: true,
-      isProgress: true,
-      isProgressTap: true,
       globalFooter: (isNotificationEnabled && isLocationEnabled)
           ? SizedBox(
               width: double.infinity,
-              height: 90,
+              height: 80,
               child: ElevatedButton(
-                child: const Text('Tutto pronto per iniziare'),
+                child: const Text(
+                  'Tutto pronto per iniziare',
+                  style: TextStyle(
+                    fontSize: 16.5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 onPressed: () => _onIntroEnd(context),
+                style: ElevatedButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(7),
+                            topRight: Radius.circular(7)))),
               ),
             )
           : null,
@@ -109,7 +118,10 @@ class _IntroPageState extends State<IntroPage> {
       showDoneButton: false,
       showNextButton: false,
       nextFlex: 0,
-      skip: const Text('Skip'),
+      skip: const Text(
+        'Skip',
+        textAlign: TextAlign.start,
+      ),
       next: const Icon(Icons.arrow_forward),
       done: const Text('Done'),
       curve: Curves.fastLinearToSlowEaseIn,
@@ -119,7 +131,7 @@ class _IntroPageState extends State<IntroPage> {
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
-        activeSize: Size(22.0, 10.0),
+        activeSize: Size(23.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(21)),
         ),

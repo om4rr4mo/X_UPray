@@ -45,7 +45,6 @@ class RequestDialog extends StatelessWidget {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(21),
-                            side: const BorderSide(width: 2),
                           ),
                         ),
                       ),
@@ -63,7 +62,6 @@ class RequestDialog extends StatelessWidget {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(21),
-                            side: const BorderSide(width: 2),
                           ),
                         ),
                       ),

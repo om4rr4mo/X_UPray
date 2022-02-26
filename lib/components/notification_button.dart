@@ -53,8 +53,7 @@ class _NotificationButtonState extends State<NotificationButton> {
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(21),
               side: BorderSide(
-                  color: isNotificationEnabled ? Colors.green : Colors.black,
-                  width: 2),
+                  color: isNotificationEnabled ? Colors.green : Colors.black),
             ),
           ),
         ),

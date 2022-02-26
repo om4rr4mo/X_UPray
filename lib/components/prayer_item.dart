@@ -20,6 +20,10 @@ class PrayerItem extends StatelessWidget {
       children: [
         const Text(
           'Notification Menu',
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(
           height: 10,
@@ -87,7 +91,7 @@ class PrayerItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            width: 2,
+            width: 2.6,
           ),
           borderRadius: BorderRadius.circular(21),
         ),
@@ -103,6 +107,9 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     prayerName,
+                    style: const TextStyle(
+                      fontSize: 17,
+                    ),
                   ),
                 ),
               ),
@@ -112,6 +119,10 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(
                     formattedPrayerTime,
+                    style: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -121,7 +132,6 @@ class PrayerItem extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: IconButton(
                       icon: const Icon(Icons.add_alert),
-                      iconSize: 24.0,
                       onPressed: () => showSlider(context, sliderContent)),
                 ),
               )

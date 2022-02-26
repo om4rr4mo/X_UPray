@@ -62,10 +62,12 @@ BoxDecoration toggleBoxDecoration(BuildContext context, bool selected) {
   if (selected) {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(21),
+      border: Border.all(width: 2.6),
     );
   } else {
     return BoxDecoration(
       borderRadius: BorderRadius.circular(21),
+      border: Border.all(width: 2.6),
     );
   }
 }
@@ -92,11 +94,7 @@ ButtonStyle toggleButtonStyle(BuildContext context, bool selected) {
 
 TextStyle toggleTextStyle(
     BuildContext context, TextStyle style, bool selected) {
-  return style.copyWith(
-    color: textColorForBackground(
-      toggleBoxDecoration(context, selected).color!,
-    ),
-  );
+  return style;
 }
 
 showSlider(BuildContext context, Widget widget) {

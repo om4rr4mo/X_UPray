@@ -85,14 +85,14 @@ class _IntroPageState extends State<IntroPage> {
           title: "Chi siamo",
           body:
               "Due universitari che hanno deciso di offrire le proprie abilità al servizio della comunità",
-          image: _buildImage('mecca.png'),
+          image: _buildImage('avatars.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Cosa offriamo",
           body:
               "Sappiamo che in questa categoria la scelta di app è a dir poco ampia. Ecco i motivi per scegliere la nostra",
-          image: _buildImage('mecca.png'),
+          image: _buildImage('question.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -101,7 +101,7 @@ class _IntroPageState extends State<IntroPage> {
               "Uno dei più grandi problemi in questa categoria è la presenza massiccia di pubblicità, "
               "quasi mai inerente all'ambiente islamico. Per questo nella nostra applicazione "
               "abbiamo deciso di rimuoverla completamente",
-          image: _buildImage('mecca.png'),
+          image: _buildImage('advertisement.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
@@ -110,7 +110,7 @@ class _IntroPageState extends State<IntroPage> {
               "Nella maggior parte delle app di questo tipo la traduzione nelle varie lingue è scadente, "
               "perché gestita da software di traduzione automatica. "
               "Qui promettiamo consistenza e qualità, attraverso una maggiore attenzione e cura nella traduzione di ogni singolo menu",
-          image: _buildImage('mecca.png'),
+          image: _buildImage('translation.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(

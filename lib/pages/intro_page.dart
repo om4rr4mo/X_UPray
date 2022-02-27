@@ -82,22 +82,49 @@ class _IntroPageState extends State<IntroPage> {
           : null,
       pages: [
         PageViewModel(
-          title: "Intro 1",
-          body: "Lunga descrizione",
+          title: "Chi siamo",
+          body:
+              "Due universitari che hanno deciso di offrire le proprie abilità al servizio della comunità",
           image: _buildImage('mecca.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Intro 2",
-          body: "Lunga descrizione",
+          title: "Cosa offriamo",
+          body:
+              "Sappiamo che in questa categoria la scelta di app è a dir poco ampia. Ecco i motivi per scegliere la nostra",
           image: _buildImage('mecca.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
+          title: "Niente pubblicità",
+          body:
+              "Uno dei più grandi problemi in questa categoria è la presenza massiccia di pubblicità, "
+              "quasi mai inerente all'ambiente islamico. Per questo nella nostra applicazione "
+              "abbiamo deciso di rimuoverla completamente",
           image: _buildImage('mecca.png'),
-          titleWidget: const Text(
-            "Attiva funzionalità",
-          ),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Traduzione consistente",
+          body:
+              "Nella maggior parte delle app di questo tipo la traduzione nelle varie lingue è scadente, "
+              "perché gestita da software di traduzione automatica. "
+              "Qui promettiamo consistenza e qualità, attraverso una maggiore attenzione e cura nella traduzione di ogni singolo menu",
+          image: _buildImage('mecca.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Sincronizzazione del tracker",
+          body:
+              "La vera novità è qui: siamo riusciti a creare un tracker (no, non è questa) "
+              "regolato da un accesso, così che i tuoi progressi vengano sincronizzati con il tuo account. "
+              "In questo modo puoi mantenere il tuo ritmo di preghiera su qualsiasi dispositivo",
+          image: _buildImage('sync.png'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          image: _buildImage('mecca.png'),
+          title: "Attiva funzionalità",
           bodyWidget: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

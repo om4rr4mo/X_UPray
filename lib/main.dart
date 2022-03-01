@@ -30,6 +30,21 @@ Future<void> main() async {
   runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : const MainLaunch());
 }
 
+class UPrayAPp extends StatefulWidget {
+  final isFirstTime;
+  const UPrayAPp({Key? key, this.isFirstTime}) : super(key: key);
+
+  @override
+  _UPrayAPpState createState() => _UPrayAPpState();
+}
+
+class _UPrayAPpState extends State<UPrayAPp> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 class IntroLaunch extends StatelessWidget {
   final SharedPreferences prefs;
   final String boolKey;
@@ -71,27 +86,27 @@ ScheduleNotification() async {
 
     String? fajrDate = pd.data![i].date!.gregorian!.date! +
         " " +
-        timings!.fajr!.replaceAll(" (CET)", "");
+        timings!.fajr!.replaceAll(" (CET)", "").replaceAll(" (PST)", "");
     DateTime fajrDt = DateFormat('dd-MM-y HH:mm').parseStrict(fajrDate);
 
     String? ishaDate = pd.data![i].date!.gregorian!.date! +
         " " +
-        timings.isha!.replaceAll(" (CET)", "");
+        timings.isha!.replaceAll(" (CET)", "").replaceAll(" (PST)", "");
     DateTime ishaDt = DateFormat('dd-MM-y HH:mm').parseStrict(ishaDate);
 
     String? maghribDate = pd.data![i].date!.gregorian!.date! +
         " " +
-        timings.maghrib!.replaceAll(" (CET)", "");
+        timings.maghrib!.replaceAll(" (CET)", "").replaceAll(" (PST)", "");
     DateTime maghribDt = DateFormat('dd-MM-y HH:mm').parseStrict(maghribDate);
 
     String? asrDate = pd.data![i].date!.gregorian!.date! +
         " " +
-        timings.asr!.replaceAll(" (CET)", "");
+        timings.asr!.replaceAll(" (CET)", "").replaceAll(" (PST)", "");
     DateTime asrDt = DateFormat('dd-MM-y HH:mm').parseStrict(asrDate);
 
     String? dhuhrDate = pd.data![i].date!.gregorian!.date! +
         " " +
-        timings.dhuhr!.replaceAll(" (CET)", "");
+        timings.dhuhr!.replaceAll(" (CET)", "").replaceAll(" (PST)", "");
     DateTime dhuhrDt = DateFormat('dd-MM-y HH:mm').parseStrict(dhuhrDate);
 
     tz.Location location = tz.getLocation('Europe/Rome');
@@ -104,31 +119,31 @@ ScheduleNotification() async {
 
     NotificationService().notificationScheduled(
         notId++,
-        timings.fajr!.replaceAll("(CET)", "") + " Fajr",
+        timings.fajr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Fajr",
         "It's fajr prayer time",
         fajrDt,
         fajrScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.dhuhr!.replaceAll("(CET)", "") + " Dhuhr",
+        timings.dhuhr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Dhuhr",
         "It's dhuhr prayer time",
         dhuhrDt,
         dhuhrScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.asr!.replaceAll("(CET)", "") + " Asr",
+        timings.asr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Asr",
         "It's asr prayer time",
         asrDt,
         asrScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.maghrib!.replaceAll("(CET)", "") + " Maghrib",
+        timings.maghrib!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Maghrib",
         "It's maghrib prayer time",
         maghribDt,
         maghribScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.isha!.replaceAll("(CET)", "") + " Isha",
+        timings.isha!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Isha",
         "It's isha prayer time",
         ishaDt,
         ishaScheduledDate);

@@ -119,7 +119,7 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.zonedSchedule(
         id,
         title,
-        "Have you completed your goal?",
+        descriprion,
         scheduledDate,
         NotificationDetails(
             android: androidPlatformChannelSpecifics,

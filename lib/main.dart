@@ -14,6 +14,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/timezone.dart';
 
+import 'providers/languages/locale_constant.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var prefs = await SharedPreferences.getInstance();
@@ -27,21 +29,77 @@ Future<void> main() async {
   });
   await Firebase.initializeApp();
   await NotificationService().init();
-  runApp(isFirstTime ? IntroLaunch(prefs, boolKey) : const MainLaunch());
+  runApp(UPrayApp(isFirstTime: isFirstTime, boolKey: boolKey, prefs: prefs));
 }
 
-class UPrayAPp extends StatefulWidget {
-  final isFirstTime;
-  const UPrayAPp({Key? key, this.isFirstTime}) : super(key: key);
+class UPrayApp extends StatefulWidget {
+  final bool isFirstTime;
+  var prefs;
+  final boolKey;
+
+  UPrayApp({Key? key, required this.isFirstTime, this.prefs, this.boolKey})
+      : super(key: key);
+
+  static void setLocale(BuildContext context, Locale newLocale) {
+    var state = context.findAncestorStateOfType<_UPrayAppState>();
+    state!.setLocale(newLocale);
+  }
 
   @override
-  _UPrayAPpState createState() => _UPrayAPpState();
+  _UPrayAppState createState() => _UPrayAppState();
 }
 
-class _UPrayAPpState extends State<UPrayAPp> {
+class _UPrayAppState extends State<UPrayApp> {
+  late Locale _locale;
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  void didChangeDependencies() async {
+    getLocale().then((locale) {
+      setState(() {
+        _locale = locale;
+      });
+    });
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, _) {
+        final themeProvider = Provider.of<ThemeProvider>(context);
+        return MaterialApp(
+          localeResolutionCallback: (locale, supportedLocales) {
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale?.languageCode &&
+                  supportedLocale.countryCode == locale?.countryCode) {
+                return supportedLocale;
+              }
+            }
+            return supportedLocales.first;
+          },
+          supportedLocales: [
+            Locale('it', ''),
+            Locale('ar', ''),
+          ],
+          locale: _locale,
+          title: 'UPray',
+          theme: MyTheme.lightTheme,
+          darkTheme: MyTheme.darkTheme,
+          themeMode: themeProvider.themeMode,
+          debugShowCheckedModeBanner: false,
+          home: widget.isFirstTime
+              ? IntroLaunch(widget.prefs, widget.boolKey)
+              : MainLaunch(),
+        );
+      },
+    );
   }
 }
 
@@ -53,19 +111,26 @@ class IntroLaunch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => ThemeProvider(),
-        builder: (context, _) {
-          final themeProvider = Provider.of<ThemeProvider>(context);
-          return MaterialApp(
-            title: 'UPray',
-            theme: MyTheme.lightTheme,
-            darkTheme: MyTheme.darkTheme,
-            themeMode: themeProvider.themeMode,
-            debugShowCheckedModeBanner: false,
-            home: IntroPage(prefs: prefs, boolKey: boolKey),
-          );
-        });
+    return IntroPage(prefs: prefs, boolKey: boolKey);
+  }
+}
+
+class MainLaunch extends StatelessWidget {
+  const MainLaunch({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ScheduleNotification();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        loggedIn = false;
+      } else {
+        loggedIn = true;
+        userLogged = user;
+      }
+    });
+
+    return HomePage();
   }
 }
 
@@ -119,13 +184,15 @@ ScheduleNotification() async {
 
     NotificationService().notificationScheduled(
         notId++,
-        timings.fajr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Fajr",
+        timings.fajr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") +
+            " Fajr",
         "It's fajr prayer time",
         fajrDt,
         fajrScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.dhuhr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Dhuhr",
+        timings.dhuhr!.replaceAll("(CET)", "").replaceAll(" (PST)", "") +
+            " Dhuhr",
         "It's dhuhr prayer time",
         dhuhrDt,
         dhuhrScheduledDate);
@@ -137,46 +204,17 @@ ScheduleNotification() async {
         asrScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.maghrib!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Maghrib",
+        timings.maghrib!.replaceAll("(CET)", "").replaceAll(" (PST)", "") +
+            " Maghrib",
         "It's maghrib prayer time",
         maghribDt,
         maghribScheduledDate);
     NotificationService().notificationScheduled(
         notId++,
-        timings.isha!.replaceAll("(CET)", "").replaceAll(" (PST)", "") + " Isha",
+        timings.isha!.replaceAll("(CET)", "").replaceAll(" (PST)", "") +
+            " Isha",
         "It's isha prayer time",
         ishaDt,
         ishaScheduledDate);
-  }
-}
-
-class MainLaunch extends StatelessWidget {
-  const MainLaunch({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    ScheduleNotification();
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        loggedIn = false;
-      } else {
-        loggedIn = true;
-        userLogged = user;
-      }
-    });
-
-    return ChangeNotifierProvider(
-        create: (context) => ThemeProvider(),
-        builder: (context, _) {
-          final themeProvider = Provider.of<ThemeProvider>(context);
-          return MaterialApp(
-            title: 'UPray',
-            theme: MyTheme.lightTheme,
-            darkTheme: MyTheme.darkTheme,
-            themeMode: themeProvider.themeMode,
-            debugShowCheckedModeBanner: false,
-            home: const HomePage(),
-          );
-        });
   }
 }

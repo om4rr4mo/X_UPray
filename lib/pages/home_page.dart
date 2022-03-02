@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
+import 'package:prayers/providers/languages/languages.dart';
 
 import '../components/navigation_bar.dart';
 
@@ -57,15 +58,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Languages? languages = Languages.of(context);
     return Scaffold(
       bottomNavigationBar: HomeNavigationBar(
         onItemTap: _onItemTapped,
-        destinations: const [
+        destinations: [
           /// Orario
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.clock),
             selectedIcon: Icon(FontAwesomeIcons.solidClock),
-            label: "Preghiere",
+            label: "Preghiera",
+            //label: Languages.of(context)!.homeNavbarPrayer,
           ),
 
           /// Qibla
@@ -73,6 +76,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(FontAwesomeIcons.compass),
             selectedIcon: Icon(FontAwesomeIcons.solidCompass),
             label: "Qibla",
+            // label: Languages.of(context)!.homeNavbarQibla,
           ),
 
           /// Tracker
@@ -80,6 +84,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(FontAwesomeIcons.calendarCheck),
             selectedIcon: Icon(FontAwesomeIcons.solidCalendarCheck),
             label: "Tracker",
+            // label: Languages.of(context)!.homeNavbarTracker,
           ),
         ],
       ),

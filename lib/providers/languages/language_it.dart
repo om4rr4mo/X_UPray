@@ -1,6 +1,6 @@
 import 'package:prayers/providers/languages/languages.dart';
 
-class LanguageIta extends Languages{
+class LanguageIt extends Languages {
   @override
   // TODO: implement homeNavbarPrayer
   String get homeNavbarPrayer => "Preghiere";

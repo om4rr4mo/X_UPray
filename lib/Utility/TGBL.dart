@@ -158,3 +158,7 @@ ShowToastMessage({required String message}) {
 int random(min, max) {
   return min + Random().nextInt(max - min);
 }
+
+LanguageEnum LangChoose = LanguageEnum.IT;
+
+enum LanguageEnum { IT, AR, EN }

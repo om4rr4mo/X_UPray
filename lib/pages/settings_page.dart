@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prayers/Utility/TGBL.dart';
+import 'package:prayers/components/settings/language_settings.dart';
 import 'package:prayers/components/settings/method_settings.dart';
 import 'package:prayers/components/settings/school_settings.dart';
 import 'package:prayers/components/settings/theme_settings.dart';
@@ -18,10 +19,11 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           "IMPOSTAZIONI",
         ),
+        backgroundColor: Colors.white,
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.10,
         shape: const RoundedRectangleBorder(
@@ -42,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
             alignment: Alignment.centerLeft,
           ),
         ),
-      ),*/
+      ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -50,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
           height: MediaQuery.of(context).size.height * 0.90,
           child: Stack(
             children: [
-              IconButton(
+              /*IconButton(
                 icon: const Icon(
                   FontAwesomeIcons.arrowAltCircleLeft,
                   size: 30,
@@ -59,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   Navigator.pop(context);
                 },
                 alignment: Alignment.centerLeft,
-              ),
+              ),*/
               ListView(
                 children: [
                   loggedIn && userLogged.photoURL != null
@@ -88,6 +90,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   const SizedBox(
                     height: 25,
                   ),
+                  const LanguageSetting(),
                   GestureDetector(
                     onTap: () async {
                       await Authentication.signOut();

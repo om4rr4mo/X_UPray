@@ -114,9 +114,10 @@ class _UPrayAppState extends State<UPrayApp> {
           darkTheme: MyTheme.darkTheme,
           themeMode: themeProvider.themeMode,
           debugShowCheckedModeBanner: false,
-          home: widget.isFirstTime
+          /*home: widget.isFirstTime
               ? IntroLaunch(widget.prefs, widget.boolKey)
-              : MainLaunch(),
+              : MainLaunch(),*/
+          home: IntroLaunch(widget.prefs, widget.boolKey)
         );
       },
     );

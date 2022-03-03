@@ -24,6 +24,7 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
   late Timer timer;
+  late Decoration dotsDec;
 
   @override
   void initState() {
@@ -59,6 +60,7 @@ class _IntroPageState extends State<IntroPage> {
     );
 
     return IntroductionScreen(
+
       key: introKey,
       isBottomSafeArea: true,
       globalFooter: (isNotificationEnabled && isLocationEnabled)
@@ -129,19 +131,23 @@ class _IntroPageState extends State<IntroPage> {
             ),
           ),
           decoration: pageDecoration,
+
         ),
       ],
+      //dotsContainerDecorator: ,
       onDone: () => _onIntroEnd(context),
       showSkipButton: false,
       showDoneButton: false,
       showNextButton: false,
-      nextFlex: 0,
+      //nextFlex: 1,
+      //skipOrBackFlex: 1,
+      dotsFlex: 0,
       skip: const Text(
         'Skip',
         textAlign: TextAlign.start,
       ),
       next: const Icon(Icons.arrow_forward),
-      done: Text(languages!.introDone),
+      //done: Text(languages!.introDone),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb

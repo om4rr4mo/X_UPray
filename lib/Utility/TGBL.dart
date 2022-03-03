@@ -161,4 +161,4 @@ int random(min, max) {
 
 LanguageEnum LangChoose = LanguageEnum.IT;
 
-enum LanguageEnum { IT, AR, EN }
+enum LanguageEnum { IT, AR, EN, FR }

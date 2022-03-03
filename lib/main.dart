@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/pages/intro_page.dart';
+import 'package:prayers/providers/languages/app_localization_delegate.dart';
 import 'package:prayers/providers/notification_service.dart';
 import 'package:prayers/providers/prayer_data.dart';
 import 'package:prayers/providers/theme_provider.dart';
@@ -87,6 +89,14 @@ class _UPrayAppState extends State<UPrayApp> {
           supportedLocales: [
             Locale('it', ''),
             Locale('ar', ''),
+            Locale('en', ''),
+            Locale('fr', ''),
+          ],
+          localizationsDelegates: [
+            AppLocalizationsDelegate(),
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
           ],
           locale: _locale,
           title: 'UPray',

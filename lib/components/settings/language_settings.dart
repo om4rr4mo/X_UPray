@@ -16,6 +16,8 @@ class _LanguageSettingState extends State<LanguageSetting> {
   List<String> languageList = <String>[];
   LanguageData it = LanguageData.languageList()[0];
   LanguageData ar = LanguageData.languageList()[1];
+  LanguageData en = LanguageData.languageList()[2];
+  LanguageData fr = LanguageData.languageList()[3];
 
   //String en = 'English';
 
@@ -32,6 +34,12 @@ class _LanguageSettingState extends State<LanguageSetting> {
         break;
       case 2:
         languageList.add(ar.name);
+        break;
+      case 3:
+        languageList.add(en.name);
+        break;
+      case 4:
+        languageList.add(fr.name);
         break;
     }
   }
@@ -97,6 +105,45 @@ class _LanguageSettingState extends State<LanguageSetting> {
               ),
               const SizedBox(
                 height: 10,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
+                child: ElevatedButton(
+                  style: toggleButtonStyle(
+                      context, languageList.contains(en.name)),
+                  onPressed: () {
+                    languageList = <String>[];
+                    languageList.add(en.name);
+
+                    setState(() {
+                      LangChoose = LanguageEnum.EN;
+                    });
+
+                    changeLanguage(context, en.languageCode);
+                  },
+                  child: Center(child: Text(en.name)),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
+                child: ElevatedButton(
+                  style: toggleButtonStyle(
+                      context, languageList.contains(fr.name)),
+                  onPressed: () {
+                    languageList = <String>[];
+                    languageList.add(fr.name);
+
+                    setState(() {
+                      LangChoose = LanguageEnum.FR;
+                    });
+
+                    changeLanguage(context, fr.languageCode);
+                  },
+                  child: Center(child: Text(fr.name)),
+                ),
               ),
             ],
           ),

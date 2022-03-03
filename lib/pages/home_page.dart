@@ -67,24 +67,21 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.clock),
             selectedIcon: Icon(FontAwesomeIcons.solidClock),
-            label: "Preghiera",
-            //label: Languages.of(context)!.homeNavbarPrayer,
+            label: languages!.homeNavbarPrayer,
           ),
 
           /// Qibla
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.compass),
             selectedIcon: Icon(FontAwesomeIcons.solidCompass),
-            label: "Qibla",
-            // label: Languages.of(context)!.homeNavbarQibla,
+            label: languages!.homeNavbarQibla,
           ),
 
           /// Tracker
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.calendarCheck),
             selectedIcon: Icon(FontAwesomeIcons.solidCalendarCheck),
-            label: "Tracker",
-            // label: Languages.of(context)!.homeNavbarTracker,
+            label: languages!.homeNavbarTracker,
           ),
         ],
       ),

@@ -7,6 +7,7 @@ import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/location_button.dart';
 import 'package:prayers/components/notification_button.dart';
 import 'package:prayers/pages/home_page.dart';
+import 'package:prayers/providers/languages/languages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroPage extends StatefulWidget {
@@ -52,6 +53,7 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) {
+    Languages? languages = Languages.of(context);
     var pageDecoration = const PageDecoration(
       imagePadding: EdgeInsets.zero,
     );
@@ -63,9 +65,9 @@ class _IntroPageState extends State<IntroPage> {
           ? SizedBox(
               width: double.infinity,
               height: 80,
-              child: ElevatedButton(
-                child: const Text(
-                  'Tutto pronto per iniziare',
+        child: ElevatedButton(
+                child: Text(
+                  languages!.introButtonStart,
                   style: TextStyle(
                     fontSize: 16.5,
                     fontWeight: FontWeight.bold,
@@ -77,54 +79,43 @@ class _IntroPageState extends State<IntroPage> {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(7),
                             topRight: Radius.circular(7)))),
-              ),
-            )
+        ),
+      )
           : null,
       pages: [
         PageViewModel(
-          title: "Chi siamo",
-          body:
-              "Due universitari che hanno deciso di offrire le proprie abilità al servizio della comunità",
+          title: languages!.intro1Title,
+          body: languages!.intro1Body,
           image: _buildImage('avatars.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Cosa offriamo",
-          body:
-              "Sappiamo che in questa categoria la scelta di app è a dir poco ampia. Ecco i motivi per scegliere la nostra",
+          title: languages!.intro2Title,
+          body: languages!.intro2Body,
           image: _buildImage('question.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Niente pubblicità",
-          body:
-              "Uno dei più grandi problemi in questa categoria è la presenza massiccia di pubblicità, "
-              "quasi mai inerente all'ambiente islamico. Per questo nella nostra applicazione "
-              "abbiamo deciso di rimuoverla completamente",
+          title: languages!.intro3Title,
+          body: languages!.intro3Body,
           image: _buildImage('advertisement.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Traduzione consistente",
-          body:
-              "Nella maggior parte delle app di questo tipo la traduzione nelle varie lingue è scadente, "
-              "perché gestita da software di traduzione automatica. "
-              "Qui promettiamo consistenza e qualità, attraverso una maggiore attenzione e cura nella traduzione di ogni singolo menu",
+          title: languages!.intro4Title,
+          body: languages!.intro4Body,
           image: _buildImage('translation.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Sincronizzazione del tracker",
-          body:
-              "La vera novità è qui: siamo riusciti a creare un tracker (no, non è questa) "
-              "regolato da un accesso, così che i tuoi progressi vengano sincronizzati con il tuo account. "
-              "In questo modo puoi mantenere il tuo ritmo di preghiera su qualsiasi dispositivo",
+          title: languages!.intro5Title,
+          body: languages!.intro5Body,
           image: _buildImage('sync.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           image: _buildImage('mecca.png'),
-          title: "Attiva funzionalità",
+          title: languages!.intro6Title,
           bodyWidget: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +141,7 @@ class _IntroPageState extends State<IntroPage> {
         textAlign: TextAlign.start,
       ),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done'),
+      done: Text(languages!.introDone),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
       controlsPadding: kIsWeb

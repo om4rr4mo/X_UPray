@@ -7,9 +7,10 @@ class LanguageData {
 
   static List<LanguageData> languageList() {
     return <LanguageData>[
-      //LanguageData("🇺🇸", "English", 'en'),
+      LanguageData("🇺🇸", "English", 'en'),
       LanguageData("IT", "Italiano", 'it'),
       LanguageData("🇸🇦", "اَلْعَرَبِيَّةُ", "ar"),
+      LanguageData("FR", "Francais", "fr"),
     ];
   }
 }

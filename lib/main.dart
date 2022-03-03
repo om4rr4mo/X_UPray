@@ -52,7 +52,8 @@ class UPrayApp extends StatefulWidget {
 }
 
 class _UPrayAppState extends State<UPrayApp> {
-  late Locale _locale;
+  final List<Locale> systemLocales = WidgetsBinding.instance!.window.locales;
+  late Locale _locale = systemLocales[0];
 
   void setLocale(Locale locale) {
     setState(() {
@@ -68,6 +69,15 @@ class _UPrayAppState extends State<UPrayApp> {
       });
     });
     super.didChangeDependencies();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _locale = systemLocales[0];
+    changeLanguage(context, _locale.languageCode);
   }
 
   @override

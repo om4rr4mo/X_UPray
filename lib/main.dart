@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -96,13 +99,13 @@ class _UPrayAppState extends State<UPrayApp> {
             }
             return supportedLocales.first;
           },
-          supportedLocales: [
+          supportedLocales: const [
             Locale('it', ''),
             Locale('ar', ''),
             Locale('en', ''),
             Locale('fr', ''),
           ],
-          localizationsDelegates: [
+          localizationsDelegates: const [
             AppLocalizationsDelegate(),
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
@@ -141,6 +144,7 @@ class MainLaunch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //RetrieveData();
     ScheduleNotification();
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
@@ -153,6 +157,34 @@ class MainLaunch extends StatelessWidget {
 
     return HomePage();
   }
+}
+
+RetrieveData() async{
+  File f = await localFile;
+
+  if(f.existsSync()){
+    DateTime d = f.lastModifiedSync();
+    DateTime now = DateTime.now();
+
+    if(d.month != now.month){
+      await prayerProvider.getPTCalendar();
+    }
+    else{
+      String json = await readJson();
+      if(json!= ""){
+        final data = jsonDecode(json);
+        prayerList = PrayerData.fromJson(data);
+      }
+      else{
+        await prayerProvider.getPTCalendar();
+      }
+    }
+  }
+  else{
+    await prayerProvider.getPTCalendar();
+  }
+
+  print(prayerList.data);
 }
 
 Future<List<int>> loadDefaultData() async {

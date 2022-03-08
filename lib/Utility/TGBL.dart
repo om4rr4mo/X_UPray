@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:prayers/pages/home_page.dart';
 import 'package:prayers/providers/prayer_data.dart' as prayerData;
 import 'package:prayers/providers/quran_data.dart' as quranData;
@@ -10,7 +12,40 @@ import 'package:prayers/providers/prayer_provider.dart';
 import 'package:prayers/providers/quran_provider.dart';
 
 final Geolocator geolocatorPlatform = Geolocator();
+const String jsonFilename = 'jsonPrayer.txt';
 DateTime currentDate = DateTime.now();
+
+Future<String> get _localPath async {
+  final directory = await getApplicationDocumentsDirectory();
+
+  return directory.path;
+}
+
+Future<File> get localFile async {
+  final path = await _localPath;
+  return File('$path/$jsonFilename');
+}
+
+Future<File> writeJsonFile(String json) async {
+  final file = await localFile;
+
+  // Write the file
+  return file.writeAsString(json);
+}
+
+Future<String> readJson() async {
+  try {
+    final file = await localFile;
+
+    // Read the file
+    final contents = await file.readAsString();
+
+    return contents;
+  } catch (e) {
+    // If encountering an error, return 0
+    return "";
+  }
+}
 
 extension StringCasingExtension on String {
   String toCapitalized() =>

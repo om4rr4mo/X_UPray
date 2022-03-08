@@ -21,9 +21,10 @@ class PrayerProvider {
 
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
-
     prayerList = PrayerData.fromJson(data);
 
+    writeJsonFile(res.body);
+    String tmp = await readJson();
     return prayerList;
   }
 

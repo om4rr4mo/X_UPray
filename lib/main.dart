@@ -144,7 +144,7 @@ class MainLaunch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //RetrieveData();
+    RetrieveData();
     ScheduleNotification();
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
@@ -159,32 +159,28 @@ class MainLaunch extends StatelessWidget {
   }
 }
 
-RetrieveData() async{
+RetrieveData() async {
   File f = await localFile;
 
-  if(f.existsSync()){
+  if (f.existsSync()) {
     DateTime d = f.lastModifiedSync();
     DateTime now = DateTime.now();
 
-    if(d.month != now.month){
-      await prayerProvider.getPTCalendar();
-    }
-    else{
+    if (d.month != now.month) {
+      await prayerProvider.getPTCalendar(DateTime.now());
+    } else {
       String json = await readJson();
-      if(json!= ""){
+      if (json != "") {
         final data = jsonDecode(json);
-        prayerList = PrayerData.fromJson(data);
-      }
-      else{
-        await prayerProvider.getPTCalendar();
+        PrayerData prayerDataList = PrayerData.fromJson(data);
+        prayerProvider.CreatePrayerList(prayerDataList);
+      } else {
+        await prayerProvider.getPTCalendar(DateTime.now());
       }
     }
+  } else {
+    await prayerProvider.getPTCalendar(DateTime.now());
   }
-  else{
-    await prayerProvider.getPTCalendar();
-  }
-
-  print(prayerList.data);
 }
 
 Future<List<int>> loadDefaultData() async {
@@ -193,7 +189,7 @@ Future<List<int>> loadDefaultData() async {
 }
 
 ScheduleNotification() async {
-  PrayerData pd = await prayerProvider.getPTCalendar();
+  PrayerData pd = await prayerProvider.getPTCalendar(DateTime.now());
 
   int numDay = DateTime.now().day;
   int notId = 0;

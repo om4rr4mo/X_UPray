@@ -1,11 +1,108 @@
 import 'dart:convert';
+import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/providers/prayer_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 
 class PrayerProvider {
-  Future<PrayerData> getPTCalendar() async {
+  CreatePrayerList(PrayerData pd) {
+    PrayerList.clear();
+    for (Data d in pd.data!) {
+      List<SingleTiming> st = <SingleTiming>[];
+
+      String dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.fajr!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      DateTime dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Fajr", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.sunrise!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Sunrise", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.dhuhr!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Dhuhr", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.asr!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Asr", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.isha!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Isha", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.maghrib!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Maghrib", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.imsak!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Imsak", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.midnight!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Midnight", timing: dt));
+
+      dtS = d.date!.gregorian!.date! +
+          " " +
+          d.timings!.sunset!
+              .replaceAll(" (CET)", "")
+              .replaceAll(" (PST)", "")
+              .replaceAll(" (CEST)", "");
+      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
+      st.add(new SingleTiming(prayerName: "Sunset", timing: dt));
+
+      st.sort((a, b) {
+        return a.timing!.compareTo(b.timing!);
+      });
+
+      CustomData cd =
+          new CustomData(date: d.date, meta: d.meta, timingsList: st);
+      PrayerList.add(cd);
+    }
+  }
+
+  Future<PrayerData> getPTCalendar(DateTime date) async {
     late double pLat;
     late double pLong;
 
@@ -14,18 +111,18 @@ class PrayerProvider {
     pLat = position.latitude;
     pLong = position.longitude;
 
-    DateTime date = DateTime.now();
-
     final url = Uri.parse(
         'http://api.aladhan.com/v1/calendar?latitude=$pLat&longitude=$pLong&method=$method&month=${date.month}&year=${date.year}');
 
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
+
+    CreatePrayerList(prayerDataList);
 
     writeJsonFile(res.body);
     String tmp = await readJson();
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getTimesCalendarByAddress() async {
@@ -37,9 +134,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getPTCalendarByCity() async {
@@ -51,9 +148,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getPTHijriCalendar() async {
@@ -73,9 +170,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getPTHijriCalendarByAddress() async {
@@ -87,9 +184,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getPTHijriCalendarByCity() async {
@@ -101,9 +198,9 @@ class PrayerProvider {
     http.Response res = await http.get(url);
     final data = jsonDecode(res.body);
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getTimings(String date) async {
@@ -124,9 +221,9 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getTimingsByAddress() async {
@@ -140,9 +237,9 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 
   Future getTimingsByCity(String date) async {
@@ -156,8 +253,8 @@ class PrayerProvider {
     xx.add(data['data']);
     data['data'] = xx;
 
-    prayerList = PrayerData.fromJson(data);
+    PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    return prayerList;
+    return prayerDataList;
   }
 }

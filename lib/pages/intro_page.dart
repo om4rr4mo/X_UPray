@@ -87,37 +87,37 @@ class _IntroPageState extends State<IntroPage> {
       pages: [
         PageViewModel(
           title: languages!.intro1Title,
-          body: languages!.intro1Body,
+          body: languages.intro1Body,
           image: _buildImage('avatars.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: languages!.intro2Title,
-          body: languages!.intro2Body,
+          title: languages.intro2Title,
+          body: languages.intro2Body,
           image: _buildImage('question.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: languages!.intro3Title,
-          body: languages!.intro3Body,
+          title: languages.intro3Title,
+          body: languages.intro3Body,
           image: _buildImage('advertisement.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: languages!.intro4Title,
-          body: languages!.intro4Body,
+          title: languages.intro4Title,
+          body: languages.intro4Body,
           image: _buildImage('translation.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: languages!.intro5Title,
-          body: languages!.intro5Body,
+          title: languages.intro5Title,
+          body: languages.intro5Body,
           image: _buildImage('sync.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           image: _buildImage('mecca.png'),
-          title: languages!.intro6Title,
+          title: languages.intro6Title,
           bodyWidget: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/components/prayer_item.dart';
 import 'package:prayers/pages/settings_page.dart';
+import 'package:prayers/providers/prayer_data.dart';
 
 class PrayersPage extends StatefulWidget {
   const PrayersPage({Key? key}) : super(key: key);
@@ -14,12 +17,65 @@ class PrayersPage extends StatefulWidget {
 
 class _PrayersPageState extends State<PrayersPage> {
   late String date;
+  late Timer timer;
+  late String timeRemain = "";
+  late String nextPrayer = "";
+
+  String timeBetween(DateTime from, DateTime to) {
+    from = DateTime(
+        from.year, from.month, from.day, from.hour, from.minute, from.second);
+    to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
+    return to.difference(from).inHours.toString().padLeft(2, '0') +
+        ":" +
+        (to.difference(from).inMinutes % 60).toString().padLeft(2, '0') +
+        ":" +
+        (to.difference(from).inSeconds % 60).toString().padLeft(2, '0');
+  }
+
+  String fetchPatientCount(CustomData cd) {
+    DateTime now = DateTime.now();
+
+    SingleTiming st = cd.timingsList!.reduce((a, b) =>
+        a.timing!.difference(now).abs() < b.timing!.difference(now).abs()
+            ? a
+            : b);
+
+    if (st.timing!.difference(now) < Duration(seconds: 1)) {
+      int index = cd.timingsList!.indexOf(st);
+      st = cd.timingsList![index + 2];
+
+      ///Fare modifica per fare si che non si arrivi mai a fine lista
+    }
+    if (st != null) {
+      NextPrayer = st;
+      nextPrayer = NextPrayer.prayerName!;
+    }
+
+    String s = timeBetween(DateTime.now(), NextPrayer.timing!);
+    return s;
+  }
 
   @override
   void initState() {
     super.initState();
 
     date = DateFormat('dd-MM-y').format(currentDate);
+
+    CustomData cd = PrayerList[DateTime.now().day - 1];
+
+    if (cd != null) {
+      timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
+        setState(() {
+          timeRemain = fetchPatientCount(cd);
+        });
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   _selectDate(BuildContext context) async {
@@ -77,7 +133,7 @@ class _PrayersPageState extends State<PrayersPage> {
                           onTap: () {
                             setState(() {
                               DateTime d =
-                                  DateFormat('dd-MM-y').parseStrict(date);
+                              DateFormat('dd-MM-y').parseStrict(date);
                               d = d.subtract(const Duration(days: 1));
                               date = DateFormat('dd-MM-y').format(d);
                               currentDate =
@@ -117,7 +173,7 @@ class _PrayersPageState extends State<PrayersPage> {
                           onTap: () {
                             setState(() {
                               DateTime d =
-                                  DateFormat('dd-MM-y').parseStrict(date);
+                              DateFormat('dd-MM-y').parseStrict(date);
                               d = d.add(const Duration(days: 1));
                               date = DateFormat('dd-MM-y').format(d);
                               currentDate =
@@ -131,9 +187,8 @@ class _PrayersPageState extends State<PrayersPage> {
                         ),
                       ],
                     ),
-                    const Text(
-                      "",
-                    ),
+                    //Text(nextPrayer),
+                    //Text(timeRemain),
                     PrayerItem(
                       prayerName: "Fajr",
                       prayerTime: data.timings.fajr,
@@ -165,9 +220,9 @@ class _PrayersPageState extends State<PrayersPage> {
           } else {
             return const Center(
                 child: SizedBox(
-              height: 0,
-              width: 0,
-            ));
+                  height: 0,
+                  width: 0,
+                ));
           }
         });
   }

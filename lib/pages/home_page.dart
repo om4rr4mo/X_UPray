@@ -1,11 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:prayers/Utility/TGBL.dart';
 import 'package:prayers/pages/prayers_page.dart';
 import 'package:prayers/pages/qibla_page.dart';
 import 'package:prayers/pages/tracker_page.dart';
 import 'package:prayers/providers/languages/languages.dart';
+import 'package:prayers/providers/prayer_data.dart';
 
 import '../components/navigation_bar.dart';
 
@@ -17,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Timer timer;
   late String timeRemain = "";
   late String nextPrayer = "";
   var currentIndex = 0;
@@ -28,26 +27,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  String timeBetween(DateTime from, DateTime to) {
-    from = DateTime(
-        from.year, from.month, from.day, from.hour, from.minute, from.second);
-    to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
-    return to.difference(from).inHours.toString().padLeft(2, '0') +
-        ":" +
-        (to.difference(from).inMinutes % 60).toString().padLeft(2, '0') +
-        ":" +
-        (to.difference(from).inSeconds % 60).toString().padLeft(2, '0');
-  }
-
   @override
   void initState() {
     super.initState();
-  }
 
-  @override
-  void dispose() {
-    timer.cancel();
-    super.dispose();
+    CustomData cd = PrayerList[DateTime.now().day - 1];
   }
 
   static List<Widget> pages = <Widget>[
@@ -74,14 +58,14 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.compass),
             selectedIcon: Icon(FontAwesomeIcons.solidCompass),
-            label: languages!.homeNavbarQibla,
+            label: languages.homeNavbarQibla,
           ),
 
           /// Tracker
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.calendarCheck),
             selectedIcon: Icon(FontAwesomeIcons.solidCalendarCheck),
-            label: languages!.homeNavbarTracker,
+            label: languages.homeNavbarTracker,
           ),
         ],
       ),

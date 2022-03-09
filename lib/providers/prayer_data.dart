@@ -25,6 +25,21 @@ class PrayerData {
   }
 }
 
+class SingleTiming {
+  String? prayerName;
+  DateTime? timing;
+
+  SingleTiming({this.prayerName, this.timing});
+}
+
+class CustomData {
+  List<SingleTiming>? timingsList;
+  Date? date;
+  Meta? meta;
+
+  CustomData({this.timingsList, this.date, this.meta});
+}
+
 class Data {
   Timings? timings;
   Date? date;

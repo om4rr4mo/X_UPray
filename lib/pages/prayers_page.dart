@@ -22,25 +22,21 @@ class _PrayersPageState extends State<PrayersPage> {
   late String nextPrayer = "";
 
   String timeBetween(DateTime from, DateTime to) {
-    from = DateTime(
-        from.year, from.month, from.day, from.hour, from.minute, from.second);
+    from = DateTime(from.year, from.month, from.day, from.hour, from.minute, from.second);
     to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
-    return to.difference(from).inHours.toString().padLeft(2, '0') +
-        ":" +
-        (to.difference(from).inMinutes % 60).toString().padLeft(2, '0') +
-        ":" +
-        (to.difference(from).inSeconds % 60).toString().padLeft(2, '0');
+    return to.difference(from).inHours.toString().padLeft(2, '0') + ":" + (to.difference(from).inMinutes % 60).toString().padLeft(2, '0') + ":" + (to.difference(from).inSeconds % 60).toString().padLeft(2, '0');
   }
 
   String fetchPatientCount(CustomData cd) {
     DateTime now = DateTime.now();
 
-    SingleTiming st = cd.timingsList!.reduce((a, b) =>
-        a.timing!.difference(now).abs() < b.timing!.difference(now).abs()
-            ? a
-            : b);
+    SingleTiming st = cd.timingsList!.reduce((a, b) => a.timing!.difference(now).abs() < b.timing!.difference(now).abs() ? a : b);
 
-    if (st.timing!.difference(now) < Duration(seconds: 1)) {
+    if (st.prayerName! == "Isha") {
+      int index = PrayerList.indexWhere((element) => element.date!.readable! == cd.date!.readable!);
+      cd = PrayerList[index + 1];
+      st = cd.timingsList![0];
+    } else if (st.timing!.difference(now) < Duration(seconds: 1)) {
       int index = cd.timingsList!.indexOf(st);
       st = cd.timingsList![index + 2];
 
@@ -107,37 +103,44 @@ class _PrayersPageState extends State<PrayersPage> {
             } else {
               data = snapshot.data.data[0];
             }
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(
+            return Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
+                actions: [
+                  IconButton(
+                    color: Colors.black,
+                    icon: const Icon(Icons.settings_rounded),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SettingsPage()),
+                      );
+                    },
+                    alignment: Alignment.center,
+                  ),
+                ],
+              ),
+              body: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    IconButton(
-                        icon: const Icon(Icons.settings_rounded),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SettingsPage()),
-                          );
-                        },
-                        alignment: Alignment.center),
+                    Text(timeRemain, style: Theme.of(context).textTheme.titleLarge,),
+                    SizedBox(height: 2,),
+                    Text("Prossima preghiera", style: Theme.of(context).textTheme.labelSmall,),
+                    Text(nextPrayer, style: Theme.of(context).textTheme.bodyLarge,),
+                    SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              DateTime d =
-                              DateFormat('dd-MM-y').parseStrict(date);
+                              DateTime d = DateFormat('dd-MM-y').parseStrict(date);
                               d = d.subtract(const Duration(days: 1));
                               date = DateFormat('dd-MM-y').format(d);
-                              currentDate =
-                                  currentDate.subtract(const Duration(days: 1));
+                              currentDate = currentDate.subtract(const Duration(days: 1));
                             });
                           },
                           child: const Icon(
@@ -172,12 +175,10 @@ class _PrayersPageState extends State<PrayersPage> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              DateTime d =
-                              DateFormat('dd-MM-y').parseStrict(date);
+                              DateTime d = DateFormat('dd-MM-y').parseStrict(date);
                               d = d.add(const Duration(days: 1));
                               date = DateFormat('dd-MM-y').format(d);
-                              currentDate =
-                                  currentDate.add(const Duration(days: 1));
+                              currentDate = currentDate.add(const Duration(days: 1));
                             });
                           },
                           child: const Icon(
@@ -187,8 +188,6 @@ class _PrayersPageState extends State<PrayersPage> {
                         ),
                       ],
                     ),
-                    //Text(nextPrayer),
-                    //Text(timeRemain),
                     PrayerItem(
                       prayerName: "Fajr",
                       prayerTime: data.timings.fajr,
@@ -220,9 +219,9 @@ class _PrayersPageState extends State<PrayersPage> {
           } else {
             return const Center(
                 child: SizedBox(
-                  height: 0,
-                  width: 0,
-                ));
+              height: 0,
+              width: 0,
+            ));
           }
         });
   }

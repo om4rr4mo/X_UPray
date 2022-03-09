@@ -76,18 +76,14 @@ class _CompassState extends State<Compass> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Builder(builder: (context) {
+    return Builder(builder: (context) {
           return Column(
             children: <Widget>[
               _buildManualReader(),
               Expanded(child: _buildCompass()),
             ],
           );
-        }),
-      ),
-    );
+        });
   }
 
   Widget _buildManualReader() {

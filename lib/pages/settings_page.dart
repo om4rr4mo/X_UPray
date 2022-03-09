@@ -22,10 +22,11 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: const Text(
           "IMPOSTAZIONI",
+          style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Colors.white,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         centerTitle: true,
-        toolbarHeight: MediaQuery.of(context).size.height * 0.10,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(21),
@@ -34,6 +35,7 @@ class _SettingsPageState extends State<SettingsPage> {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
+            color: Colors.black,
             icon: const Icon(
               FontAwesomeIcons.arrowAltCircleLeft,
               size: 30,

@@ -87,7 +87,7 @@ class PrayerItem extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 7),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(

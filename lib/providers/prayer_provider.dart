@@ -65,33 +65,6 @@ class PrayerProvider {
       dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
       st.add(new SingleTiming(prayerName: "Maghrib", timing: dt));
 
-      dtS = d.date!.gregorian!.date! +
-          " " +
-          d.timings!.imsak!
-              .replaceAll(" (CET)", "")
-              .replaceAll(" (PST)", "")
-              .replaceAll(" (CEST)", "");
-      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
-      st.add(new SingleTiming(prayerName: "Imsak", timing: dt));
-
-      dtS = d.date!.gregorian!.date! +
-          " " +
-          d.timings!.midnight!
-              .replaceAll(" (CET)", "")
-              .replaceAll(" (PST)", "")
-              .replaceAll(" (CEST)", "");
-      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
-      st.add(new SingleTiming(prayerName: "Midnight", timing: dt));
-
-      dtS = d.date!.gregorian!.date! +
-          " " +
-          d.timings!.sunset!
-              .replaceAll(" (CET)", "")
-              .replaceAll(" (PST)", "")
-              .replaceAll(" (CEST)", "");
-      dt = DateFormat('dd-MM-y HH:mm').parseStrict(dtS);
-      st.add(new SingleTiming(prayerName: "Sunset", timing: dt));
-
       st.sort((a, b) {
         return a.timing!.compareTo(b.timing!);
       });

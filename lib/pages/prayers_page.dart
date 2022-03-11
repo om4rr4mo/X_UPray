@@ -59,7 +59,7 @@ class _PrayersPageState extends State<PrayersPage> {
 
     CustomData cd = PrayerList[DateTime.now().day - 1];
 
-    if (cd != null) {
+    if (false) {
       timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
         setState(() {
           timeRemain = fetchPatientCount(cd);

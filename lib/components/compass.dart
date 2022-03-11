@@ -119,7 +119,7 @@ class _CompassState extends State<Compass> {
           ),
         ],
       ),
-    );
+    ) ;
   }
 
   Widget _buildCompass() {
@@ -146,6 +146,7 @@ class _CompassState extends State<Compass> {
             padding: const EdgeInsets.all(16.0),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
+              
               shape: BoxShape.circle,
             ),
             child: Transform.rotate(

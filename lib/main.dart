@@ -144,7 +144,7 @@ class MainLaunch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RetrieveData();
+    //RetrieveData();
     ScheduleNotification();
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {

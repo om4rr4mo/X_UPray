@@ -91,7 +91,7 @@ class PrayerProvider {
     final data = jsonDecode(res.body);
     PrayerData prayerDataList = PrayerData.fromJson(data);
 
-    CreatePrayerList(prayerDataList);
+    //CreatePrayerList(prayerDataList);
 
     writeJsonFile(res.body);
     String tmp = await readJson();

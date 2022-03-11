@@ -57,12 +57,12 @@ class _PrayersPageState extends State<PrayersPage> {
 
     date = DateFormat('dd-MM-y').format(currentDate);
 
-    CustomData cd = PrayerList[DateTime.now().day - 1];
+    //CustomData cd = PrayerList[DateTime.now().day - 1];
 
     if (false) {
       timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
         setState(() {
-          timeRemain = fetchPatientCount(cd);
+          //timeRemain = fetchPatientCount(cd);
         });
       });
     }

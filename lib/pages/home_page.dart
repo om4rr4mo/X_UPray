@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    CustomData cd = PrayerList[DateTime.now().day - 1];
+    //CustomData cd = PrayerList[DateTime.now().day - 1];
   }
 
   static List<Widget> pages = <Widget>[
